@@ -1,4 +1,5 @@
 import stylistic from '@stylistic/eslint-plugin'
+import { plugin as shadcn } from '@shadcn/lint'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 import prettier from 'eslint-config-prettier/flat'
@@ -20,6 +21,10 @@ const eslintConfig = defineConfig([
     'eslint.config.mjs',
     '**/*.css'
   ]),
+  {
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    plugins: { shadcn }
+  },
   {
     plugins: {
       '@stylistic': stylistic
