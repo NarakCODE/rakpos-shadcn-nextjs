@@ -65,9 +65,9 @@ export const columns: ColumnDef<Item>[] = [
     accessorKey: 'product',
     cell: ({ row }) => (
       <div className='flex items-center gap-3'>
-        <Avatar className='rounded-sm'>
+        <Avatar shape='square'>
           <AvatarImage src={row.original.productImage} alt={row.original.fallback} />
-          <AvatarFallback className='text-xs'>{row.original.fallback}</AvatarFallback>
+          <AvatarFallback text='compact'>{row.original.fallback}</AvatarFallback>
         </Avatar>
         <div className='font-medium'>{row.getValue('product')}</div>
       </div>
@@ -163,7 +163,7 @@ const DataTableFilters = ({ data }: { data: Item[] }) => {
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
-              <TableRow key={headerGroup.id} className='bg-muted/50'>
+              <TableRow key={headerGroup.id} variant='muted'>
                 {headerGroup.headers.map(header => {
                   return (
                     <TableHead key={header.id} className='relative h-10 select-none'>
@@ -227,7 +227,8 @@ function Filter({ column }: { column: Column<Item, unknown> }) {
         <div className='flex'>
           <Input
             id={`${id}-range-1`}
-            className='flex-1 rounded-r-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
+            edge='end'
+            className='flex-1 [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
             value={(columnFilterValue as [number, number])?.[0] ?? ''}
             onChange={e =>
               column.setFilterValue((old: [number, number]) => [
@@ -241,7 +242,8 @@ function Filter({ column }: { column: Column<Item, unknown> }) {
           />
           <Input
             id={`${id}-range-2`}
-            className='-ms-px flex-1 rounded-l-none [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
+            edge='start'
+            className='-ms-px flex-1 [-moz-appearance:textfield] focus:z-10 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
             value={(columnFilterValue as [number, number])?.[1] ?? ''}
             onChange={e =>
               column.setFilterValue((old: [number, number]) => [
@@ -280,7 +282,7 @@ function Filter({ column }: { column: Column<Item, unknown> }) {
           <SelectTrigger id={`${id}-select`} className='w-full'>
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className='p-1'>
+          <SelectContent inset='compact'>
             {selectItems.map(item => (
               <SelectItem key={item.value} value={item.value}>
                 {item.label}
@@ -298,7 +300,8 @@ function Filter({ column }: { column: Column<Item, unknown> }) {
       <div className='relative'>
         <Input
           id={`${id}-input`}
-          className='peer pl-9'
+          inset='search'
+          className='peer'
           value={(columnFilterValue ?? '') as string}
           onChange={e => column.setFilterValue(e.target.value)}
           placeholder={`Search ${columnHeader.toLowerCase()}`}

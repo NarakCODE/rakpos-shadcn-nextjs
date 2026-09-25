@@ -48,34 +48,36 @@ const ProductInsightsCard = ({ className }: { className?: string }) => {
           <span className='text-lg font-semibold'>Product insight</span>
           <span className='text-muted-foreground text-sm'>Published on 12 MAY 2025 - 6:10 PM</span>
         </div>
-        <img src='/images/widgets/image-7.webp' alt='Product' className='w-20.5 rounded-md' />
+        <img src='/images/widgets/image-7.webp' alt='Product' className='w-20.5 rounded-(--radius-md)' />
       </CardHeader>
       <CardContent>
         <Separator />
       </CardContent>
-      <CardContent className='space-y-4'>
-        <div className='flex items-center justify-between gap-1'>
-          <div className='flex flex-col gap-1'>
-            <span className='text-xs'>Product reached</span>
-            <span className='text-2xl font-semibold'>21,153</span>
+      <CardContent>
+        <div className='space-y-5'>
+          <div className='flex items-center justify-between gap-1'>
+            <div className='flex flex-col gap-1'>
+              <span className='text-xs'>Product reached</span>
+              <span className='text-2xl font-semibold'>21,153</span>
+            </div>
+            <ChartContainer config={productReachChartConfig} className='min-h-13 max-w-18'>
+              <BarChart accessibilityLayer data={productReachChartData} barSize={8}>
+                <Bar dataKey='reached' fill='var(--color-reached)' radius={2} />
+              </BarChart>
+            </ChartContainer>
           </div>
-          <ChartContainer config={productReachChartConfig} className='min-h-13 max-w-18'>
-            <BarChart accessibilityLayer data={productReachChartData} barSize={8}>
-              <Bar dataKey='reached' fill='var(--color-reached)' radius={2} />
-            </BarChart>
-          </ChartContainer>
-        </div>
 
-        <div className='flex items-center justify-between gap-1'>
-          <div className='flex flex-col gap-1'>
-            <span className='text-xs'>Order placed </span>
-            <span className='text-2xl font-semibold'>2,123</span>
+          <div className='flex items-center justify-between gap-1'>
+            <div className='flex flex-col gap-1'>
+              <span className='text-xs'>Order placed </span>
+              <span className='text-2xl font-semibold'>2,123</span>
+            </div>
+            <ChartContainer config={orderPlacedChartConfig} className='min-h-13 max-w-18'>
+              <BarChart accessibilityLayer data={orderPlacedChartData} barSize={8}>
+                <Bar dataKey='orders' fill='var(--color-orders)' radius={2} />
+              </BarChart>
+            </ChartContainer>
           </div>
-          <ChartContainer config={orderPlacedChartConfig} className='min-h-13 max-w-18'>
-            <BarChart accessibilityLayer data={orderPlacedChartData} barSize={8}>
-              <Bar dataKey='orders' fill='var(--color-orders)' radius={2} />
-            </BarChart>
-          </ChartContainer>
         </div>
       </CardContent>
     </Card>

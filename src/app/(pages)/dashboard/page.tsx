@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 // Third-party Imports
-import { CalendarIcon, DownloadIcon, PlusIcon } from 'lucide-react'
+import { ArrowDownIcon } from 'lucide-react'
 
 // Component Imports
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
 import KpiCards from '@/views/dashboards/pos/kpi-cards'
@@ -14,81 +16,112 @@ import TopSellingItems from '@/views/dashboards/pos/top-selling-items'
 import RecentPayments from '@/views/dashboards/pos/recent-payments'
 import CustomerRatings from '@/views/dashboards/pos/customer-ratings'
 import RecentOrdersTable from '@/views/dashboards/pos/recent-orders-table'
+import OrdersDashboard from '@/views/dashboards/orders-dashboard'
 
 export const metadata: Metadata = {
   title: 'Dashboard - Restaurant POS',
-  description: 'Real-time sales, order streams, table occupancy, and guest satisfaction metrics.'
+  description: 'Sample restaurant sales, order, table, and guest metrics.'
 }
 
 const DashboardPage = () => {
   return (
-    <div className='flex flex-col gap-6 p-4 sm:p-6 lg:p-8'>
-      {/* Dashboard Top Header */}
-      <div className='flex flex-col justify-between gap-4 md:flex-row md:items-center'>
-        <div className='space-y-1'>
+    <div className='flex flex-col gap-6'>
+      {/* Header with entrance animation */}
+      <div className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both flex flex-col justify-between gap-4 duration-200 ease-out motion-reduce:animate-none md:flex-row md:items-center'>
+        <div className='flex flex-col gap-1'>
           <h1 className='text-2xl font-extrabold tracking-tight md:text-3xl'>Restaurant POS Dashboard</h1>
-          <p className='text-muted-foreground text-sm'>
-            Real-time sales, order streams, table occupancy, and guest satisfaction metrics.
-          </p>
+          <p className='text-muted-foreground text-sm'>Sales, orders, tables, and guest feedback at a glance.</p>
         </div>
 
-        {/* Quick Actions */}
-        <div className='flex flex-wrap items-center gap-2.5'>
-          <Button variant='outline' size='sm' className='h-9 gap-1.5'>
-            <CalendarIcon className='size-3.5' />
-            <span>Today, 25 Sep</span>
-          </Button>
-
-          <Button variant='outline' size='sm' className='h-9 gap-1.5'>
-            <DownloadIcon className='size-3.5' />
-            <span>Export Report</span>
-          </Button>
-
-          <Button size='sm' className='h-9 gap-1.5'>
-            <PlusIcon className='size-4' />
-            <span>New Order</span>
+        <div className='flex flex-wrap items-center gap-3'>
+          <Badge variant='secondary'>
+            <span className='inline-flex items-center gap-1.5 py-0.5'>
+              <span className='size-1.5 animate-pulse rounded-full bg-emerald-500 motion-reduce:animate-none' />
+              Sample data
+            </span>
+          </Badge>
+          <Button
+            size='lg'
+            className='group h-11 transition-transform duration-150 ease-out active:scale-[0.98] motion-reduce:transform-none sm:h-10'
+            render={<Link href='#recent-orders' />}
+            nativeButton={false}
+          >
+            View recent orders
+            <ArrowDownIcon
+              data-icon='inline-end'
+              className='transition-transform duration-150 ease-out group-hover:translate-y-0.5 motion-reduce:transform-none'
+            />
           </Button>
         </div>
       </div>
 
-      {/* 1. Top KPI Summary Row (Quick Metrics Grid) */}
-      <section aria-label='Top KPI Summary' className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-        <div className='lg:col-span-8'>
+      <section
+        aria-labelledby='overview-heading'
+        className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both grid grid-cols-1 gap-6 duration-200 ease-out motion-reduce:animate-none 2xl:grid-cols-12'
+        style={{ animationDelay: '50ms' }}
+      >
+        <h2 id='overview-heading' className='sr-only'>
+          Overview
+        </h2>
+        <div className='min-w-0 2xl:col-span-8'>
           <KpiCards />
         </div>
-        <div className='lg:col-span-4'>
+        <div className='min-w-0 2xl:col-span-4'>
           <DailyGuestsBanner />
         </div>
       </section>
 
-      {/* 2. Analytics & Distribution Row (Asymmetric 2:1 Split) */}
-      <section aria-label='Analytics and Distribution' className='grid grid-cols-1 gap-6 lg:grid-cols-12'>
-        <div className='lg:col-span-8'>
+      <section
+        aria-labelledby='sales-heading'
+        className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both grid grid-cols-1 gap-6 duration-200 ease-out motion-reduce:animate-none xl:grid-cols-12'
+        style={{ animationDelay: '100ms' }}
+      >
+        <h2 id='sales-heading' className='sr-only'>
+          Sales and order types
+        </h2>
+        <div className='min-w-0 xl:col-span-8'>
           <RevenueOverview />
         </div>
-        <div className='lg:col-span-4'>
+        <div className='min-w-0 xl:col-span-4'>
           <OrderTypeDonut />
         </div>
       </section>
 
-      {/* 3. Operational Feeds & Feedback Row (Equal 3-Column Split) */}
       <section
-        aria-label='Operational Feeds and Feedback'
-        className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-12'
+        aria-labelledby='operations-heading'
+        className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both grid grid-cols-1 gap-6 duration-200 ease-out motion-reduce:animate-none md:grid-cols-2 2xl:grid-cols-12'
+        style={{ animationDelay: '150ms' }}
       >
-        <div className='lg:col-span-4'>
+        <h2 id='operations-heading' className='sr-only'>
+          Operations and feedback
+        </h2>
+        <div className='min-w-0 2xl:col-span-4'>
           <TopSellingItems />
         </div>
-        <div className='lg:col-span-4'>
+        <div className='min-w-0 2xl:col-span-4'>
           <RecentPayments />
         </div>
-        <div className='md:col-span-2 lg:col-span-4'>
+        <div className='min-w-0 md:col-span-2 2xl:col-span-4'>
           <CustomerRatings />
         </div>
       </section>
 
-      {/* 4. Transactions Data Row (Full-Width Span) */}
-      <section aria-label='Transactions Data' className='w-full'>
+      <section aria-labelledby='order-analytics-heading' className='flex flex-col gap-6'>
+        <h2 id='order-analytics-heading' className='text-xl font-semibold tracking-tight'>
+          Orders and transactions
+        </h2>
+        <OrdersDashboard />
+      </section>
+
+      <section
+        id='recent-orders'
+        aria-labelledby='recent-orders-heading'
+        className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both w-full scroll-mt-20 scroll-smooth duration-200 ease-out motion-reduce:animate-none'
+        style={{ animationDelay: '200ms' }}
+      >
+        <h2 id='recent-orders-heading' className='sr-only'>
+          Recent orders
+        </h2>
         <RecentOrdersTable />
       </section>
     </div>

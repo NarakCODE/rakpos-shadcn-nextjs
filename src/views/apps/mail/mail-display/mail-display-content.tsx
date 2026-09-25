@@ -132,17 +132,8 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
 
           {(email.status === 'spam' || email.status === 'trash') && (
             <Tooltip>
-              <TooltipTrigger
-                render={
-                  <Button
-                    variant='ghost'
-                    size='icon'
-                    title='Delete permanently'
-                    className='text-destructive hover:text-destructive'
-                  />
-                }
-              >
-                <Trash2 className='size-4' />
+              <TooltipTrigger render={<Button variant='ghost' size='icon' title='Delete permanently' />}>
+                <Trash2 className='text-destructive size-4' />
                 <span className='sr-only'>Delete permanently</span>
               </TooltipTrigger>
               <TooltipContent>Delete permanently</TooltipContent>
@@ -167,7 +158,7 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
                 const labelStyle = MAIL_LABEL_STYLES.find(style => style.id === label)
 
                 return (
-                  <Badge key={label} variant='outline' className='px-1.5 max-xl:border-0 max-xl:p-0'>
+                  <Badge key={label} variant='outline' size='label'>
                     <span className={cn('size-1.5 shrink-0 rounded-full', labelStyle?.color)} />
                     <span className='max-xl:hidden'>{label}</span>
                   </Badge>
@@ -299,7 +290,7 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
           <form onSubmit={event => event.preventDefault()}>
             <div className='border-border bg-muted/20 overflow-hidden rounded-lg border'>
               <Textarea
-                className='resize-none rounded-none border-0 bg-transparent p-2 text-sm shadow-none focus-visible:ring-0 max-md:min-h-10 md:px-4 md:py-3'
+                variant='reply'
                 placeholder={isDraft ? 'Edit your draft...' : `Reply to ${recipientName}...`}
                 value={replyMessageBody}
                 onChange={event => setReplyMessageBody(event.target.value)}
@@ -314,9 +305,8 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
                 <Button
                   type='submit'
                   variant='secondary'
-                  size='sm'
+                  size='mail-send'
                   title={isDraft ? 'Send draft' : 'Send reply'}
-                  className='gap-1.5 rounded-lg px-4'
                   disabled={!replyMessageBody.trim()}
                 >
                   Send

@@ -4,8 +4,8 @@
 import { UtensilsIcon, ShoppingBagIcon, BikeIcon } from 'lucide-react'
 
 // Component Imports
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Frame, FrameDescription, FrameFooter, FrameHeader, FramePanel, FrameTitle } from '@/components/ui/frame'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 export type OrderStatus = 'Completed' | 'In Progress' | 'Pending' | 'Cancelled'
@@ -108,13 +108,13 @@ const recentOrdersData: OrderRecord[] = [
 const getStatusBadge = (status: OrderStatus) => {
   switch (status) {
     case 'Completed':
-      return <Badge variant='secondary'>Completed</Badge>
+      return <Badge variant='success'>Completed</Badge>
     case 'In Progress':
-      return <Badge>In Progress</Badge>
+      return <Badge variant='accent'>In Progress</Badge>
     case 'Pending':
-      return <Badge variant='outline'>Pending</Badge>
+      return <Badge variant='warning'>Pending</Badge>
     case 'Cancelled':
-      return <Badge variant='destructive'>Cancelled</Badge>
+      return <Badge variant='danger'>Cancelled</Badge>
   }
 }
 
@@ -131,24 +131,41 @@ const getChannelIcon = (channel: DiningChannel) => {
 
 export const RecentOrdersTable = () => {
   return (
-    <Card>
-      <CardHeader className='pb-3'>
-        <CardTitle className='text-lg font-bold'>Recent Orders</CardTitle>
-        <CardDescription className='text-muted-foreground text-xs'>
-          Live tracking of the latest orders across dining channels
-        </CardDescription>
-      </CardHeader>
+    <Frame>
+      <FrameHeader className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
+        <div className='space-y-0.5'>
+          <FrameTitle>
+            <span className='text-base font-bold'>Recent Orders</span>
+          </FrameTitle>
+          <FrameDescription>
+            <span className='text-xs'>Live tracking of the latest orders across dining channels</span>
+          </FrameDescription>
+        </div>
+        <Badge variant='outline' className='w-fit'>
+          <span className='text-xs font-normal'>8 active orders</span>
+        </Badge>
+      </FrameHeader>
 
-      <CardContent className='p-0'>
+      <FramePanel className='overflow-hidden p-0'>
         <div className='overflow-x-auto'>
           <Table>
-            <TableHeader className='bg-muted/40'>
+            <TableHeader variant='muted'>
               <TableRow>
-                <TableHead className='w-40 font-semibold'>Order ID & Location</TableHead>
-                <TableHead className='font-semibold'>Items Ordered</TableHead>
-                <TableHead className='w-32 font-semibold'>Status</TableHead>
-                <TableHead className='w-28 text-right font-semibold'>Price</TableHead>
-                <TableHead className='w-28 text-right font-semibold'>Elapsed</TableHead>
+                <TableHead className='w-40'>
+                  <span className='font-semibold'>Order ID & Location</span>
+                </TableHead>
+                <TableHead>
+                  <span className='font-semibold'>Items Ordered</span>
+                </TableHead>
+                <TableHead className='w-32'>
+                  <span className='font-semibold'>Status</span>
+                </TableHead>
+                <TableHead className='w-28 text-right'>
+                  <span className='font-semibold'>Price</span>
+                </TableHead>
+                <TableHead className='w-28 text-right'>
+                  <span className='font-semibold'>Elapsed</span>
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -171,17 +188,24 @@ export const RecentOrdersTable = () => {
                   <TableCell>{getStatusBadge(order.status)}</TableCell>
 
                   <TableCell className='text-right'>
-                    <span className='text-foreground text-sm font-bold'>{order.price}</span>
+                    <span className='text-foreground text-sm font-bold tabular-nums'>{order.price}</span>
                   </TableCell>
 
-                  <TableCell className='text-muted-foreground text-right text-xs'>{order.timeAgo}</TableCell>
+                  <TableCell className='text-right'>
+                    <span className='text-muted-foreground text-xs tabular-nums'>{order.timeAgo}</span>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </div>
-      </CardContent>
-    </Card>
+      </FramePanel>
+
+      <FrameFooter className='flex flex-row items-center justify-between'>
+        <span className='text-muted-foreground text-xs'>Showing 8 of 8 recent orders</span>
+        <span className='text-muted-foreground font-mono text-xs'>Auto-refreshed</span>
+      </FrameFooter>
+    </Frame>
   )
 }
 

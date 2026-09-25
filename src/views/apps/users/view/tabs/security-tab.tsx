@@ -26,7 +26,7 @@ export function SecurityTab({ user }: SecurityTabProps) {
     <div className='space-y-6'>
       <Card>
         <CardHeader>
-          <CardTitle className='text-base'>Change Password</CardTitle>
+          <CardTitle>Change Password</CardTitle>
         </CardHeader>
         <CardContent className='space-y-4'>
           <div className='grid gap-4 md:grid-cols-2'>
@@ -55,7 +55,7 @@ export function SecurityTab({ user }: SecurityTabProps) {
       <Card>
         <CardHeader className='flex flex-row items-center justify-between gap-4'>
           <div>
-            <CardTitle className='text-base'>Two-steps verification</CardTitle>
+            <CardTitle>Two-steps verification</CardTitle>
             <p className='text-muted-foreground mt-1 text-sm'>Keep your account secure with authentication step.</p>
           </div>
           <Switch
@@ -74,31 +74,43 @@ export function SecurityTab({ user }: SecurityTabProps) {
       </Card>
 
       <Card className='gap-0 py-0'>
-        <CardHeader className='border-b px-6 py-4'>
-          <CardTitle className='text-base'>Recent Devices</CardTitle>
+        <CardHeader variant='divided' className='px-6 py-4'>
+          <CardTitle>Recent Devices</CardTitle>
         </CardHeader>
         <Table>
           <TableHeader>
-            <TableRow className='hover:bg-transparent'>
-              <TableHead className='text-muted-foreground pl-6'>Browser</TableHead>
-              <TableHead className='text-muted-foreground'>Device</TableHead>
-              <TableHead className='text-muted-foreground'>Location</TableHead>
-              <TableHead className='text-muted-foreground pr-6 text-right'>Recent Activity</TableHead>
+            <TableRow variant='static'>
+              <TableHead className='pl-6'>
+                <span className='text-muted-foreground'>Browser</span>
+              </TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Device</span>
+              </TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Location</span>
+              </TableHead>
+              <TableHead className='pr-6 text-right'>
+                <span className='text-muted-foreground'>Recent Activity</span>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {recentDevices.length === 0 ? (
-              <TableRow className='hover:bg-transparent'>
-                <TableCell colSpan={4} className='text-muted-foreground py-8 text-center text-sm'>
-                  No recent devices found.
+              <TableRow variant='static'>
+                <TableCell colSpan={4} className='py-8 text-center text-sm'>
+                  <span className='text-muted-foreground'>No recent devices found.</span>
                 </TableCell>
               </TableRow>
             ) : (
               recentDevices.map(device => (
                 <TableRow key={device.id}>
                   <TableCell className='pl-6 font-medium'>{device.browser}</TableCell>
-                  <TableCell className='text-muted-foreground'>{device.device}</TableCell>
-                  <TableCell className='text-muted-foreground'>{device.location}</TableCell>
+                  <TableCell>
+                    <span className='text-muted-foreground'>{device.device}</span>
+                  </TableCell>
+                  <TableCell>
+                    <span className='text-muted-foreground'>{device.location}</span>
+                  </TableCell>
                   <TableCell className='pr-6 text-right'>
                     {device.isCurrentDevice ? (
                       <span className='text-primary text-sm font-medium'>{device.lastActive}</span>

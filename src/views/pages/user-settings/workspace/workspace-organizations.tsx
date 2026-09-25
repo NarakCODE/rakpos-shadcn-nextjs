@@ -57,14 +57,7 @@ const WorkspaceOrganizations = () => {
                       </p>
                     </div>
                     <Dialog>
-                      <DialogTrigger
-                        render={
-                          <Button
-                            variant='outline'
-                            className='border-destructive! text-destructive! hover:bg-destructive/10! focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 max-sm:w-full'
-                          />
-                        }
-                      >
+                      <DialogTrigger render={<Button variant='outline-destructive' className='max-sm:w-full' />}>
                         <Trash2Icon />
                         Leave
                       </DialogTrigger>

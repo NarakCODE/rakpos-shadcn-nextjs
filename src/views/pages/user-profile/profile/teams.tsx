@@ -32,9 +32,7 @@ function Teams({ className }: TeamsProps) {
       <CardHeader className='flex items-center justify-between'>
         <span className='text-lg font-medium'>Teams</span>
         <DropdownMenu>
-          <DropdownMenuTrigger
-            render={<Button variant='ghost' size='icon' className='text-muted-foreground size-6 rounded-full' />}
-          >
+          <DropdownMenuTrigger render={<Button variant='ghost-muted' size='icon-xs' shape='round' />}>
             <EllipsisVerticalIcon />
             <span className='sr-only'>Menu</span>
           </DropdownMenuTrigger>
@@ -60,7 +58,7 @@ function Teams({ className }: TeamsProps) {
                 <span className='text-muted-foreground text-sm'>{team.totalMembers}</span>
               </div>
             </div>
-            <Badge variant='outline' className='h-6 px-2 py-1'>
+            <Badge variant='outline' size='tall'>
               {team.teamBadge.label}
             </Badge>
           </div>

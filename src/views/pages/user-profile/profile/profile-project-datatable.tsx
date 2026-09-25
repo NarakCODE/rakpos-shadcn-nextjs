@@ -79,9 +79,9 @@ function ProjectTeamAvatars({ project }: { project: ProjectDatatable }) {
   return (
     <AvatarGroup>
       {visibleTeam.map((member, index) => (
-        <Avatar key={`${project.id}-team-${index}`} className='ring-background ring-2' size='sm'>
+        <Avatar key={`${project.id}-team-${index}`} size='sm'>
           {member.avatar ? <AvatarImage src={member.avatar} alt={member.initials} /> : null}
-          <AvatarFallback className='text-[10px]'>{member.initials}</AvatarFallback>
+          <AvatarFallback text='tiny'>{member.initials}</AvatarFallback>
         </Avatar>
       ))}
       {project.teamExtraCount ? <AvatarGroupCount>+{project.teamExtraCount}</AvatarGroupCount> : null}
@@ -185,8 +185,8 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
 
           <Table>
             <TableHeader>
-              <TableRow className='h-17 border-t'>
-                <TableHead className='text-muted-foreground w-12.5 pl-4'>
+              <TableRow variant='header' className='h-17'>
+                <TableHead variant='muted' className='w-12.5 pl-4'>
                   <Checkbox
                     checked={allSelected}
                     indeterminate={someSelected}
@@ -194,11 +194,13 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
                     aria-label='Select all projects'
                   />
                 </TableHead>
-                <TableHead className='text-muted-foreground'>Project</TableHead>
-                <TableHead className='text-muted-foreground'>Leader</TableHead>
-                <TableHead className='text-muted-foreground'>Team</TableHead>
-                <TableHead className='text-muted-foreground'>Progress</TableHead>
-                <TableHead className='text-muted-foreground w-12 px-4 text-right'>Action</TableHead>
+                <TableHead variant='muted'>Project</TableHead>
+                <TableHead variant='muted'>Leader</TableHead>
+                <TableHead variant='muted'>Team</TableHead>
+                <TableHead variant='muted'>Progress</TableHead>
+                <TableHead variant='muted' className='w-12 px-4 text-right'>
+                  Action
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -220,22 +222,14 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
                     </TableCell>
                     <TableCell>
                       <div className='flex items-center gap-4'>
-                        <Avatar className='size-8 rounded-md after:border-none'>
+                        <Avatar shape='square' border='none'>
                           {project.logo ? (
                             <>
-                              <AvatarImage
-                                src={project.logo}
-                                alt={project.name}
-                                className='rounded-md object-cover dark:hidden'
-                              />
-                              <AvatarImage
-                                src={project.logoDark}
-                                alt={project.name}
-                                className='hidden rounded-md object-cover dark:block'
-                              />
+                              <AvatarImage src={project.logo} alt={project.name} className='dark:hidden' />
+                              <AvatarImage src={project.logoDark} alt={project.name} className='hidden dark:block' />
                             </>
                           ) : null}
-                          <AvatarFallback className={cn('rounded-md text-xs', getProjectLogoColor(project.id))}>
+                          <AvatarFallback text='compact' className={getProjectLogoColor(project.id)}>
                             {getProjectInitials(project.name)}
                           </AvatarFallback>
                         </Avatar>
@@ -295,7 +289,6 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
                 <PaginationContent>
                   <PaginationItem>
                     <Button
-                      className='disabled:pointer-events-none disabled:opacity-50'
                       variant='ghost'
                       onClick={() => setCurrentPage(safeCurrentPage - 1)}
                       disabled={safeCurrentPage <= 1}
@@ -319,7 +312,7 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
                       <PaginationItem key={page}>
                         <Button
                           size='icon'
-                          className={`${!isActive && 'bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40'}`}
+                          variant={isActive ? 'default' : 'soft'}
                           onClick={() => setCurrentPage(page)}
                           aria-current={isActive ? 'page' : undefined}
                         >
@@ -337,7 +330,6 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
 
                   <PaginationItem>
                     <Button
-                      className='disabled:pointer-events-none disabled:opacity-50'
                       variant='ghost'
                       onClick={() => setCurrentPage(safeCurrentPage + 1)}
                       disabled={safeCurrentPage >= totalPages}

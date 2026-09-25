@@ -33,10 +33,21 @@ const inputGroupAddonVariants = cva(
         'block-start':
           'order-first w-full justify-start px-2.5 pt-2 group-has-[>input]/input-group:pt-2 [.border-b]:pb-2',
         'block-end': 'order-last w-full justify-start px-2.5 pb-2 group-has-[>input]/input-group:pb-2 [.border-t]:pt-2'
+      },
+      tone: {
+        default: '',
+        plain: 'text-foreground font-normal'
+      },
+      inset: {
+        default: '',
+        compact: 'pr-1.5',
+        relaxed: 'pr-2.75'
       }
     },
     defaultVariants: {
-      align: 'inline-start'
+      align: 'inline-start',
+      tone: 'default',
+      inset: 'default'
     }
   }
 )
@@ -44,6 +55,8 @@ const inputGroupAddonVariants = cva(
 function InputGroupAddon({
   className,
   align = 'inline-start',
+  tone = 'default',
+  inset = 'default',
   ...props
 }: React.ComponentProps<'div'> & VariantProps<typeof inputGroupAddonVariants>) {
   return (
@@ -51,7 +64,7 @@ function InputGroupAddon({
       role='group'
       data-slot='input-group-addon'
       data-align={align}
-      className={cn(inputGroupAddonVariants({ align }), className)}
+      className={cn(inputGroupAddonVariants({ align, tone, inset }), className)}
       onClick={e => {
         if ((e.target as HTMLElement).closest('button')) {
           return

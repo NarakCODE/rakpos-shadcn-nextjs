@@ -371,14 +371,16 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<'div'>) {
 function SidebarGroupLabel({
   className,
   render,
+  variant = 'default',
   ...props
-}: useRender.ComponentProps<'div'> & React.ComponentProps<'div'>) {
+}: useRender.ComponentProps<'div'> & React.ComponentProps<'div'> & { variant?: 'default' | 'section' }) {
   return useRender({
     defaultTagName: 'div',
     props: mergeProps<'div'>(
       {
         className: cn(
           'flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium text-sidebar-foreground/70 ring-sidebar-ring outline-hidden transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0',
+          variant === 'section' && 'text-sidebar-foreground/50 tracking-wider uppercase',
           className
         )
       },
@@ -455,6 +457,8 @@ const sidebarMenuButtonVariants = cva(
     variants: {
       variant: {
         default: 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+        navigation: 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground data-active:bg-primary/10!',
+        'navigation-branch': 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground data-active:bg-primary/5!',
         outline:
           'bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]'
       },
@@ -551,13 +555,18 @@ function SidebarMenuAction({
   })
 }
 
-function SidebarMenuBadge({ className, ...props }: React.ComponentProps<'div'>) {
+function SidebarMenuBadge({
+  className,
+  variant = 'default',
+  ...props
+}: React.ComponentProps<'div'> & { variant?: 'default' | 'pill' }) {
   return (
     <div
       data-slot='sidebar-menu-badge'
       data-sidebar='menu-badge'
       className={cn(
         'text-sidebar-foreground peer-hover/menu-button:text-sidebar-accent-foreground peer-data-active/menu-button:text-sidebar-accent-foreground pointer-events-none absolute right-1 flex h-5 min-w-5 items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums select-none group-data-[collapsible=icon]:hidden peer-data-[size=default]/menu-button:top-1.5 peer-data-[size=lg]/menu-button:top-2.5 peer-data-[size=sm]/menu-button:top-1',
+        variant === 'pill' && 'bg-primary/10 max-w-24 truncate rounded-full px-1.5 font-normal',
         className
       )}
       {...props}
@@ -626,12 +635,14 @@ function SidebarMenuSubItem({ className, ...props }: React.ComponentProps<'li'>)
 function SidebarMenuSubButton({
   render,
   size = 'md',
+  variant = 'default',
   isActive = false,
   className,
   ...props
 }: useRender.ComponentProps<'a'> &
   React.ComponentProps<'a'> & {
     size?: 'sm' | 'md'
+    variant?: 'default' | 'navigation'
     isActive?: boolean
   }) {
   return useRender({
@@ -640,6 +651,7 @@ function SidebarMenuSubButton({
       {
         className: cn(
           'flex h-7 min-w-0 -translate-x-px items-center gap-2 overflow-hidden rounded-md px-2 text-sidebar-foreground ring-sidebar-ring outline-hidden group-data-[collapsible=icon]:hidden hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[size=md]:text-sm data-[size=sm]:text-xs data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0 [&>svg]:text-sidebar-accent-foreground',
+          variant === 'navigation' && 'data-active:bg-primary/10!',
           className
         )
       },

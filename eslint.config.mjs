@@ -23,7 +23,34 @@ const eslintConfig = defineConfig([
   ]),
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    plugins: { shadcn }
+    plugins: { shadcn },
+    rules: {
+      'shadcn/no-restyle': [
+        'warn',
+        {
+          allow: ['layout'],
+          contracts: [
+            { pattern: '^(Card|CardHeader|CardContent|CardFooter)$', allow: ['layout', 'spacing'] },
+            { pattern: '^Card(Title|Description)$', allow: ['layout', 'typography'] },
+            { pattern: '^(Field|FieldGroup)$', allow: ['layout', 'spacing'] },
+            { pattern: '^Table(Head|Cell)?$', allow: ['layout', 'spacing', 'typography'] },
+            { pattern: '^Frame(Header|Footer|Panel|Title|Description)$', allow: ['layout', 'spacing', 'typography'] },
+            { pattern: '^(FieldLabel|Label|TimelineHeading)$', allow: ['layout', 'spacing', 'typography'] },
+            {
+              pattern:
+                '^(DialogHeader|SheetHeader|SheetFooter|TimelineItem|TimelineContent|TimelineLine|Tabs|TabsList)$',
+              allow: ['layout', 'spacing']
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    files: ['src/components/ui/**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      'shadcn/no-restyle': 'off'
+    }
   },
   {
     plugins: {

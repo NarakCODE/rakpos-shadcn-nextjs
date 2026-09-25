@@ -23,7 +23,7 @@ const BasicForm = () => {
           <FieldLabel htmlFor='horizontal-basic-email'>Email</FieldLabel>
           <InputGroup className='sm:col-span-5'>
             <InputGroupInput id='horizontal-basic-email' placeholder='john.doe' />
-            <InputGroupAddon align='inline-end' className='text-foreground font-normal'>
+            <InputGroupAddon align='inline-end' tone='plain'>
               @example.com
             </InputGroupAddon>
           </InputGroup>

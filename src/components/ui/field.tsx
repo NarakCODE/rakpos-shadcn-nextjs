@@ -51,6 +51,10 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'>) {
 
 const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex w-full gap-3', {
   variants: {
+    surface: {
+      default: '',
+      outline: 'rounded-md border'
+    },
     orientation: {
       vertical: 'flex-col *:w-full [&>.sr-only]:w-auto',
       horizontal:
@@ -60,6 +64,7 @@ const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex
     }
   },
   defaultVariants: {
+    surface: 'default',
     orientation: 'vertical'
   }
 })
@@ -67,6 +72,7 @@ const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex
 function Field({
   className,
   orientation = 'vertical',
+  surface = 'default',
   ...props
 }: React.ComponentProps<'div'> & VariantProps<typeof fieldVariants>) {
   return (
@@ -74,7 +80,8 @@ function Field({
       role='group'
       data-slot='field'
       data-orientation={orientation}
-      className={cn(fieldVariants({ orientation }), className)}
+      data-surface={surface}
+      className={cn(fieldVariants({ orientation, surface }), className)}
       {...props}
     />
   )
@@ -90,13 +97,18 @@ function FieldContent({ className, ...props }: React.ComponentProps<'div'>) {
   )
 }
 
-function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>) {
+function FieldLabel({
+  className,
+  tone = 'default',
+  ...props
+}: React.ComponentProps<typeof Label> & { tone?: 'default' | 'muted' }) {
   return (
     <Label
       data-slot='field-label'
       className={cn(
         'group/field-label peer/field-label has-data-checked:border-primary/30 has-data-checked:bg-primary/5 dark:has-data-checked:border-primary/20 dark:has-data-checked:bg-primary/10 flex w-fit gap-2 leading-snug group-data-[disabled=true]/field:opacity-50 has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border *:data-[slot=field]:p-3',
         'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col',
+        tone === 'muted' && 'text-muted-foreground',
         className
       )}
       {...props}

@@ -77,7 +77,7 @@ const EmailPass = () => {
             </Label>
             <InputGroup>
               <InputGroupInput id='email' type='email' placeholder='Email address' required />
-              <InputGroupAddon align='inline-end' className='pr-2.75'>
+              <InputGroupAddon align='inline-end' inset='relaxed'>
                 <MailIcon className='size-4' />
                 <span className='sr-only'>Email</span>
               </InputGroupAddon>
@@ -94,12 +94,12 @@ const EmailPass = () => {
                 placeholder='Password'
                 required
               />
-              <InputGroupAddon align='inline-end' className='pr-1.5'>
+              <InputGroupAddon align='inline-end' inset='compact'>
                 <Button
-                  variant='ghost'
+                  variant='ghost-muted-transparent'
                   size='icon'
                   onClick={() => setIsVisible(prevState => !prevState)}
-                  className='text-muted-foreground focus-visible:ring-ring/50 rounded-l-none hover:bg-transparent'
+                  shape='start-flat'
                 >
                   {isVisible ? <EyeOffIcon /> : <EyeIcon />}
                   <span className='sr-only'>{isVisible ? 'Hide password' : 'Show password'}</span>
@@ -120,13 +120,8 @@ const EmailPass = () => {
                 onChange={e => setPassword(e.target.value)}
                 required
               />
-              <InputGroupAddon align='inline-end' className='pr-1.5'>
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  onClick={toggleVisibility}
-                  className='text-muted-foreground focus-visible:ring-ring/50 rounded-l-none hover:bg-transparent'
-                >
+              <InputGroupAddon align='inline-end' inset='compact'>
+                <Button variant='ghost-muted-transparent' size='icon' onClick={toggleVisibility} shape='start-flat'>
                   {isVisible ? <EyeOffIcon /> : <EyeIcon />}
                   <span className='sr-only'>{isVisible ? 'Hide password' : 'Show password'}</span>
                 </Button>

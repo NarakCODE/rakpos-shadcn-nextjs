@@ -152,11 +152,11 @@ const PersonalInfo = () => {
 
               <div className='flex items-center gap-2'>
                 <input ref={inputRef} type='file' accept='image/*' className='hidden' onChange={onSelect} />
-                <Button type='button' variant='outline' onClick={openPicker} className='flex items-center gap-2'>
+                <Button type='button' variant='outline' size='spaced' onClick={openPicker}>
                   <UploadCloudIcon />
                   Upload avatar
                 </Button>
-                <Button type='button' variant='ghost' onClick={remove} disabled={!file} className='text-destructive!'>
+                <Button type='button' variant='ghost-destructive-text' onClick={remove} disabled={!file}>
                   <Trash2Icon />
                 </Button>
               </div>

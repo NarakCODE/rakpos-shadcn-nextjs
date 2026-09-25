@@ -100,11 +100,11 @@ const WorkspaceDetail = () => {
 
               <div className='flex items-center gap-2'>
                 <input ref={inputRef} type='file' accept='image/*' className='hidden' onChange={onSelect} />
-                <Button variant='outline' onClick={openPicker} className='flex items-center gap-2'>
+                <Button variant='outline' size='spaced' onClick={openPicker}>
                   <UploadCloudIcon />
                   Upload logo
                 </Button>
-                <Button variant='ghost' onClick={remove} disabled={!file} className='text-destructive'>
+                <Button variant='ghost-destructive-text' onClick={remove} disabled={!file}>
                   <TrashIcon />
                 </Button>
               </div>
@@ -115,9 +115,9 @@ const WorkspaceDetail = () => {
           <div className='w-full space-y-2'>
             <Label htmlFor='workspace-url'>Workspace URL</Label>
             <InputGroup>
-              <InputGroupAddon className='text-foreground font-normal'>https://example.com/</InputGroupAddon>
+              <InputGroupAddon tone='plain'>https://example.com/</InputGroupAddon>
               <InputGroupInput id='workspace-url' placeholder='shadcnstudio' />
-              <InputGroupAddon align='inline-end' className='text-foreground font-normal'>
+              <InputGroupAddon align='inline-end' tone='plain'>
                 .com
               </InputGroupAddon>
             </InputGroup>

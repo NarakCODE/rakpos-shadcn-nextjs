@@ -18,13 +18,13 @@ const TwoStepsV1Form = () => {
           </div>
 
           <InputOTP id='recoveryCode' maxLength={6}>
-            <InputOTPGroup className='w-full justify-center gap-4 *:data-[slot=input-otp-slot]:rounded-lg *:data-[slot=input-otp-slot]:border'>
-              <InputOTPSlot index={0} className='input-size-lg' />
-              <InputOTPSlot index={1} className='input-size-lg' />
-              <InputOTPSlot index={2} className='input-size-lg' />
-              <InputOTPSlot index={3} className='input-size-lg' />
-              <InputOTPSlot index={4} className='input-size-lg' />
-              <InputOTPSlot index={5} className='input-size-lg' />
+            <InputOTPGroup variant='separated' className='w-full justify-center'>
+              <InputOTPSlot index={0} className='size-10' />
+              <InputOTPSlot index={1} className='size-10' />
+              <InputOTPSlot index={2} className='size-10' />
+              <InputOTPSlot index={3} className='size-10' />
+              <InputOTPSlot index={4} className='size-10' />
+              <InputOTPSlot index={5} className='size-10' />
             </InputOTPGroup>
           </InputOTP>
         </Field>

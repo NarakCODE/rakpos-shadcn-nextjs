@@ -9,16 +9,25 @@ import { cn } from '@/lib/utils'
 function Avatar({
   className,
   size = 'default',
+  shape = 'round',
+  border = 'default',
   ...props
 }: AvatarPrimitive.Root.Props & {
   size?: 'default' | 'sm' | 'lg'
+  shape?: 'round' | 'square' | 'tile'
+  border?: 'default' | 'none' | 'profile'
 }) {
   return (
     <AvatarPrimitive.Root
       data-slot='avatar'
       data-size={size}
+      data-shape={shape}
       className={cn(
         'group/avatar after:border-border relative flex size-8 shrink-0 rounded-full select-none after:absolute after:inset-0 after:rounded-full after:border after:mix-blend-darken data-[size=lg]:size-10 data-[size=sm]:size-6 dark:after:mix-blend-lighten',
+        shape === 'square' && 'rounded-md after:rounded-md',
+        shape === 'tile' && 'rounded-lg after:rounded-lg',
+        border === 'none' && 'after:border-none',
+        border === 'profile' && 'ring-card ring-4',
         className
       )}
       {...props}
@@ -26,22 +35,36 @@ function Avatar({
   )
 }
 
-function AvatarImage({ className, ...props }: AvatarPrimitive.Image.Props) {
+function AvatarImage({
+  className,
+  inset = 'default',
+  ...props
+}: AvatarPrimitive.Image.Props & { inset?: 'default' | 'logo' }) {
   return (
     <AvatarPrimitive.Image
       data-slot='avatar-image'
-      className={cn('aspect-square size-full rounded-full object-cover', className)}
+      className={cn(
+        'aspect-square size-full rounded-full object-cover group-data-[shape=square]/avatar:rounded-md group-data-[shape=tile]/avatar:rounded-lg',
+        inset === 'logo' && 'p-1.5',
+        className
+      )}
       {...props}
     />
   )
 }
 
-function AvatarFallback({ className, ...props }: AvatarPrimitive.Fallback.Props) {
+function AvatarFallback({
+  className,
+  text = 'default',
+  ...props
+}: AvatarPrimitive.Fallback.Props & { text?: 'default' | 'compact' | 'tiny' }) {
   return (
     <AvatarPrimitive.Fallback
       data-slot='avatar-fallback'
       className={cn(
-        'bg-muted text-muted-foreground flex size-full items-center justify-center rounded-full text-sm group-data-[size=sm]/avatar:text-xs',
+        'bg-muted text-muted-foreground flex size-full items-center justify-center rounded-full text-sm group-data-[shape=square]/avatar:rounded-md group-data-[shape=tile]/avatar:rounded-lg group-data-[size=sm]/avatar:text-xs',
+        text === 'compact' && 'text-xs',
+        text === 'tiny' && 'text-[10px]',
         className
       )}
       {...props}

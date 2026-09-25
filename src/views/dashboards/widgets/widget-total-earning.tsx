@@ -2,7 +2,6 @@
 import { EllipsisVerticalIcon, ChevronUpIcon, ChevronDownIcon } from 'lucide-react'
 
 // Component Imports
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -39,9 +38,7 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
         <span className='flex items-center justify-between'>
           <div className='text-lg font-semibold'>{title}</div>
           <DropdownMenu>
-            <DropdownMenuTrigger
-              render={<Button variant='ghost' size='icon' className='text-muted-foreground size-6 rounded-full' />}
-            >
+            <DropdownMenuTrigger render={<Button variant='ghost-muted' shape='round' size='icon' className='size-6' />}>
               <EllipsisVerticalIcon />
               <span className='sr-only'>Menu</span>
             </DropdownMenuTrigger>
@@ -70,11 +67,9 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
           {earningData.map((earning, index) => (
             <div key={index} className='flex items-center justify-between gap-2.5'>
               <div className='flex items-center justify-between gap-2.5'>
-                <Avatar className='size-11 rounded-sm after:rounded-[inherit] after:border-0'>
-                  <AvatarFallback className='bg-primary/10 shrink-0 rounded-sm'>
-                    <img src={earning.img} alt={earning.platform} className='size-6' />
-                  </AvatarFallback>
-                </Avatar>
+                <div className='bg-primary/10 flex size-11 shrink-0 items-center justify-center rounded-(--radius-sm)'>
+                  <img src={earning.img} alt={earning.platform} className='size-6' />
+                </div>
                 <div className='flex flex-col gap-1'>
                   <span className='text-base font-medium'>{earning.platform}</span>
                   <span className='text-muted-foreground text-sm'>{earning.technologies}</span>

@@ -64,7 +64,7 @@ const ContactUSFormDemo = () => {
 
   function onSubmit() {
     toast.custom(() => (
-      <Alert className='border-green-600 text-green-600 sm:w-122 dark:border-green-400 dark:text-green-400 *:[svg]:row-span-1'>
+      <Alert variant='success-outline' className='sm:w-122 *:[svg]:row-span-1'>
         <CheckCheckIcon />
         <AlertTitle>Issue submitted successfully! Our team will reach out to you shortly.</AlertTitle>
       </Alert>
@@ -72,7 +72,7 @@ const ContactUSFormDemo = () => {
   }
 
   return (
-    <Card className='w-full shadow-none'>
+    <Card variant='flat' className='w-full'>
       <CardHeader>
         <CardTitle>Report Issue</CardTitle>
         <CardDescription>Describe the issue you&apos;re facing; our team will help you.</CardDescription>

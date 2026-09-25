@@ -100,9 +100,9 @@ const ConnectedAccount = () => {
 
               <p className='text-sm font-medium'>{account.name}</p>
               <Button
-                size='icon-xs'
-                variant='ghost'
-                className='text-primary bg-primary/10 size-5 shrink-0 rounded-md transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none'
+                size='account-remove'
+                variant='account-remove'
+                motion='colors'
                 aria-label={`Remove ${account.name}`}
                 onClick={() => handleRemoveAccount(account.id)}
               >
@@ -114,13 +114,7 @@ const ConnectedAccount = () => {
           {/* Add App Button + Modal */}
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger
-              render={
-                <Button
-                  variant='outline'
-                  className='bg-background h-9 gap-2 rounded-md px-3'
-                  onClick={() => setIsDialogOpen(true)}
-                />
-              }
+              render={<Button variant='outline-add' size='account-add' onClick={() => setIsDialogOpen(true)} />}
             >
               <PlusIcon className='size-4' />
               Add App

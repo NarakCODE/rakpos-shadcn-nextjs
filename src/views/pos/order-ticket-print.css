@@ -1,0 +1,34 @@
+@media print {
+  body:has([data-kot-ticket]) > :not([data-kot-ticket]):not(:has([data-kot-ticket])) {
+    display: none !important;
+  }
+
+  body:has([data-kot-ticket]) * {
+    visibility: hidden !important;
+  }
+
+  body:has([data-kot-ticket]) [data-kot-ticket],
+  body:has([data-kot-ticket]) [data-kot-ticket] * {
+    visibility: visible !important;
+  }
+
+  body:has([data-kot-ticket]) [data-kot-ticket] {
+    position: absolute !important;
+    inset: 0 auto auto 0 !important;
+    width: 80mm !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    transform: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  body:has([data-kot-ticket]) [data-kot-actions],
+  body:has([data-kot-ticket]) [data-kot-ticket] [data-slot='dialog-close'] {
+    display: none !important;
+  }
+}

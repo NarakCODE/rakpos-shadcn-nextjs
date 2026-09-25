@@ -62,18 +62,18 @@ export function UserTable({ paginatedUsers, totalPages, sorting, onSortingChange
     <Table>
       <TableHeader>
         {table.getHeaderGroups().map(headerGroup => (
-          <TableRow key={headerGroup.id} className='h-14 border-t'>
+          <TableRow key={headerGroup.id} variant='header' className='h-14'>
             {headerGroup.headers.map(header => (
               <TableHead
                 key={header.id}
                 style={{ width: `${header.getSize()}px` }}
-                className='text-muted-foreground first:pl-4 last:px-4 last:text-center'
+                className='first:pl-4 last:px-4 last:text-center'
               >
                 {header.isPlaceholder ? null : header.column.getCanSort() ? (
                   <div
                     className={cn(
                       header.column.getCanSort() &&
-                        'flex h-full cursor-pointer items-center justify-between gap-2 select-none'
+                        'text-muted-foreground flex h-full cursor-pointer items-center justify-between gap-2 select-none'
                     )}
                     onClick={header.column.getToggleSortingHandler()}
                     onKeyDown={event => {
@@ -91,7 +91,9 @@ export function UserTable({ paginatedUsers, totalPages, sorting, onSortingChange
                     }[header.column.getIsSorted() as string] ?? null}
                   </div>
                 ) : (
-                  flexRender(header.column.columnDef.header, header.getContext())
+                  <span className='text-muted-foreground'>
+                    {flexRender(header.column.columnDef.header, header.getContext())}
+                  </span>
                 )}
               </TableHead>
             ))}

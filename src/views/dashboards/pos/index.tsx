@@ -29,19 +29,25 @@ export const DashboardPosView = () => {
 
         {/* Quick Actions */}
         <div className='flex flex-wrap items-center gap-2.5'>
-          <Button variant='outline' size='sm' className='h-9 gap-1.5'>
-            <CalendarIcon className='size-3.5' />
-            <span>Today, 25 Sep</span>
+          <Button variant='outline' size='sm' className='h-9'>
+            <span className='inline-flex items-center gap-1.5'>
+              <CalendarIcon className='size-3.5' />
+              <span>Today, 25 Sep</span>
+            </span>
           </Button>
 
-          <Button variant='outline' size='sm' className='h-9 gap-1.5'>
-            <DownloadIcon className='size-3.5' />
-            <span>Export Report</span>
+          <Button variant='outline' size='sm' className='h-9'>
+            <span className='inline-flex items-center gap-1.5'>
+              <DownloadIcon className='size-3.5' />
+              <span>Export Report</span>
+            </span>
           </Button>
 
-          <Button size='sm' className='h-9 gap-1.5'>
-            <PlusIcon className='size-4' />
-            <span>New Order</span>
+          <Button size='sm' className='h-9'>
+            <span className='inline-flex items-center gap-1.5'>
+              <PlusIcon className='size-4' />
+              <span>New Order</span>
+            </span>
           </Button>
         </div>
       </div>

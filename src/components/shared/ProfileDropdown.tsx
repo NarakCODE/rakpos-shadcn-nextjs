@@ -28,7 +28,7 @@ const ProfileDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={<Button variant='ghost' size='icon' className='relative rounded-full hover:bg-transparent' />}
+        render={<Button variant='ghost-transparent' shape='round' size='icon' className='relative' />}
       >
         <Avatar>
           <AvatarImage src={STATIC_USER.imageUrl} alt={STATIC_USER.fullName} />
@@ -38,7 +38,7 @@ const ProfileDropdown = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='w-60'>
         <DropdownMenuGroup>
-          <DropdownMenuLabel className='flex items-center gap-4 px-2 py-2.5 font-normal'>
+          <DropdownMenuLabel variant='profile'>
             <div className='relative'>
               <Avatar className='size-10'>
                 <AvatarImage src={STATIC_USER.imageUrl} alt={STATIC_USER.fullName} />

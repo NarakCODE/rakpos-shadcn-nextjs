@@ -44,7 +44,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { getInitialsFromName } from '@/configs/mailConfig'
 
 // Util Imports
-import { cn } from '@/lib/utils'
 
 const ROLE_ICONS: Record<UserRole, ReactNode> = {
   Admin: <UserRoundIcon className='size-4 text-green-600 dark:text-green-400' />,
@@ -152,7 +151,7 @@ export const userTableColumns: ColumnDef<AppUser>[] = [
       <div className='flex items-center gap-2'>
         <Avatar className='size-9'>
           {row.original.avatar ? <AvatarImage src={row.original.avatar} alt={row.original.name} /> : null}
-          <AvatarFallback className='text-xs'>{getInitialsFromName(row.original.name)}</AvatarFallback>
+          <AvatarFallback text='compact'>{getInitialsFromName(row.original.name)}</AvatarFallback>
         </Avatar>
         <div className='flex flex-col'>
           <span className='font-medium'>{row.original.name}</span>
@@ -201,9 +200,7 @@ export const userTableColumns: ColumnDef<AppUser>[] = [
       const status = row.original.status
 
       return (
-        <Badge
-          className={cn('h-auto rounded-sm border-none capitalize focus-visible:outline-none', STATUS_STYLES[status])}
-        >
+        <Badge size='table' shape='square' border='none' className={STATUS_STYLES[status]}>
           {status}
         </Badge>
       )

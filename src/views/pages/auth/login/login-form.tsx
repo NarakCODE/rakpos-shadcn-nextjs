@@ -36,13 +36,13 @@ const LoginForm = () => {
           </FieldLabel>
           <InputGroup>
             <InputGroupInput id='password' type={isVisible ? 'text' : 'password'} placeholder='••••••••••••••••' />
-            <InputGroupAddon align='inline-end' className='pr-1.5'>
+            <InputGroupAddon align='inline-end' inset='compact'>
               <Button
                 type='button'
-                variant='ghost'
+                variant='ghost-muted-transparent'
                 size='icon'
                 onClick={() => setIsVisible(prevState => !prevState)}
-                className='text-muted-foreground rounded-l-none hover:bg-transparent'
+                shape='start-flat'
               >
                 {isVisible ? <EyeOffIcon /> : <EyeIcon />}
                 <span className='sr-only'>{isVisible ? 'Hide password' : 'Show password'}</span>
@@ -54,7 +54,7 @@ const LoginForm = () => {
         <div className='flex items-center justify-between gap-y-2'>
           <Field orientation='horizontal' className='flex items-center gap-2'>
             <Checkbox id='rememberMe' />
-            <FieldLabel htmlFor='rememberMe' className='text-muted-foreground'>
+            <FieldLabel htmlFor='rememberMe' tone='muted'>
               {' '}
               Remember Me
             </FieldLabel>

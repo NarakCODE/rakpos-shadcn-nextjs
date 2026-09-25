@@ -94,37 +94,32 @@ const MailApp = () => {
     <>
       <div className='flex h-[calc(100dvh-12rem)] flex-col lg:h-[calc(100dvh-11rem)] lg:min-h-130'>
         {/* Desktop layout */}
-        <div className='hidden h-full lg:flex'>
-          <ResizablePanelGroup
-            orientation='horizontal'
-            className='border-border bg-background h-full items-stretch overflow-hidden rounded-lg border'
-          >
-            <ResizablePanel defaultSize='15%' minSize='14%' className='bg-card flex flex-col'>
-              <div className='p-3'>
-                <Button className='w-full'>
-                  <MailIcon className='mr-2 size-4' />
-                  Compose
-                </Button>
+        <div className='border-border bg-background hidden h-full overflow-hidden rounded-lg border lg:flex'>
+          <ResizablePanelGroup orientation='horizontal' className='h-full items-stretch'>
+            <ResizablePanel defaultSize='15%' minSize='14%' className='flex flex-col'>
+              <div className='bg-card flex h-full flex-col'>
+                <div className='p-3'>
+                  <Button className='w-full'>
+                    <MailIcon className='mr-2 size-4' />
+                    Compose
+                  </Button>
+                </div>
+                <Separator />
+                <MailNav
+                  statusNavItems={statusNavItems}
+                  labelNavItems={labelNavItems}
+                  activeStatus={activeStatus}
+                  activeLabel={activeLabel}
+                  activeNavType={activeNavType}
+                  onStatusChange={handleStatusChange}
+                  onLabelChange={handleLabelChange}
+                />
               </div>
-              <Separator />
-              <MailNav
-                statusNavItems={statusNavItems}
-                labelNavItems={labelNavItems}
-                activeStatus={activeStatus}
-                activeLabel={activeLabel}
-                activeNavType={activeNavType}
-                onStatusChange={handleStatusChange}
-                onLabelChange={handleLabelChange}
-              />
             </ResizablePanel>
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel
-              defaultSize='30%'
-              minSize='24%'
-              className='bg-background flex min-h-0 flex-col overflow-hidden!'
-            >
+            <ResizablePanel defaultSize='30%' minSize='24%' className='flex min-h-0 flex-col overflow-hidden!'>
               <Tabs
                 value={filterTab}
                 onValueChange={value => setFilterTab(value as typeof filterTab)}
@@ -132,12 +127,12 @@ const MailApp = () => {
               >
                 <div className='flex items-center gap-3 p-3 pb-0'>
                   <h1 className='text-xl font-bold'>{activeViewLabel}</h1>
-                  <TabsList className='bg-muted/60 ml-auto'>
-                    <TabsTrigger value='all' className='font-normal'>
-                      All mail
+                  <TabsList variant='soft' className='ml-auto'>
+                    <TabsTrigger value='all'>
+                      <span className='font-normal'>All mail</span>
                     </TabsTrigger>
-                    <TabsTrigger value='unread' className='font-normal'>
-                      Unread{unreadCount > 0 ? ` (${unreadCount})` : ''}
+                    <TabsTrigger value='unread'>
+                      <span className='font-normal'>Unread{unreadCount > 0 ? ` (${unreadCount})` : ''}</span>
                     </TabsTrigger>
                   </TabsList>
                 </div>
@@ -186,7 +181,7 @@ const MailApp = () => {
 
             <ResizableHandle withHandle />
 
-            <ResizablePanel defaultSize='55%' minSize='32%' className='bg-background flex min-h-0 flex-col'>
+            <ResizablePanel defaultSize='55%' minSize='32%' className='flex min-h-0 flex-col'>
               <MailDisplay {...mailDisplayProps} />
             </ResizablePanel>
           </ResizablePanelGroup>
@@ -266,8 +261,8 @@ const MailApp = () => {
               <Button
                 type='button'
                 variant='ghost'
-                size='sm'
-                className='absolute top-1.5 left-2 p-0 lg:hidden'
+                size='mail-back'
+                className='absolute top-1.5 left-2 lg:hidden'
                 onClick={() => setMobileView('list')}
               >
                 <ChevronLeftIcon className='size-4' />

@@ -26,13 +26,12 @@ function ConnectionsCard() {
       {connectionCards.map(connection => (
         <Card
           key={connection.id}
-          className='relative flex flex-col items-center justify-center transition-all hover:-translate-y-0.5 hover:shadow-md'
+          variant='interactive'
+          className='relative flex flex-col items-center justify-center hover:-translate-y-0.5'
         >
           <div className='absolute top-4 right-4 z-10'>
             <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<Button variant='ghost' size='icon' className='text-muted-foreground size-8 rounded-full' />}
-              >
+              <DropdownMenuTrigger render={<Button variant='ghost-muted' size='icon-sm' shape='round' />}>
                 <EllipsisVerticalIcon className='size-4' />
                 <span className='sr-only'>Open {connection.name} actions</span>
               </DropdownMenuTrigger>
@@ -62,7 +61,7 @@ function ConnectionsCard() {
 
           <CardContent className='flex flex-wrap items-center justify-center gap-2'>
             {connection.tags.map(tag => (
-              <Badge key={`${connection.id}-${tag.label}`} variant='outline' className='h-6 px-3 py-1'>
+              <Badge key={`${connection.id}-${tag.label}`} variant='outline' size='wide'>
                 {tag.label}
               </Badge>
             ))}

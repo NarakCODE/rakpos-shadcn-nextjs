@@ -51,35 +51,41 @@ export const TopSellingItems = () => {
   return (
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-3'>
-        <CardTitle className='text-lg font-bold'>Top Selling Items</CardTitle>
-        <CardDescription className='text-muted-foreground text-xs'>
-          Best-performing dishes by weekly revenue and order volume
+        <CardTitle>
+          <span className='text-lg font-bold'>Top Selling Items</span>
+        </CardTitle>
+        <CardDescription>
+          <span className='text-muted-foreground text-xs'>
+            Best-performing dishes by weekly revenue and order volume
+          </span>
         </CardDescription>
       </CardHeader>
 
-      <CardContent className='space-y-3'>
-        {topDishes.map(dish => (
-          <div key={dish.id} className='flex items-center justify-between gap-3'>
-            <div className='flex min-w-0 items-center gap-3'>
-              {/* Thumbnail Image */}
-              <div className='bg-muted relative size-10 shrink-0 overflow-hidden rounded-lg border'>
-                <img src={dish.image} alt={dish.name} className='h-full w-full object-cover' />
+      <CardContent>
+        <div className='space-y-3'>
+          {topDishes.map(dish => (
+            <div key={dish.id} className='flex items-center justify-between gap-3'>
+              <div className='flex min-w-0 items-center gap-3'>
+                {/* Thumbnail Image */}
+                <div className='bg-muted relative size-10 shrink-0 overflow-hidden rounded-(--radius) border'>
+                  <img src={dish.image} alt={dish.name} className='h-full w-full object-cover' />
+                </div>
+
+                {/* Name and Category */}
+                <div className='min-w-0 space-y-0.5'>
+                  <p className='text-foreground truncate text-sm font-semibold'>{dish.name}</p>
+                  <p className='text-muted-foreground truncate text-xs'>{dish.category}</p>
+                </div>
               </div>
 
-              {/* Name and Category */}
-              <div className='min-w-0 space-y-0.5'>
-                <p className='text-foreground truncate text-sm font-semibold'>{dish.name}</p>
-                <p className='text-muted-foreground truncate text-xs'>{dish.category}</p>
+              {/* Sales and Volume */}
+              <div className='shrink-0 text-right'>
+                <span className='text-foreground text-sm font-bold tabular-nums'>{dish.sales}</span>
+                <p className='text-muted-foreground text-xs tabular-nums'>{dish.volume} orders</p>
               </div>
             </div>
-
-            {/* Sales and Volume */}
-            <div className='shrink-0 text-right'>
-              <span className='text-foreground text-sm font-bold'>{dish.sales}</span>
-              <p className='text-muted-foreground text-xs'>{dish.volume} orders</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

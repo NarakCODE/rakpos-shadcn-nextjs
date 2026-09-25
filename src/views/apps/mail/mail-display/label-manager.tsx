@@ -27,7 +27,7 @@ export const LabelManager = ({ labels }: { labels: EmailLabel[] }) => {
           </Button>
         }
       />
-      <PopoverContent align='start' className='flex w-40 flex-col gap-1 p-1'>
+      <PopoverContent align='start' density='compact' className='flex w-40 flex-col'>
         {MAIL_LABEL_NAV_ITEMS.map(labelItem => {
           const labelStyle = MAIL_LABEL_STYLES.find(labelStyleItem => labelStyleItem.id === labelItem.id)
           const isActive = labels.includes(labelItem.id)
@@ -37,9 +37,9 @@ export const LabelManager = ({ labels }: { labels: EmailLabel[] }) => {
               key={labelItem.id}
               type='button'
               variant='ghost'
-              size='sm'
+              size='label-option'
               title={labelItem.label}
-              className='w-full justify-start gap-2'
+              className='w-full justify-start'
             >
               <span className={cn('size-2.5 shrink-0 rounded-full', labelStyle?.color)} />
               <span className='flex-1 text-left'>{labelItem.label}</span>

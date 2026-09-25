@@ -69,7 +69,7 @@ const WorkspaceName = () => {
               type='text'
               placeholder='App ID'
               defaultValue='0b1c2d3e'
-              className='read-only:bg-muted'
+              tone='readonly-muted'
               readOnly
             />
           </div>
@@ -97,7 +97,7 @@ const WorkspaceName = () => {
                 </span>
                 <ChevronsUpDownIcon className='text-muted-foreground/80 shrink-0' aria-hidden='true' />
               </PopoverTrigger>
-              <PopoverContent className='w-(--anchor-width) p-0'>
+              <PopoverContent density='flush' className='w-(--anchor-width)'>
                 <Command>
                   <CommandInput placeholder='Search timezone' />
                   <CommandList>

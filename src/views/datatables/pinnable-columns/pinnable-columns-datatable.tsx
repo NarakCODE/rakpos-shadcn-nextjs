@@ -94,7 +94,7 @@ const DataTablePinnableColumns = ({ data }: { data: Product[] }) => {
   return (
     <div className='w-full'>
       <div className='rounded-md'>
-        <Table className='[&_td]:border-border [&_th]:border-border border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b'>
+        <Table variant='pinnable'>
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
@@ -107,7 +107,8 @@ const DataTablePinnableColumns = ({ data }: { data: Product[] }) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className='data-pinned:bg-muted/90 relative h-10 truncate data-pinned:backdrop-blur-xs [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0'
+                      variant='pinned'
+                      className='relative h-10 truncate'
                       colSpan={header.colSpan}
                       style={{ ...getPinningStyles(column) }}
                       data-pinned={isPinned || undefined}
@@ -180,7 +181,8 @@ const DataTablePinnableColumns = ({ data }: { data: Product[] }) => {
                     return (
                       <TableCell
                         key={cell.id}
-                        className='data-pinned:bg-background/90 truncate data-pinned:backdrop-blur-xs'
+                        variant='pinned'
+                        className='truncate'
                         style={{ ...getPinningStyles(column) }}
                         data-pinned={isPinned || undefined}
                         data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}

@@ -64,13 +64,10 @@ const MailNav = ({
                 <TooltipTrigger
                   render={
                     <Button
-                      variant='ghost'
-                      className={cn(
-                        'justify-start gap-2.5 px-3',
-                        isStatusActive
-                          ? 'bg-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground'
-                          : 'text-foreground/80 hover:bg-muted/60'
-                      )}
+                      variant='nav'
+                      size='nav'
+                      data-active={isStatusActive ? 'true' : undefined}
+                      className='justify-start'
                       onClick={() => onStatusChange(statusItem.id)}
                     />
                   }
@@ -81,9 +78,13 @@ const MailNav = ({
                     <span className='text-muted-foreground ml-auto text-xs tabular-nums'>{statusItem.count}</span>
                   )}
                 </TooltipTrigger>
-                <TooltipContent side='right' className='flex items-center gap-2'>
-                  {statusItem.label}
-                  {statusItem.count > 0 && <span className='text-primary-foreground ml-auto'>{statusItem.count}</span>}
+                <TooltipContent side='right'>
+                  <span className='flex items-center gap-2'>
+                    {statusItem.label}
+                    {statusItem.count > 0 && (
+                      <span className='text-primary-foreground ml-auto'>{statusItem.count}</span>
+                    )}
+                  </span>
                 </TooltipContent>
               </Tooltip>
             )
@@ -105,13 +106,10 @@ const MailNav = ({
                 <TooltipTrigger
                   render={
                     <Button
-                      variant='ghost'
-                      className={cn(
-                        'justify-start gap-2.5 px-3',
-                        isLabelActive
-                          ? 'bg-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground'
-                          : 'text-foreground/80 hover:bg-muted/60'
-                      )}
+                      variant='nav'
+                      size='nav'
+                      data-active={isLabelActive ? 'true' : undefined}
+                      className='justify-start'
                       onClick={() => onLabelChange(labelItem.id)}
                     />
                   }
@@ -122,9 +120,11 @@ const MailNav = ({
                     <span className='text-muted-foreground ml-auto text-xs tabular-nums'>{labelItem.count}</span>
                   )}
                 </TooltipTrigger>
-                <TooltipContent side='right' className='flex items-center gap-2'>
-                  {labelItem.label}
-                  {labelItem.count > 0 && <span className='text-primary-foreground ml-auto'>{labelItem.count}</span>}
+                <TooltipContent side='right'>
+                  <span className='flex items-center gap-2'>
+                    {labelItem.label}
+                    {labelItem.count > 0 && <span className='text-primary-foreground ml-auto'>{labelItem.count}</span>}
+                  </span>
                 </TooltipContent>
               </Tooltip>
             )

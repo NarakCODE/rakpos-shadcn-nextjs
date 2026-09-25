@@ -20,7 +20,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
 
 // Util Imports
-import { cn } from '@/lib/utils'
 
 interface BrandItem {
   image?: string
@@ -97,9 +96,9 @@ function BrandAvatar({ item, alt }: { item: BrandItem; alt: string }) {
   const Icon = item.icon ? ICONS[item.icon] : null
 
   return (
-    <Avatar className='size-10 rounded-lg after:rounded-lg'>
-      {item.image ? <AvatarImage src={item.image} alt={alt} className='rounded-lg object-contain p-1.5' /> : null}
-      <AvatarFallback className='rounded-lg'>{Icon ? <Icon className='size-5' /> : null}</AvatarFallback>
+    <Avatar size='lg' shape='tile'>
+      {item.image ? <AvatarImage src={item.image} alt={alt} inset='logo' className='object-contain' /> : null}
+      <AvatarFallback>{Icon ? <Icon className='size-5' /> : null}</AvatarFallback>
     </Avatar>
   )
 }
@@ -124,8 +123,8 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
   return (
     <div className='space-y-6'>
       <Card className='gap-0 py-0'>
-        <CardHeader className='border-b px-6 py-4!'>
-          <CardTitle className='text-base'>Connected Accounts</CardTitle>
+        <CardHeader variant='divided' className='px-6 py-4!'>
+          <CardTitle>Connected Accounts</CardTitle>
           <p className='text-muted-foreground text-sm'>Display content from your connected accounts on your site</p>
         </CardHeader>
         <CardContent className='px-0 pb-0'>
@@ -151,8 +150,8 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
       </Card>
 
       <Card className='gap-0 py-0'>
-        <CardHeader className='border-b px-6 py-4!'>
-          <CardTitle className='text-base'>Social Accounts</CardTitle>
+        <CardHeader variant='divided' className='px-6 py-4!'>
+          <CardTitle>Social Accounts</CardTitle>
           <p className='text-muted-foreground text-sm'>Display content from social accounts on your site</p>
         </CardHeader>
         <CardContent className='px-0 pb-0'>
@@ -182,14 +181,9 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
                     </div>
                   </div>
                   <Button
-                    variant='ghost'
+                    variant={isConnected ? 'ghost-connected' : 'ghost-disconnected'}
                     size='icon'
-                    className={cn(
-                      'size-9 shrink-0 rounded-lg',
-                      isConnected
-                        ? 'bg-destructive/10 text-destructive hover:bg-destructive/15 hover:text-destructive'
-                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                    )}
+                    shape='tile'
                     aria-label={isConnected ? `Disconnect ${account.label}` : `Connect ${account.label}`}
                   >
                     {isConnected ? <Trash2Icon className='size-4.5' /> : <LinkIcon className='size-4.5' />}

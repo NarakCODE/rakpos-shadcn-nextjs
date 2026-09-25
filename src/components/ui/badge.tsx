@@ -15,11 +15,35 @@ const badgeVariants = cva(
           'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
         outline: 'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',
         ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
-        link: 'text-primary underline-offset-4 hover:underline'
+        link: 'text-primary underline-offset-4 hover:underline',
+
+        success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300',
+        warning: 'bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300',
+        danger: 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300',
+        accent: 'bg-blue-100 text-blue-800 dark:bg-blue-950/50 dark:text-blue-300'
+      },
+      size: {
+        default: '',
+        tall: 'h-6 px-2 py-1',
+        wide: 'h-6 px-3 py-1',
+        table: 'h-auto',
+        attachment: 'h-auto gap-1.5 px-2 py-1 font-normal',
+        label: 'px-1.5 max-xl:border-0 max-xl:p-0'
+      },
+      shape: {
+        default: '',
+        square: 'rounded-sm'
+      },
+      border: {
+        default: '',
+        none: 'border-none'
       }
     },
     defaultVariants: {
-      variant: 'default'
+      variant: 'default',
+      size: 'default',
+      shape: 'default',
+      border: 'default'
     }
   }
 )
@@ -27,6 +51,9 @@ const badgeVariants = cva(
 function Badge({
   className,
   variant = 'default',
+  size = 'default',
+  shape = 'default',
+  border = 'default',
   render,
   ...props
 }: useRender.ComponentProps<'span'> & VariantProps<typeof badgeVariants>) {
@@ -34,14 +61,17 @@ function Badge({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
       {
-        className: cn(badgeVariants({ variant }), className)
+        className: cn(badgeVariants({ variant, size, shape, border }), className)
       },
       props
     ),
     render,
     state: {
       slot: 'badge',
-      variant
+      variant,
+      size,
+      shape,
+      border
     }
   })
 }

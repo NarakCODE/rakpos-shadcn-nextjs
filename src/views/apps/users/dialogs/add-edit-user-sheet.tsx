@@ -124,7 +124,9 @@ export function AddEditUserSheet({ mode, user, onClose, onAdd, onEdit }: AddEdit
     <Sheet open={mode !== null} onOpenChange={open => !open && onClose()}>
       <SheetContent side='right' className='w-full overflow-y-auto sm:max-w-[420px]'>
         <SheetHeader className='pb-0'>
-          <SheetTitle className='text-lg font-medium'>{mode === 'edit' ? 'Edit User' : 'Add New User'}</SheetTitle>
+          <SheetTitle>
+            <span className='text-lg'>{mode === 'edit' ? 'Edit User' : 'Add New User'}</span>
+          </SheetTitle>
         </SheetHeader>
 
         <form onSubmit={form.handleSubmit(handleSubmit)} className='flex flex-col gap-4 px-4 pb-4'>

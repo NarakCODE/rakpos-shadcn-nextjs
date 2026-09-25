@@ -41,7 +41,7 @@ const BasicFormWithIcon = () => {
               <span className='sr-only'>Email</span>
             </InputGroupAddon>
             <InputGroupInput id='horizontal-basic-icons-email' placeholder='john.doe' />
-            <InputGroupAddon align='inline-end' className='text-foreground font-normal'>
+            <InputGroupAddon align='inline-end' tone='plain'>
               @example.com
             </InputGroupAddon>
           </InputGroup>
@@ -68,7 +68,8 @@ const BasicFormWithIcon = () => {
             <Textarea
               id='horizontal-basic-icons-message'
               placeholder='Hi, Do you have a moment to talk Joe?'
-              className='peer pl-9'
+              inset='leading-icon'
+              className='peer'
               rows={4}
             />
           </div>

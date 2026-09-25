@@ -49,13 +49,13 @@ const RegisterForm = () => {
               type={isPasswordVisible ? 'text' : 'password'}
               placeholder='••••••••••••••••'
             />
-            <InputGroupAddon align='inline-end' className='pr-1.5'>
+            <InputGroupAddon align='inline-end' inset='compact'>
               <Button
                 type='button'
-                variant='ghost'
+                variant='ghost-muted-transparent'
                 size='icon'
                 onClick={() => setIsPasswordVisible(prevState => !prevState)}
-                className='text-muted-foreground rounded-l-none hover:bg-transparent'
+                shape='start-flat'
               >
                 {isPasswordVisible ? <EyeOffIcon /> : <EyeIcon />}
                 <span className='sr-only'>{isPasswordVisible ? 'Hide password' : 'Show password'}</span>
@@ -74,12 +74,12 @@ const RegisterForm = () => {
               type={isConfirmPasswordVisible ? 'text' : 'password'}
               placeholder='••••••••••••••••'
             />
-            <InputGroupAddon align='inline-end' className='pr-1.5'>
+            <InputGroupAddon align='inline-end' inset='compact'>
               <Button
-                variant='ghost'
+                variant='ghost-muted-transparent'
                 size='icon'
                 onClick={() => setIsConfirmPasswordVisible(prevState => !prevState)}
-                className='text-muted-foreground rounded-l-none hover:bg-transparent'
+                shape='start-flat'
               >
                 {isConfirmPasswordVisible ? <EyeOffIcon /> : <EyeIcon />}
                 <span className='sr-only'>{isConfirmPasswordVisible ? 'Hide password' : 'Show password'}</span>

@@ -32,14 +32,7 @@ const DangerZone = () => {
                 </p>
               </div>
               <Dialog>
-                <DialogTrigger
-                  render={
-                    <Button
-                      variant='outline'
-                      className='border-destructive! text-destructive! hover:bg-destructive/10! focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 max-lg:w-full'
-                    />
-                  }
-                >
+                <DialogTrigger render={<Button variant='outline-destructive' className='max-lg:w-full' />}>
                   <Trash2Icon />
                   Delete
                 </DialogTrigger>

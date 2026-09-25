@@ -38,10 +38,7 @@ function ActivityAttachment({ attachment }: { attachment: NonNullable<UserActivi
   const FileIconComponent = ATTACHMENT_FILE_ICONS[attachment.fileType]
 
   return (
-    <Badge
-      variant='outline'
-      className={cn('h-auto gap-1.5 rounded-sm px-2 py-1 font-normal', ATTACHMENT_BADGE_STYLES[attachment.fileType])}
-    >
+    <Badge variant='outline' size='attachment' shape='square' className={ATTACHMENT_BADGE_STYLES[attachment.fileType]}>
       <FileIconComponent className='size-3.5' />
       {attachment.name}
     </Badge>
@@ -51,9 +48,9 @@ function ActivityAttachment({ attachment }: { attachment: NonNullable<UserActivi
 function ActivityPersonCard({ person }: { person: NonNullable<UserActivityItem['person']> }) {
   return (
     <div className='bg-muted/50 flex w-fit max-w-sm items-center gap-3 rounded-md border px-3 py-2.5'>
-      <Avatar className='size-8'>
+      <Avatar>
         {person.avatar ? <AvatarImage src={person.avatar} alt={person.name} /> : null}
-        <AvatarFallback className='text-xs'>{person.initials}</AvatarFallback>
+        <AvatarFallback text='compact'>{person.initials}</AvatarFallback>
       </Avatar>
       <div className='min-w-0'>
         <p className='truncate text-sm font-semibold'>{person.name}</p>
@@ -75,9 +72,9 @@ function ActivityTeamAvatars({
   return (
     <AvatarGroup>
       {visibleMembers.map((member, index) => (
-        <Avatar key={`${member.name}-${index}`} className='ring-background ring-2' size='sm'>
+        <Avatar key={`${member.name}-${index}`} size='sm'>
           {member.avatar ? <AvatarImage src={member.avatar} alt={member.name} /> : null}
-          <AvatarFallback className='text-[10px]'>{member.initials}</AvatarFallback>
+          <AvatarFallback text='tiny'>{member.initials}</AvatarFallback>
         </Avatar>
       ))}
       {teamExtraCount ? <AvatarGroupCount>+{teamExtraCount}</AvatarGroupCount> : null}
@@ -107,12 +104,16 @@ export const ActivityTimeline = ({ activityLog, className }: ActivityTimelinePro
                 <TimelineItem key={item.id} status='done' className='gap-x-0'>
                   <TimelineDot
                     status='custom'
-                    className='bg-primary/20 flex size-4.5 shrink-0 items-center justify-center rounded-full'
+                    appearance='activity'
+                    className='flex size-4.5 shrink-0 items-center justify-center'
                   >
                     <span className='bg-primary size-3 rounded-full' />
                   </TimelineDot>
-                  {!isLast && <TimelineLine done className='bg-muted min-h-10' />}
-                  <TimelineHeading className='text-foreground flex w-full items-center justify-between pt-2.5 pb-2 pl-4 text-base font-medium text-wrap'>
+                  {!isLast && <TimelineLine className='min-h-10' />}
+                  <TimelineHeading
+                    variant='neutral'
+                    className='flex w-full items-center justify-between pt-2.5 pb-2 pl-4 text-wrap'
+                  >
                     {item.description}
                     <span className='text-muted-foreground text-xs font-normal text-nowrap md:text-sm'>
                       {item.timestamp}

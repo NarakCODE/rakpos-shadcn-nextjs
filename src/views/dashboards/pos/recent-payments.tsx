@@ -56,29 +56,33 @@ export const RecentPayments = () => {
   return (
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-3'>
-        <CardTitle className='text-lg font-bold'>Recent Payments</CardTitle>
-        <CardDescription className='text-muted-foreground text-xs'>
-          Today&apos;s transaction stream across payment methods
+        <CardTitle>
+          <span className='text-lg font-bold'>Recent Payments</span>
+        </CardTitle>
+        <CardDescription>
+          <span className='text-muted-foreground text-xs'>Today&apos;s transaction stream across payment methods</span>
         </CardDescription>
       </CardHeader>
 
-      <CardContent className='space-y-3'>
-        {recentPayments.map(payment => (
-          <div key={payment.id} className='flex items-center justify-between gap-3'>
-            <div className='flex min-w-0 items-center gap-3'>
-              <div className='bg-muted text-muted-foreground flex size-9 shrink-0 items-center justify-center rounded-lg'>
-                {payment.icon}
+      <CardContent>
+        <div className='space-y-3'>
+          {recentPayments.map(payment => (
+            <div key={payment.id} className='flex items-center justify-between gap-3'>
+              <div className='flex min-w-0 items-center gap-3'>
+                <div className='bg-muted text-muted-foreground flex size-9 shrink-0 items-center justify-center rounded-(--radius)'>
+                  {payment.icon}
+                </div>
+
+                <div className='min-w-0 space-y-0.5'>
+                  <p className='text-foreground truncate text-sm font-semibold'>{payment.method}</p>
+                  <p className='text-muted-foreground font-mono text-xs'>{payment.orderId}</p>
+                </div>
               </div>
 
-              <div className='min-w-0 space-y-0.5'>
-                <p className='text-foreground truncate text-sm font-semibold'>{payment.method}</p>
-                <p className='text-muted-foreground font-mono text-xs'>{payment.orderId}</p>
-              </div>
+              <span className='text-foreground text-sm font-bold tabular-nums'>{payment.amount}</span>
             </div>
-
-            <span className='text-foreground text-sm font-bold'>{payment.amount}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </CardContent>
     </Card>
   )

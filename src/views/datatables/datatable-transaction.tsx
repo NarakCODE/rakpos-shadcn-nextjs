@@ -24,6 +24,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import { Frame, FrameDescription, FrameFooter, FrameHeader, FramePanel, FrameTitle } from '@/components/ui/frame'
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem } from '@/components/ui/pagination'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
@@ -40,6 +41,13 @@ export type Item = {
   paidBy: 'mastercard' | 'visa'
 }
 
+const statusVariants = {
+  pending: 'warning',
+  processing: 'accent',
+  paid: 'success',
+  failed: 'danger'
+} as const
+
 export const columns: ColumnDef<Item>[] = [
   {
     accessorKey: 'name',
@@ -48,7 +56,9 @@ export const columns: ColumnDef<Item>[] = [
       <div className='flex items-center gap-2'>
         <Avatar className='size-9'>
           <AvatarImage src={row.original.avatar} alt='Hallie Richards' />
-          <AvatarFallback className='text-xs'>{row.original.avatarFallback}</AvatarFallback>
+          <AvatarFallback>
+            <span className='text-xs'>{row.original.avatarFallback}</span>
+          </AvatarFallback>
         </Avatar>
         <div className='flex flex-col text-sm'>
           <span className='text-card-foreground font-medium'>{row.getValue('name')}</span>
@@ -75,7 +85,9 @@ export const columns: ColumnDef<Item>[] = [
     accessorKey: 'status',
     header: 'Status',
     cell: ({ row }) => (
-      <Badge className='bg-primary/10 text-primary h-auto rounded-sm px-1.5 capitalize'>{row.getValue('status')}</Badge>
+      <Badge variant={statusVariants[row.original.status]}>
+        <span className='capitalize'>{row.original.status}</span>
+      </Badge>
     )
   },
   {
@@ -129,16 +141,25 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
   })
 
   return (
-    <div className='w-full'>
-      <div className='border-b'>
+    <Frame className='w-full'>
+      <FrameHeader>
+        <FrameTitle>
+          <h3 className='text-base'>Transactions</h3>
+        </FrameTitle>
+        <FrameDescription>Customer payments and their status.</FrameDescription>
+      </FrameHeader>
+
+      <FramePanel className='p-0'>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map(header => {
                   return (
-                    <TableHead key={header.id} className='text-muted-foreground h-14 first:pl-4'>
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                    <TableHead key={header.id} className='h-14 first:pl-4'>
+                      <span className='text-muted-foreground'>
+                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      </span>
                     </TableHead>
                   )
                 })}
@@ -165,9 +186,9 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
             )}
           </TableBody>
         </Table>
-      </div>
+      </FramePanel>
 
-      <div className='flex items-center justify-between gap-3 px-6 py-4 max-sm:flex-col md:max-lg:flex-col'>
+      <FrameFooter className='flex-row items-center justify-between gap-3 py-3 max-sm:flex-col md:max-lg:flex-col'>
         <p className='text-muted-foreground text-sm whitespace-nowrap' aria-live='polite'>
           Showing{' '}
           <span>
@@ -189,7 +210,7 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
             <PaginationContent>
               <PaginationItem>
                 <Button
-                  className='disabled:pointer-events-none disabled:opacity-50'
+                  size='sm'
                   variant='ghost'
                   onClick={() => table.previousPage()}
                   disabled={!table.getCanPreviousPage()}
@@ -202,7 +223,7 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
 
               {showLeftEllipsis && (
                 <PaginationItem>
-                  <PaginationEllipsis />
+                  <PaginationEllipsis className='size-8' />
                 </PaginationItem>
               )}
 
@@ -212,8 +233,8 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
                 return (
                   <PaginationItem key={page}>
                     <Button
-                      size='icon'
-                      className={`${!isActive && 'bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40'}`}
+                      size='icon-sm'
+                      variant={isActive ? 'default' : 'soft'}
                       onClick={() => table.setPageIndex(page - 1)}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -225,13 +246,13 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
 
               {showRightEllipsis && (
                 <PaginationItem>
-                  <PaginationEllipsis />
+                  <PaginationEllipsis className='size-8' />
                 </PaginationItem>
               )}
 
               <PaginationItem>
                 <Button
-                  className='disabled:pointer-events-none disabled:opacity-50'
+                  size='sm'
                   variant='ghost'
                   onClick={() => table.nextPage()}
                   disabled={!table.getCanNextPage()}
@@ -244,8 +265,8 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
             </PaginationContent>
           </Pagination>
         </div>
-      </div>
-    </div>
+      </FrameFooter>
+    </Frame>
   )
 }
 

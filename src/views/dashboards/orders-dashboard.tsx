@@ -1,7 +1,5 @@
 import { TruckIcon, TriangleAlertIcon, CalendarX2Icon } from 'lucide-react'
 
-import { Card } from '@/components/ui/card'
-
 import ProductInsightsCard from '@/views/dashboards/widgets/widget-product-insights'
 import SalesMetricsCard from '@/views/dashboards/charts/chart-sales-metrics'
 import StatisticsCard from '@/views/dashboards/statistics/statistics-card-01'
@@ -320,7 +318,7 @@ const OrdersDashboard = () => {
 
       <div className='grid gap-6 max-xl:col-span-full lg:max-xl:grid-cols-2'>
         {/* Product Insights Card */}
-        <ProductInsightsCard className='justify-between gap-3 *:data-[slot=card-content]:space-y-5' />
+        <ProductInsightsCard className='justify-between gap-3' />
 
         {/* Total Earning Card */}
         <TotalEarningCard
@@ -334,11 +332,11 @@ const OrdersDashboard = () => {
         />
       </div>
 
-      <SalesMetricsCard className='col-span-full *:data-[slot=card-content]:space-y-6 xl:col-span-2' />
+      <SalesMetricsCard className='col-span-full xl:col-span-2' />
 
-      <Card className='col-span-full w-full py-0'>
+      <div className='col-span-full min-w-0'>
         <TransactionDatatable data={transactionData} />
-      </Card>
+      </div>
     </div>
   )
 }

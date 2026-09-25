@@ -36,14 +36,7 @@ const DangerZone = () => {
                 </p>
               </div>
               <Dialog>
-                <DialogTrigger
-                  render={
-                    <Button
-                      variant='outline'
-                      className='border-destructive! text-destructive! hover:bg-destructive/10! focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 max-lg:w-full'
-                    />
-                  }
-                >
+                <DialogTrigger render={<Button variant='outline-destructive' className='max-lg:w-full' />}>
                   <Trash2Icon />
                   Leave
                 </DialogTrigger>
@@ -63,7 +56,7 @@ const DangerZone = () => {
             </div>
           </CardContent>
         </Card>
-        <Card className='cursor-not-allowed opacity-60'>
+        <Card variant='subdued' className='cursor-not-allowed'>
           <CardContent>
             <div className='flex justify-between gap-4 max-lg:flex-col lg:items-center'>
               <div className='space-y-1'>
@@ -72,11 +65,7 @@ const DangerZone = () => {
                   Delete your workspace permanently. This action will remove all data and cannot be undone.
                 </p>
               </div>
-              <Button
-                variant='outline'
-                className='hover:bg-destructive/10! text-destructive! border-destructive! focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 max-lg:w-full'
-                disabled
-              >
+              <Button variant='outline-destructive' className='max-lg:w-full' disabled>
                 <Trash2Icon />
                 Delete workspace
               </Button>

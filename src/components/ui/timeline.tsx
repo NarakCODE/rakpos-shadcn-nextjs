@@ -65,10 +65,15 @@ const timelineDotVariants = cva(
         error:
           'border-destructive bg-destructive [&>.timeline-icon-x>svg]:text-background size-4 [&>*:not(.timeline-icon-x)]:hidden',
         custom: 'border-none [&>*:not(:nth-child(4))]:hidden [&>*:nth-child(4)]:block'
+      },
+      appearance: {
+        default: '',
+        activity: 'bg-primary/20'
       }
     },
     defaultVariants: {
-      status: 'default'
+      status: 'default',
+      appearance: 'default'
     }
   }
 )
@@ -87,8 +92,13 @@ type TimelineDotProps = React.HTMLAttributes<HTMLDivElement> &
   )
 
 const TimelineDot = React.forwardRef<HTMLDivElement, TimelineDotProps>(
-  ({ className, status, children, ...props }, ref) => (
-    <div role='status' className={cn('timeline-dot', timelineDotVariants({ status }), className)} ref={ref} {...props}>
+  ({ className, status, appearance, children, ...props }, ref) => (
+    <div
+      role='status'
+      className={cn('timeline-dot', timelineDotVariants({ status, appearance }), className)}
+      ref={ref}
+      {...props}
+    >
       <span className='timeline-icon-circle flex items-center justify-center'>
         <CircleIcon className='size-2.5' />
       </span>
@@ -158,7 +168,8 @@ const timelineHeadingVariants = cva('row-start-1 row-end-1 line-clamp-1 max-w-fu
     },
     variant: {
       primary: 'text-primary text-base font-medium',
-      secondary: 'text-muted-foreground text-sm font-light'
+      secondary: 'text-muted-foreground text-sm font-light',
+      neutral: 'text-foreground text-base font-medium'
     }
   },
   defaultVariants: {

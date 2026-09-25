@@ -12,7 +12,6 @@ import {
 } from 'lucide-react'
 
 // Component Imports
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
 
@@ -97,7 +96,7 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
           <div className='flex flex-col justify-between gap-7 lg:col-span-3'>
             <span className='text-lg font-semibold'>Sales metrics</span>
             <div className='flex items-center gap-3'>
-              <img src='/images/brands/logo-square.webp' className='size-10.5 rounded-lg' alt='logo' />
+              <img src='/images/brands/logo-square.webp' className='size-10.5 rounded-(--radius)' alt='logo' />
               <div className='flex flex-col gap-0.5'>
                 <span className='text-xl font-medium'>Sandy&apos; Company</span>
                 <span className='text-muted-foreground text-sm'>sandy@company.com</span>
@@ -106,13 +105,11 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
 
             <div className='grid gap-4 sm:grid-cols-2'>
               {MetricsData.map((metric, index) => (
-                <Card key={index} className='ring-foreground/10 py-2 shadow-none ring-1'>
+                <Card key={index} variant='flat' className='py-2'>
                   <CardContent className='flex items-center gap-3 px-4'>
-                    <Avatar className='rounded-sm after:border-0'>
-                      <AvatarFallback className='bg-primary/10 text-primary shrink-0 rounded-sm'>
-                        {metric.icons}
-                      </AvatarFallback>
-                    </Avatar>
+                    <div className='bg-primary/10 text-primary flex size-8 shrink-0 items-center justify-center rounded-(--radius-sm)'>
+                      {metric.icons}
+                    </div>
                     <div className='flex flex-col gap-0.5'>
                       <span className='text-muted-foreground text-sm font-medium'>{metric.title}</span>
                       <span className='text-lg font-medium'>{metric.value}</span>
@@ -122,7 +119,7 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
               ))}
             </div>
           </div>
-          <Card className='ring-foreground/10 justify-between gap-4 shadow-none ring-1 lg:col-span-2'>
+          <Card variant='flat' className='justify-between gap-4 lg:col-span-2'>
             <CardHeader className='gap-1'>
               <CardTitle className='text-lg font-semibold'>Revenue goal</CardTitle>
             </CardHeader>
@@ -177,7 +174,7 @@ const SalesMetricsCard = ({ className }: { className?: string }) => {
         </div>
       </CardContent>
       <CardContent>
-        <Card className='ring-foreground/10 shadow-none ring-1'>
+        <Card variant='flat'>
           <CardContent className='grid gap-4 lg:grid-cols-5'>
             <div className='flex flex-col justify-center gap-6'>
               <span className='text-lg font-semibold'>Sales plan</span>

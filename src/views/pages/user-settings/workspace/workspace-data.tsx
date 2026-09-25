@@ -62,7 +62,7 @@ const WorkspaceData = () => {
           <div className='overflow-hidden rounded-lg border'>
             <Table>
               <TableHeader>
-                <TableRow className='bg-muted'>
+                <TableRow variant='filled'>
                   <TableHead className='px-6'>TYPE</TableHead>
                   <TableHead className='px-6'>DATE</TableHead>
                   <TableHead className='px-6'></TableHead>
@@ -78,10 +78,7 @@ const WorkspaceData = () => {
                       {item.status === 'progress' ? (
                         <div className='flex flex-col items-start gap-1'>
                           <span className='text-xs'>Progress {item.progress}%</span>
-                          <Progress
-                            value={item.progress}
-                            className='**:data-[slot=progress-track]:bg-primary/20 w-20 **:data-[slot=progress-track]:h-2 md:w-60'
-                          />
+                          <Progress value={item.progress} track='soft' className='w-20 md:w-60' />
                         </div>
                       ) : (
                         <div className='flex items-center gap-2'>

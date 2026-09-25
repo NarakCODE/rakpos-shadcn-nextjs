@@ -59,7 +59,9 @@ export function UserViewLeftPanel({ user, onEdit }: UserViewLeftPanelProps) {
         <div className='flex flex-col items-center text-center'>
           <Avatar className='size-24'>
             {user.avatar ? <AvatarImage src={user.avatar} alt={user.name} /> : null}
-            <AvatarFallback className='text-2xl'>{getInitialsFromName(user.name)}</AvatarFallback>
+            <AvatarFallback>
+              <span className='text-2xl'>{getInitialsFromName(user.name)}</span>
+            </AvatarFallback>
           </Avatar>
           <h2 className='mt-4 line-clamp-4 text-xl font-semibold'>{user.name}</h2>
           <Badge variant='secondary' className='mt-2'>
@@ -102,10 +104,7 @@ export function UserViewLeftPanel({ user, onEdit }: UserViewLeftPanelProps) {
           <Button className='sm:flex-1' onClick={onEdit}>
             Edit
           </Button>
-          <Button
-            variant='outline'
-            className='text-destructive hover:bg-destructive/10 hover:text-destructive sm:flex-1'
-          >
+          <Button variant='outline-destructive-text' className='sm:flex-1'>
             Suspend
           </Button>
         </div>

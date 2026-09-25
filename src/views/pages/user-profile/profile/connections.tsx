@@ -31,9 +31,7 @@ function Connections({ className }: ConnectionsProps) {
       <CardHeader className='flex items-center justify-between'>
         <span className='text-lg font-medium'>Connections</span>
         <DropdownMenu>
-          <DropdownMenuTrigger
-            render={<Button variant='ghost' size='icon' className='text-muted-foreground size-6 rounded-full' />}
-          >
+          <DropdownMenuTrigger render={<Button variant='ghost-muted' size='icon-xs' shape='round' />}>
             <EllipsisVerticalIcon />
             <span className='sr-only'>Menu</span>
           </DropdownMenuTrigger>

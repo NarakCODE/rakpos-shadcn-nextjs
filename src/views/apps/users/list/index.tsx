@@ -30,7 +30,7 @@ const UserListApp = () => {
 
   return (
     <div className='flex flex-col gap-3 lg:gap-6'>
-      <Card className='py-0 shadow-none'>
+      <Card variant='flat' className='py-0'>
         <div className='w-full'>
           <div className='border-b'>
             <UserTableFilters filters={filters} onFilterChange={handleFilterChange} />

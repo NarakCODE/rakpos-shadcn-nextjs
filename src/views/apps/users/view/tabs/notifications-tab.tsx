@@ -30,8 +30,8 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
 
   return (
     <Card className='gap-0 py-0'>
-      <CardHeader className='border-b px-6 py-4'>
-        <CardTitle className='text-base'>Notifications</CardTitle>
+      <CardHeader variant='divided' className='px-6 py-4'>
+        <CardTitle>Notifications</CardTitle>
         <p className='text-muted-foreground text-sm'>
           Choose how {user.name} receives notifications for account activity.
         </p>
@@ -39,22 +39,24 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
       <CardContent className='px-0 pb-0'>
         <Table>
           <TableHeader>
-            <TableRow className='hover:bg-transparent'>
-              <TableHead className='text-muted-foreground pl-6'>Type</TableHead>
-              <TableHead className='text-muted-foreground text-center'>
-                <div className='flex items-center justify-center gap-1.5'>
+            <TableRow variant='static'>
+              <TableHead className='pl-6'>
+                <span className='text-muted-foreground'>Type</span>
+              </TableHead>
+              <TableHead className='text-center'>
+                <div className='text-muted-foreground flex items-center justify-center gap-1.5'>
                   <MailIcon className='size-4' />
                   Email
                 </div>
               </TableHead>
-              <TableHead className='text-muted-foreground text-center'>
-                <div className='flex items-center justify-center gap-1.5'>
+              <TableHead className='text-center'>
+                <div className='text-muted-foreground flex items-center justify-center gap-1.5'>
                   <MonitorIcon className='size-4' />
                   Browser
                 </div>
               </TableHead>
-              <TableHead className='text-muted-foreground pr-6 text-center'>
-                <div className='flex items-center justify-center gap-1.5'>
+              <TableHead className='pr-6 text-center'>
+                <div className='text-muted-foreground flex items-center justify-center gap-1.5'>
                   <SmartphoneIcon className='size-4' />
                   App
                 </div>
@@ -63,9 +65,9 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
           </TableHeader>
           <TableBody>
             {settings.length === 0 ? (
-              <TableRow className='hover:bg-transparent'>
-                <TableCell colSpan={4} className='text-muted-foreground py-8 text-center text-sm'>
-                  No notification settings found.
+              <TableRow variant='static'>
+                <TableCell colSpan={4} className='py-8 text-center text-sm'>
+                  <span className='text-muted-foreground'>No notification settings found.</span>
                 </TableCell>
               </TableRow>
             ) : (

@@ -15,7 +15,6 @@ import { Progress } from '@/components/ui/progress'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 
 // Util Imports
-import { cn } from '@/lib/utils'
 
 const INVOICE_STATUS_STYLES: Record<InvoiceStatus, string> = {
   paid: 'bg-green-600/10 text-green-600 dark:bg-green-400/10 dark:text-green-400',
@@ -41,7 +40,7 @@ export function BillingTab({ user }: BillingTabProps) {
     <div className='space-y-6'>
       <Card>
         <CardHeader>
-          <CardTitle className='text-base'>Current Plan</CardTitle>
+          <CardTitle>Current Plan</CardTitle>
         </CardHeader>
         <CardContent className='space-y-6'>
           {!billingPlan ? (
@@ -95,7 +94,7 @@ export function BillingTab({ user }: BillingTabProps) {
 
       <Card>
         <CardHeader>
-          <CardTitle className='text-base'>Billing Details</CardTitle>
+          <CardTitle>Billing Details</CardTitle>
         </CardHeader>
         <CardContent>
           <div className='grid gap-4 sm:grid-cols-2'>
@@ -120,8 +119,8 @@ export function BillingTab({ user }: BillingTabProps) {
       </Card>
 
       <Card className='gap-0 py-0'>
-        <CardHeader className='border-b px-6 py-4'>
-          <CardTitle className='text-base'>Invoice History</CardTitle>
+        <CardHeader variant='divided' className='px-6 py-4'>
+          <CardTitle>Invoice History</CardTitle>
         </CardHeader>
         {invoices.length === 0 ? (
           <CardContent className='py-8'>
@@ -130,12 +129,22 @@ export function BillingTab({ user }: BillingTabProps) {
         ) : (
           <Table>
             <TableHeader>
-              <TableRow className='hover:bg-transparent'>
-                <TableHead className='text-muted-foreground pl-6'>Invoice</TableHead>
-                <TableHead className='text-muted-foreground'>Status</TableHead>
-                <TableHead className='text-muted-foreground'>Total</TableHead>
-                <TableHead className='text-muted-foreground'>Issued Date</TableHead>
-                <TableHead className='text-muted-foreground pr-6 text-right'>Action</TableHead>
+              <TableRow variant='static'>
+                <TableHead className='pl-6'>
+                  <span className='text-muted-foreground'>Invoice</span>
+                </TableHead>
+                <TableHead>
+                  <span className='text-muted-foreground'>Status</span>
+                </TableHead>
+                <TableHead>
+                  <span className='text-muted-foreground'>Total</span>
+                </TableHead>
+                <TableHead>
+                  <span className='text-muted-foreground'>Issued Date</span>
+                </TableHead>
+                <TableHead className='pr-6 text-right'>
+                  <span className='text-muted-foreground'>Action</span>
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -143,13 +152,15 @@ export function BillingTab({ user }: BillingTabProps) {
                 <TableRow key={invoice.id}>
                   <TableCell className='pl-6 font-medium'>{invoice.number}</TableCell>
                   <TableCell>
-                    <Badge className={cn('rounded-sm font-normal capitalize', INVOICE_STATUS_STYLES[invoice.status])}>
-                      {formatInvoiceStatus(invoice.status)}
+                    <Badge shape='square' className={INVOICE_STATUS_STYLES[invoice.status]}>
+                      <span className='font-normal'>{formatInvoiceStatus(invoice.status)}</span>
                     </Badge>
                   </TableCell>
                   <TableCell>${invoice.total.toLocaleString()}</TableCell>
-                  <TableCell className='text-muted-foreground'>
-                    {format(new Date(invoice.issuedDate), 'MMM dd, yyyy')}
+                  <TableCell>
+                    <span className='text-muted-foreground'>
+                      {format(new Date(invoice.issuedDate), 'MMM dd, yyyy')}
+                    </span>
                   </TableCell>
                   <TableCell className='pr-6 text-right'>
                     <Button variant='ghost' size='icon' aria-label={`Download ${invoice.number}`}>

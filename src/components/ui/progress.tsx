@@ -4,12 +4,22 @@ import { Progress as ProgressPrimitive } from '@base-ui/react/progress'
 
 import { cn } from '@/lib/utils'
 
-function Progress({ className, children, value, ...props }: ProgressPrimitive.Root.Props) {
+function Progress({
+  className,
+  children,
+  value,
+  track = 'default',
+  ...props
+}: ProgressPrimitive.Root.Props & { track?: 'default' | 'soft' }) {
   return (
     <ProgressPrimitive.Root
       value={value}
       data-slot='progress'
-      className={cn('flex flex-wrap gap-3', className)}
+      className={cn(
+        'flex flex-wrap gap-3',
+        track === 'soft' && '**:data-[slot=progress-track]:bg-primary/20 **:data-[slot=progress-track]:h-2',
+        className
+      )}
       {...props}
     >
       {children}

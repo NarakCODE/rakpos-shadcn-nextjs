@@ -25,6 +25,7 @@ export type MenuItem = {
 } & (
   | {
       href: string
+      activePath?: string
       badge?: string
       badgeClassName?: string
       childItems?: never
@@ -45,7 +46,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   {
-    groupLabel: 'Dashboard & Layouts',
+    groupLabel: 'Main',
     items: [
       {
         icon: 'LayoutDashboard',
@@ -53,165 +54,147 @@ export const navItems: NavItem[] = [
         href: '/dashboard'
       },
       {
+        icon: 'Store',
+        label: 'POS',
+        href: '/pos'
+      },
+      {
+        icon: 'Layers',
+        label: 'Floor Plan',
+        href: '/floor-plan'
+      },
+      {
+        icon: 'ChefHat',
+        label: 'Kitchen Display',
+        href: '/kitchen'
+      },
+      {
         icon: 'Package',
         label: 'Orders',
-        href: '/dashboard/orders'
+        href: '/orders'
+      },
+      {
+        icon: 'CalendarCheck',
+        label: 'Reservations',
+        href: '/reservations'
       }
     ]
   },
   {
-    groupLabel: 'Apps',
+    groupLabel: 'Menu Management',
     items: [
       {
-        icon: 'MailIcon',
-        label: 'Mail',
-        href: '/apps/mail'
+        icon: 'FolderTree',
+        label: 'Category',
+        href: '/menu/category'
       },
       {
-        icon: 'CalendarIcon',
-        label: 'Calendar',
-        href: '/apps/calendar'
+        icon: 'Utensils',
+        label: 'Items',
+        href: '/menu/items'
       },
       {
-        icon: 'UsersIcon',
-        label: 'Users',
-        childItems: [
-          { label: 'List', href: '/apps/users/list' },
-          { label: 'View', href: '/apps/users/view' }
-        ]
+        icon: 'PlusCircle',
+        label: 'Addons',
+        href: '/menu/addons'
+      },
+      {
+        icon: 'TicketPercent',
+        label: 'Coupons',
+        href: '/menu/coupons'
+      },
+      {
+        icon: 'Boxes',
+        label: 'Inventory',
+        href: '/menu/inventory'
       }
     ]
   },
   {
-    groupLabel: 'Pages',
+    groupLabel: 'Operations',
     items: [
       {
-        icon: 'UserCogIcon',
-        label: 'User Settings',
-        childItems: [
-          {
-            label: 'General',
-            href: '/pages/user-settings?setting=general'
-          },
-          {
-            label: 'Workspace',
-            href: '/pages/user-settings?setting=workspace'
-          }
-        ]
+        icon: 'Users',
+        label: 'Customers',
+        href: '/operations/customers'
       },
       {
-        icon: 'UserIcon',
-        label: 'User Profile',
+        icon: 'FileText',
+        label: 'Invoices',
+        href: '/operations/invoices'
+      },
+      {
+        icon: 'CreditCard',
+        label: 'Payments',
+        href: '/operations/payments'
+      }
+    ]
+  },
+  {
+    groupLabel: 'Auth',
+    items: [
+      {
+        icon: 'LogIn',
+        label: 'Login',
+        href: '/pages/auth/login',
+        target: '_blank'
+      },
+      {
+        icon: 'UserPlus',
+        label: 'Register',
+        href: '/pages/auth/register',
+        target: '_blank'
+      },
+      {
+        icon: 'KeyRound',
+        label: 'Forgot Password',
+        href: '/pages/auth/forgot-password',
+        target: '_blank'
+      }
+    ]
+  },
+  {
+    groupLabel: 'Settings',
+    items: [
+      {
+        icon: 'Settings2',
+        label: 'Store Settings',
         childItems: [
           {
             label: 'Profile',
-            href: '/pages/user-profile?view=profile'
+            href: '/settings/store/profile'
           },
           {
-            label: 'Connections',
-            href: '/pages/user-profile?view=connections'
+            label: 'Tax & Billing',
+            href: '/settings/store/tax-billing'
+          },
+          {
+            label: 'Orders',
+            href: '/settings/store/orders'
+          },
+          {
+            label: 'Payments',
+            href: '/settings/store/payments'
+          },
+          {
+            label: 'Operating Hours',
+            href: '/settings/store/operating-hours'
           }
         ]
       },
       {
-        icon: 'LockKeyholeIcon',
-        label: 'Authentication',
-        childItems: [
-          { label: 'Login', href: '/pages/auth/login', target: '_blank' },
-          { label: 'Register', href: '/pages/auth/register', target: '_blank' },
-          { label: 'Forgot Password', href: '/pages/auth/forgot-password', target: '_blank' },
-          { label: 'Verify Email', href: '/pages/auth/verify-email', target: '_blank' },
-          { label: 'Reset Password', href: '/pages/auth/reset-password', target: '_blank' },
-          { label: 'Two Steps', href: '/pages/auth/two-steps', target: '_blank' }
-        ]
-      },
-      {
-        icon: 'BugIcon',
-        label: 'Error Pages',
-        childItems: [{ label: 'Error Page', href: '/pages/misc/error-page', target: '_blank' }]
-      }
-    ]
-  },
-  {
-    groupLabel: 'Forms & Tables',
-    items: [
-      {
-        icon: 'LayoutTemplateIcon',
-        label: 'Form Layouts',
-        childItems: [
-          { label: 'Vertical Layout', href: '/forms/form-layouts/vertical' },
-          { label: 'Horizontal Layout', href: '/forms/form-layouts/horizontal' }
-        ]
-      },
-      {
-        icon: 'BadgeCheckIcon',
-        label: 'Form Validation',
-        href: '/forms/form-validation'
-      },
-      {
-        icon: 'TableIcon',
-        label: 'Data Table',
-        href: '/datatable'
-      }
-    ]
-  },
-  {
-    groupLabel: 'Components & Charts',
-    items: [
-      {
-        icon: 'LayoutGrid',
-        label: 'Components',
-        href: 'https://shadcnstudio.com/components',
-        target: '_blank'
-      },
-      {
-        icon: 'LineChart',
-        label: 'Charts',
-        href: 'https://shadcnstudio.com/blocks/dashboard-and-application/charts-component',
-        target: '_blank'
-      },
-      {
-        icon: 'ChartNoAxesColumnIncreasing',
-        label: 'Statistics',
-        href: 'https://shadcnstudio.com/blocks/dashboard-and-application/statistics-component',
-        target: '_blank'
-      },
-      {
-        icon: 'Puzzle',
-        label: 'Widgets',
-        href: 'https://shadcnstudio.com/blocks/dashboard-and-application/widgets-component',
-        target: '_blank'
-      }
-    ]
-  },
-  {
-    groupLabel: 'Miscellaneous',
-    items: [
-      {
-        icon: 'MenuIcon',
-        label: 'Menu Level',
+        icon: 'ShieldCheck',
+        label: 'Administration',
         childItems: [
           {
-            label: 'Menu Item ',
-            href: '#'
+            label: 'Roles',
+            href: '/settings/admin/roles'
           },
           {
-            label: 'Menu Level 1',
-            childItems: [{ label: 'Menu Level 2', href: '#' }]
+            label: 'Permissions',
+            href: '/settings/admin/permissions'
           }
         ]
-      },
-      {
-        icon: 'InfoIcon',
-        label: 'Support',
-        href: 'https://shadcnstudio.com/support',
-        target: '_blank'
-      },
-      {
-        icon: 'BookOpenTextIcon',
-        label: 'Documentation',
-        href: 'https://shadcnstudio.com/docs/documentation-admin/getting-started',
-        target: '_blank'
       }
     ]
   }

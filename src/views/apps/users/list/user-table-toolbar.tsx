@@ -79,11 +79,7 @@ export function UserTableToolbar({ search, rowsPerPage, onSearch, onRowsPerPageC
         </div>
 
         <DropdownMenu>
-          <DropdownMenuTrigger
-            render={
-              <Button className='bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40' />
-            }
-          >
+          <DropdownMenuTrigger render={<Button variant='soft' />}>
             <UploadIcon />
             <span className='max-lg:hidden'>Export</span>
           </DropdownMenuTrigger>

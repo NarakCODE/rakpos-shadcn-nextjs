@@ -32,9 +32,11 @@ export const OrderTypeDonut = () => {
   return (
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-2'>
-        <CardTitle className='text-lg font-bold'>Order Type</CardTitle>
-        <CardDescription className='text-muted-foreground text-xs'>
-          Distribution across dining channels today
+        <CardTitle>
+          <span className='text-lg font-bold'>Order Type</span>
+        </CardTitle>
+        <CardDescription>
+          <span className='text-muted-foreground text-xs'>Distribution across dining channels today</span>
         </CardDescription>
       </CardHeader>
 
@@ -97,7 +99,7 @@ export const OrderTypeDonut = () => {
         </div>
 
         {/* Legend */}
-        <div className='bg-muted/30 grid w-full grid-cols-3 gap-2 rounded-lg border py-3 text-center'>
+        <div className='bg-muted/30 grid w-full grid-cols-3 gap-2 rounded-(--radius) border py-3 text-center'>
           {orderTypeData.map(item => (
             <div key={item.name} className='flex flex-col items-center gap-0.5 px-2'>
               <div className='flex items-center gap-1.5'>

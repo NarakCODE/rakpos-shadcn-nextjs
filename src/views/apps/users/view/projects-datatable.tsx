@@ -70,9 +70,9 @@ function ProjectTeamAvatars({ project }: { project: UserProject }) {
   return (
     <AvatarGroup>
       {visibleTeam.map((member, index) => (
-        <Avatar key={`${project.id}-team-${index}`} className='ring-background ring-2' size='sm'>
+        <Avatar key={`${project.id}-team-${index}`} size='sm'>
           {member.avatar ? <AvatarImage src={member.avatar} alt={member.initials} /> : null}
-          <AvatarFallback className='text-[10px]'>{member.initials}</AvatarFallback>
+          <AvatarFallback text='tiny'>{member.initials}</AvatarFallback>
         </Avatar>
       ))}
       {project.teamExtraCount ? <AvatarGroupCount>+{project.teamExtraCount}</AvatarGroupCount> : null}
@@ -169,8 +169,8 @@ export function ProjectsDatatable({
 
         <Table>
           <TableHeader>
-            <TableRow className='h-17 border-t'>
-              <TableHead className='text-muted-foreground w-12.5 pl-4'>
+            <TableRow variant='header' className='h-17'>
+              <TableHead className='w-12.5 pl-4'>
                 <Checkbox
                   checked={allSelected}
                   indeterminate={someSelected}
@@ -178,11 +178,21 @@ export function ProjectsDatatable({
                   aria-label='Select all projects'
                 />
               </TableHead>
-              <TableHead className='text-muted-foreground'>Project</TableHead>
-              <TableHead className='text-muted-foreground'>Leader</TableHead>
-              <TableHead className='text-muted-foreground'>Team</TableHead>
-              <TableHead className='text-muted-foreground'>Progress</TableHead>
-              <TableHead className='text-muted-foreground w-12 px-4 text-right'>Action</TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Project</span>
+              </TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Leader</span>
+              </TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Team</span>
+              </TableHead>
+              <TableHead>
+                <span className='text-muted-foreground'>Progress</span>
+              </TableHead>
+              <TableHead className='w-12 px-4 text-right'>
+                <span className='text-muted-foreground'>Action</span>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -204,11 +214,11 @@ export function ProjectsDatatable({
                   </TableCell>
                   <TableCell>
                     <div className='flex items-center gap-4'>
-                      <Avatar className='size-8 rounded-md after:border-none'>
+                      <Avatar shape='square' border='none'>
                         {project.logo ? (
-                          <AvatarImage src={project.logo} alt={project.name} className='rounded-md object-cover' />
+                          <AvatarImage src={project.logo} alt={project.name} className='object-cover' />
                         ) : null}
-                        <AvatarFallback className={cn('rounded-md text-xs', getProjectLogoColor(project.id))}>
+                        <AvatarFallback text='compact' className={getProjectLogoColor(project.id)}>
                           {getProjectInitials(project.name)}
                         </AvatarFallback>
                       </Avatar>
@@ -265,7 +275,6 @@ export function ProjectsDatatable({
               <PaginationContent>
                 <PaginationItem>
                   <Button
-                    className='disabled:pointer-events-none disabled:opacity-50'
                     variant='ghost'
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage <= 1}
@@ -289,7 +298,7 @@ export function ProjectsDatatable({
                     <PaginationItem key={page}>
                       <Button
                         size='icon'
-                        className={`${!isActive && 'bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40'}`}
+                        variant={isActive ? 'default' : 'soft'}
                         onClick={() => handlePageChange(page)}
                         aria-current={isActive ? 'page' : undefined}
                       >
@@ -307,7 +316,6 @@ export function ProjectsDatatable({
 
                 <PaginationItem>
                   <Button
-                    className='disabled:pointer-events-none disabled:opacity-50'
                     variant='ghost'
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage >= totalPages}

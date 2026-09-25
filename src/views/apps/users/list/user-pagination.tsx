@@ -44,7 +44,6 @@ export function UserPagination({
           <PaginationContent>
             <PaginationItem>
               <Button
-                className='disabled:pointer-events-none disabled:opacity-50'
                 variant='ghost'
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage <= 1}
@@ -68,7 +67,7 @@ export function UserPagination({
                 <PaginationItem key={page}>
                   <Button
                     size='icon'
-                    className={`${!isActive && 'bg-primary/10 text-primary hover:bg-primary/20 focus-visible:ring-primary/20 dark:focus-visible:ring-primary/40'}`}
+                    variant={isActive ? 'default' : 'soft'}
                     onClick={() => onPageChange(page)}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -86,7 +85,6 @@ export function UserPagination({
 
             <PaginationItem>
               <Button
-                className='disabled:pointer-events-none disabled:opacity-50'
                 variant='ghost'
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage >= totalPages}
