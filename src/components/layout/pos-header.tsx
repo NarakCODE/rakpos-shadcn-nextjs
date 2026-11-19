@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { LayoutDashboardIcon } from 'lucide-react'
+
 import Logo from '@/assets/svg/logo'
 import ModeToggle from '@/components/layout/ModeToggle'
 import { Badge } from '@/components/ui/badge'
@@ -33,6 +35,16 @@ const PosHeader = () => {
             <span className='font-semibold tracking-tight'>RakPOS</span>
           </Link>
           <div className='flex items-center gap-2 md:hidden'>
+            <Button
+              size='sm'
+              variant='outline'
+              className='h-8 gap-1.5 px-2.5 text-xs'
+              render={<Link href='/dashboard' />}
+              nativeButton={false}
+            >
+              <LayoutDashboardIcon className='size-3.5' />
+              Dashboard
+            </Button>
             <Badge variant='secondary'>Demo</Badge>
             <ModeToggle />
           </div>
@@ -60,6 +72,16 @@ const PosHeader = () => {
         </nav>
 
         <div className='hidden items-center gap-2 md:flex'>
+          <Button
+            size='sm'
+            variant='outline'
+            className='h-9 gap-1.5'
+            render={<Link href='/dashboard' />}
+            nativeButton={false}
+          >
+            <LayoutDashboardIcon className='size-4' />
+            Dashboard
+          </Button>
           <Badge variant='secondary'>Demo</Badge>
           <ModeToggle />
         </div>

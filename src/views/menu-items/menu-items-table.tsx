@@ -83,7 +83,7 @@ export function MenuItemsTable({ items, columnVisibility, onEdit, onDuplicate, o
                 )}
                 {columnVisibility.status && (
                   <TableCell>
-                    <Badge variant={item.status === 'Active' ? 'success' : 'secondary'}>{item.status}</Badge>
+                    <Badge variant={item.status === 'Active' ? 'success' : 'danger'}>{item.status}</Badge>
                   </TableCell>
                 )}
                 <TableCell className='text-right'>

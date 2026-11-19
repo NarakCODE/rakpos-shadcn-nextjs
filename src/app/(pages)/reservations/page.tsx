@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { CalendarDaysIcon } from 'lucide-react'
 
-import PosPlaceholder from '@/views/pos/pos-placeholder'
+import ReservationsView from '@/views/reservations'
 
-export const metadata: Metadata = { title: 'Reservations | RakPOS' }
+export const metadata: Metadata = {
+  title: 'Reservations | RakPOS',
+  description: 'Manage guest reservations, seating details, and booking status.'
+}
 
-const ReservationsPage = () => (
-  <PosPlaceholder
-    title='Reservations'
-    description='Reservation management is not available in this demo yet.'
-    icon={CalendarDaysIcon}
-  />
-)
+const ReservationsPage = () => <ReservationsView />
 
 export default ReservationsPage

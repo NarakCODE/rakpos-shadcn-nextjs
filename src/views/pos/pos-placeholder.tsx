@@ -8,10 +8,7 @@ type PosPlaceholderProps = {
 
 const PosPlaceholder = ({ title, description, icon: Icon }: PosPlaceholderProps) => {
   return (
-    <main
-      id='pos-main'
-      className='flex min-h-96 flex-1 flex-col items-center justify-center gap-4 px-4 py-6 text-center sm:px-6 lg:py-8'
-    >
+    <div className='flex min-h-96 flex-1 flex-col items-center justify-center gap-4 text-center'>
       <span className='bg-secondary text-secondary-foreground flex size-16 items-center justify-center rounded-2xl'>
         <Icon className='size-8' aria-hidden='true' />
       </span>
@@ -19,7 +16,7 @@ const PosPlaceholder = ({ title, description, icon: Icon }: PosPlaceholderProps)
         <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>{title}</h1>
         <p className='text-muted-foreground text-sm'>{description}</p>
       </div>
-    </main>
+    </div>
   )
 }
 
