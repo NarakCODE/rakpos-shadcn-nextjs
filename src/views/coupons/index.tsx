@@ -19,14 +19,7 @@ import {
 import { Frame, FrameDescription, FrameFooter, FrameHeader, FramePanel } from '@/components/ui/frame'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { mockCoupons } from '@/fake-db/coupons'
 import type { Coupon, CouponColumn, CouponFormValues, CouponStatus } from '@/types/coupon-types'
@@ -128,7 +121,7 @@ export default function CouponsView() {
     <div className='flex flex-col gap-6'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
         <div className='flex flex-col gap-1'>
-          <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Coupons</h1>
+          <h1 className='text-title-regular'>Coupons</h1>
           <FrameDescription>Manage discount coupons for your POS</FrameDescription>
         </div>
         <Button type='button' variant='default' onClick={() => setIsCreateOpen(true)}>
@@ -140,7 +133,7 @@ export default function CouponsView() {
       <Frame className='w-full'>
         <FrameHeader>
           <div className='grid gap-3 sm:grid-cols-[auto_minmax(0,1fr)] xl:grid-cols-[auto_minmax(14rem,1fr)_10rem_auto] xl:items-center'>
-            <div className='flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground'>
+            <div className='text-body-small-regular text-muted-foreground flex items-center gap-2 whitespace-nowrap'>
               <Label htmlFor='coupons-page-size'>Show</Label>
               <Select
                 items={PAGE_SIZE_ITEMS}
@@ -298,9 +291,7 @@ export default function CouponsView() {
                       )}
                       {columnVisibility.status && (
                         <TableCell>
-                          <Badge variant={coupon.status === 'Active' ? 'success' : 'outline'}>
-                            {coupon.status}
-                          </Badge>
+                          <Badge variant={coupon.status === 'Active' ? 'success' : 'outline'}>{coupon.status}</Badge>
                         </TableCell>
                       )}
                     </TableRow>
@@ -318,7 +309,7 @@ export default function CouponsView() {
         </FramePanel>
 
         <FrameFooter>
-          <p className='text-sm text-muted-foreground'>
+          <p className='text-body-small-regular text-muted-foreground'>
             Showing {showingFrom} to {showingTo} of {filteredCoupons.length} entries
           </p>
         </FrameFooter>

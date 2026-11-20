@@ -81,24 +81,27 @@ const ConnectedAccount = () => {
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       {/* Vertical Tabs List */}
       <div className='flex flex-col'>
-        <h3 className='text-base font-semibold'>Connect Accounts</h3>
-        <p className='text-muted-foreground text-sm'>Manage your connected accounts.</p>
+        <h3 className='text-body-regular-semibold'>Connect Accounts</h3>
+        <p className='text-muted-foreground text-body-small-regular'>Manage your connected accounts.</p>
       </div>
 
       {/* Content */}
       <div className='space-y-4 lg:col-span-2'>
         <div className='flex flex-wrap items-center gap-4'>
           {connectedAccounts.map(account => (
-            <div key={account.id} className='flex h-9 w-fit items-center gap-2 rounded-md border px-2.5 text-sm'>
+            <div
+              key={account.id}
+              className='text-body-small-regular flex h-9 w-fit items-center gap-2 rounded-md border px-2.5'
+            >
               {account.iconUrl ? (
                 <img src={account.iconUrl} alt={account.name} className='size-4 rounded' />
               ) : (
-                <div className='bg-muted-foreground/10 text-muted-foreground flex size-4 items-center justify-center rounded text-sm font-medium'>
+                <div className='bg-muted-foreground/10 text-muted-foreground text-body-small-medium flex size-4 items-center justify-center rounded'>
                   {account.name.charAt(0)}
                 </div>
               )}
 
-              <p className='text-sm font-medium'>{account.name}</p>
+              <p className='text-body-small-medium'>{account.name}</p>
               <Button
                 size='account-remove'
                 variant='account-remove'
@@ -168,7 +171,7 @@ const ConnectedAccount = () => {
             </DialogContent>
           </Dialog>
         </div>
-        <p className='text-muted-foreground text-sm'>
+        <p className='text-muted-foreground text-body-small-regular'>
           Connected accounts allow you to integrate with third-party services for enhanced functionality.
         </p>
       </div>

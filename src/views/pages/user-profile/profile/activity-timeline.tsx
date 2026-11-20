@@ -53,8 +53,8 @@ function ActivityPersonCard({ person }: { person: NonNullable<UserActivityItem['
         <AvatarFallback text='compact'>{person.initials}</AvatarFallback>
       </Avatar>
       <div className='min-w-0'>
-        <p className='truncate text-sm font-semibold'>{person.name}</p>
-        {person.role ? <p className='text-muted-foreground truncate text-xs'>{person.role}</p> : null}
+        <p className='text-body-small-semibold truncate'>{person.name}</p>
+        {person.role ? <p className='text-muted-foreground text-body-mini-regular truncate'>{person.role}</p> : null}
       </div>
     </div>
   )
@@ -93,7 +93,7 @@ export const ActivityTimeline = ({ activityLog, className }: ActivityTimelinePro
       <Card>
         <CardHeader className='flex items-center gap-2'>
           <ChartNoAxesColumnIncreasingIcon />
-          <h2 className='text-lg font-medium'>Activity Timeline</h2>
+          <h2 className='text-title-mini-medium'>Activity Timeline</h2>
         </CardHeader>
         <CardContent>
           <Timeline>
@@ -115,13 +115,15 @@ export const ActivityTimeline = ({ activityLog, className }: ActivityTimelinePro
                     className='flex w-full items-center justify-between pt-2.5 pb-2 pl-4 text-wrap'
                   >
                     {item.description}
-                    <span className='text-muted-foreground text-xs font-normal text-nowrap md:text-sm'>
+                    <span className='text-muted-foreground text-body-mini-regular md:text-body-small-regular text-nowrap'>
                       {item.timestamp}
                     </span>
                   </TimelineHeading>
                   {item.detail || item.attachment || item.person || (item.teamMembers && item.teamMembers.length) ? (
                     <TimelineContent className='flex flex-col gap-2 pb-3 pl-4'>
-                      {item.detail ? <span className='text-muted-foreground text-sm'>{item.detail}</span> : null}
+                      {item.detail ? (
+                        <span className='text-muted-foreground text-body-small-regular'>{item.detail}</span>
+                      ) : null}
                       {item.attachment ? <ActivityAttachment attachment={item.attachment} /> : null}
                       {item.person ? <ActivityPersonCard person={item.person} /> : null}
                       {item.teamMembers?.length ? (

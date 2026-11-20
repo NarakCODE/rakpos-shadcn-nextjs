@@ -1,11 +1,4 @@
-export const INVENTORY_CATEGORIES = [
-  'Grains',
-  'Dairy',
-  'Vegetables',
-  'Proteins',
-  'Essentials',
-  'Spices'
-] as const
+export const INVENTORY_CATEGORIES = ['Grains', 'Dairy', 'Vegetables', 'Proteins', 'Essentials', 'Spices'] as const
 
 export type InventoryCategory = (typeof INVENTORY_CATEGORIES)[number]
 

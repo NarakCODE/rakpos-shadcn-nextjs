@@ -125,7 +125,9 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
       <Card className='gap-0 py-0'>
         <CardHeader variant='divided' className='px-6 py-4!'>
           <CardTitle>Connected Accounts</CardTitle>
-          <p className='text-muted-foreground text-sm'>Display content from your connected accounts on your site</p>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Display content from your connected accounts on your site
+          </p>
         </CardHeader>
         <CardContent className='px-0 pb-0'>
           <div className='divide-y'>
@@ -135,7 +137,7 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
                   <BrandAvatar item={integration} alt={integration.name} />
                   <div className='min-w-0'>
                     <p className='font-medium'>{integration.name}</p>
-                    <p className='text-muted-foreground text-sm'>{integration.description}</p>
+                    <p className='text-muted-foreground text-body-small-regular'>{integration.description}</p>
                   </div>
                 </div>
                 <Switch
@@ -152,7 +154,9 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
       <Card className='gap-0 py-0'>
         <CardHeader variant='divided' className='px-6 py-4!'>
           <CardTitle>Social Accounts</CardTitle>
-          <p className='text-muted-foreground text-sm'>Display content from social accounts on your site</p>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Display content from social accounts on your site
+          </p>
         </CardHeader>
         <CardContent className='px-0 pb-0'>
           <div className='divide-y'>
@@ -171,12 +175,12 @@ export function ConnectionsTab({ user }: ConnectionsTabProps) {
                           href={linkedAccount.url}
                           target='_blank'
                           rel='noopener noreferrer'
-                          className='text-primary text-sm hover:underline'
+                          className='text-primary text-body-small-regular hover:underline'
                         >
                           {getSocialHandle(linkedAccount.url)}
                         </a>
                       ) : (
-                        <p className='text-muted-foreground text-sm'>Not Connected</p>
+                        <p className='text-muted-foreground text-body-small-regular'>Not Connected</p>
                       )}
                     </div>
                   </div>

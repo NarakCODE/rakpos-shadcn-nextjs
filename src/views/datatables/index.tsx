@@ -7,15 +7,15 @@ const DataTable = () => {
   return (
     <div className='flex flex-col gap-8'>
       <div className='space-y-4'>
-        <h2 className='text-xl font-semibold'>Basic Data Table</h2>
+        <h2 className='text-title-mini-semibold'>Basic Data Table</h2>
         <DataTableBasic />
       </div>
       <div className='space-y-4'>
-        <h2 className='text-xl font-semibold'>Pinnable Columns</h2>
+        <h2 className='text-title-mini-semibold'>Pinnable Columns</h2>
         <DataTablePinnableColumn />
       </div>
       <div className='space-y-4'>
-        <h2 className='text-xl font-semibold'>Datatable with Filters</h2>
+        <h2 className='text-title-mini-semibold'>Datatable with Filters</h2>
         <DataTableWithFilters />
       </div>
     </div>

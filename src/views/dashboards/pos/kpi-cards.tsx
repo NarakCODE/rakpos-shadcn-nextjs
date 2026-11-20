@@ -57,13 +57,13 @@ export const KpiCards = () => {
         return (
           <Card key={item.id} className='h-full'>
             <CardContent className='flex h-full flex-col justify-between space-y-1.5 p-5'>
-              <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>{item.title}</span>
-              <div className='text-2xl font-bold tracking-tight tabular-nums'>{item.value}</div>
-              <p className='text-muted-foreground flex items-center gap-1 text-xs'>
+              <span className='text-muted-foreground text-body-mini-medium'>{item.title}</span>
+              <div className='text-title-small-semibold tabular-nums'>{item.value}</div>
+              <p className='text-muted-foreground text-body-mini-regular flex items-center gap-1'>
                 <span
                   className={cn(
                     'inline-flex items-center gap-0.5 font-semibold',
-                    isPositive ? 'text-emerald-600 dark:text-emerald-400' : 'text-rose-600 dark:text-rose-400'
+                    isPositive ? 'text-text-green' : 'text-text-red'
                   )}
                 >
                   {isPositive ? (

@@ -44,23 +44,23 @@ export function BillingTab({ user }: BillingTabProps) {
         </CardHeader>
         <CardContent className='space-y-6'>
           {!billingPlan ? (
-            <p className='text-muted-foreground text-sm'>No billing plan assigned.</p>
+            <p className='text-muted-foreground text-body-small-regular'>No billing plan assigned.</p>
           ) : (
             <>
               <div className='flex flex-wrap items-start justify-between gap-4'>
                 <div>
                   <div className='flex items-center gap-2'>
-                    <h3 className='text-lg font-semibold'>{billingPlan.name}</h3>
+                    <h3 className='text-title-mini-semibold'>{billingPlan.name}</h3>
                     {billingPlan.isPopular ? <Badge variant='secondary'>Popular</Badge> : null}
                   </div>
-                  <p className='text-muted-foreground mt-1 text-sm'>
+                  <p className='text-muted-foreground text-body-small-regular mt-1'>
                     {user.plan} plan · {user.billing}
                   </p>
                 </div>
                 <div className='text-right'>
-                  <p className='text-2xl font-semibold'>
+                  <p className='text-title-small-semibold'>
                     ${billingPlan.price}
-                    <span className='text-muted-foreground text-sm font-normal'>/{billingPlan.period}</span>
+                    <span className='text-muted-foreground text-body-small-regular'>/{billingPlan.period}</span>
                   </p>
                   <Button variant='outline' size='sm' className='mt-2'>
                     Upgrade Plan
@@ -69,19 +69,19 @@ export function BillingTab({ user }: BillingTabProps) {
               </div>
 
               <div className='space-y-2'>
-                <div className='flex items-center justify-between text-sm'>
+                <div className='text-body-small-regular flex items-center justify-between'>
                   <span className='text-muted-foreground'>Days</span>
                   <span>
                     {billingPlan.daysUsed} of {billingPlan.totalDays} Days
                   </span>
                 </div>
                 <Progress value={daysProgress} className='*:data-[slot=progress-track]:h-2' />
-                <p className='text-muted-foreground text-xs'>{daysProgress}% of billing period used</p>
+                <p className='text-muted-foreground text-body-mini-regular'>{daysProgress}% of billing period used</p>
               </div>
 
               <ul className='grid gap-2 sm:grid-cols-2'>
                 {billingPlan.features.map(feature => (
-                  <li key={feature} className='text-muted-foreground flex items-center gap-2 text-sm'>
+                  <li key={feature} className='text-muted-foreground text-body-small-regular flex items-center gap-2'>
                     <CheckIcon className='text-muted-foreground size-4 shrink-0' />
                     {feature}
                   </li>
@@ -99,19 +99,19 @@ export function BillingTab({ user }: BillingTabProps) {
         <CardContent>
           <div className='grid gap-4 sm:grid-cols-2'>
             <div>
-              <p className='text-muted-foreground text-sm'>Company</p>
+              <p className='text-muted-foreground text-body-small-regular'>Company</p>
               <p className='font-medium'>{user.company ?? '—'}</p>
             </div>
             <div>
-              <p className='text-muted-foreground text-sm'>Billing Email</p>
+              <p className='text-muted-foreground text-body-small-regular'>Billing Email</p>
               <p className='font-medium'>{user.billingEmail ?? user.email}</p>
             </div>
             <div>
-              <p className='text-muted-foreground text-sm'>Tax ID</p>
+              <p className='text-muted-foreground text-body-small-regular'>Tax ID</p>
               <p className='font-medium'>{user.taxId ?? '—'}</p>
             </div>
             <div>
-              <p className='text-muted-foreground text-sm'>Country</p>
+              <p className='text-muted-foreground text-body-small-regular'>Country</p>
               <p className='font-medium'>{user.country ?? '—'}</p>
             </div>
           </div>
@@ -124,7 +124,7 @@ export function BillingTab({ user }: BillingTabProps) {
         </CardHeader>
         {invoices.length === 0 ? (
           <CardContent className='py-8'>
-            <p className='text-muted-foreground text-sm'>No invoices found.</p>
+            <p className='text-muted-foreground text-body-small-regular'>No invoices found.</p>
           </CardContent>
         ) : (
           <Table>

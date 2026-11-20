@@ -89,7 +89,7 @@ export function MenuItemsToolbar({
   return (
     <div className='flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between'>
       <div className='flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center'>
-        <div className='flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground'>
+        <div className='text-body-small-regular text-muted-foreground flex items-center gap-2 whitespace-nowrap'>
           <Label htmlFor='menu-items-page-size'>Show</Label>
           <Select
             items={PAGE_SIZE_ITEMS}

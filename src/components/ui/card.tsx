@@ -17,7 +17,7 @@ function Card({
       data-size={size}
       data-variant={variant}
       className={cn(
-        'group/card bg-card text-card-foreground ring-foreground/10 flex flex-col gap-(--card-spacing) overflow-hidden rounded-(--radius) py-(--card-spacing) text-sm shadow-xs ring-1 [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] data-[variant=flat]:shadow-none *:[img:first-child]:rounded-t-(--radius) *:[img:last-child]:rounded-b-(--radius)',
+        'group/card bg-card text-card-foreground ring-foreground/10 text-body-small-regular flex flex-col gap-(--card-spacing) overflow-hidden rounded-(--radius) py-(--card-spacing) shadow-xs ring-1 [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] data-[variant=flat]:shadow-none *:[img:first-child]:rounded-t-(--radius) *:[img:last-child]:rounded-b-(--radius)',
         variant === 'interactive' &&
           'focus-visible:ring-ring/50 cursor-pointer transition-all hover:shadow-md focus-visible:ring-3 focus-visible:outline-none',
         variant === 'subdued' && 'opacity-60',
@@ -50,14 +50,23 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot='card-title'
-      className={cn('font-heading text-base leading-normal font-medium group-data-[size=sm]/card:text-sm', className)}
+      className={cn(
+        'font-heading text-title-mini-semibold group-data-[size=sm]/card:text-body-regular-semibold',
+        className
+      )}
       {...props}
     />
   )
 }
 
 function CardDescription({ className, ...props }: React.ComponentProps<'div'>) {
-  return <div data-slot='card-description' className={cn('text-muted-foreground text-sm', className)} {...props} />
+  return (
+    <div
+      data-slot='card-description'
+      className={cn('text-muted-foreground text-body-small-regular', className)}
+      {...props}
+    />
+  )
 }
 
 function CardAction({ className, ...props }: React.ComponentProps<'div'>) {

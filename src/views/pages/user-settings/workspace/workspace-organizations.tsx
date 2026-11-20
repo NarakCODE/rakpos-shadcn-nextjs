@@ -37,8 +37,10 @@ const WorkspaceOrganizations = () => {
       <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
         {/* Workspace Organizations */}
         <div className='flex flex-col space-y-1'>
-          <h3 className='text-base font-semibold'>Organizations</h3>
-          <p className='text-muted-foreground text-sm'>Manage your workspace organizations and settings.</p>
+          <h3 className='text-body-regular-semibold'>Organizations</h3>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Manage your workspace organizations and settings.
+          </p>
         </div>
         {/* Content */}
         <div className='space-y-6 lg:col-span-2'>
@@ -49,8 +51,8 @@ const WorkspaceOrganizations = () => {
                   <div className='flex items-center justify-between gap-4 max-sm:flex-wrap'>
                     <div className='flex items-center gap-4'>
                       <img src={org.img} alt={org.name} className='h-8' />
-                      <p className='text-muted-foreground text-sm'>
-                        <Link href='#' className='font-medium text-sky-600 hover:underline dark:text-sky-400'>
+                      <p className='text-muted-foreground text-body-small-regular'>
+                        <Link href='#' className='text-text-blue font-medium hover:underline'>
                           {org.name}
                         </Link>{' '}
                         {org.description}
@@ -64,7 +66,7 @@ const WorkspaceOrganizations = () => {
                       <DialogContent className='sm:max-w-md'>
                         <DialogHeader className='space-y-2'>
                           <DialogTitle>Are you sure?</DialogTitle>
-                          <div className='text-muted-foreground text-sm'>
+                          <div className='text-muted-foreground text-body-small-regular'>
                             Are you sure you want to leave this organization?
                           </div>
                         </DialogHeader>

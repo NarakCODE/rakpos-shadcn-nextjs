@@ -8,22 +8,8 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from '@/components/ui/sheet'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { Textarea } from '@/components/ui/textarea'
 import {
   MENU_CATEGORIES,
@@ -102,13 +88,15 @@ export function MenuItemFormSheet({ item, open, onOpenChange, onSave }: MenuItem
           <SheetHeader>
             <SheetTitle>{item ? 'Edit menu item' : 'Add menu item'}</SheetTitle>
             <SheetDescription>
-              {item ? 'Update the item details shown in your POS menu.' : 'Add a dish to the menu available at the POS.'}
+              {item
+                ? 'Update the item details shown in your POS menu.'
+                : 'Add a dish to the menu available at the POS.'}
             </SheetDescription>
           </SheetHeader>
 
           <div className='flex flex-col gap-4 overflow-y-auto px-4 pb-4'>
             <div className='flex items-center gap-3'>
-              <div className='relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted'>
+              <div className='bg-muted relative size-16 shrink-0 overflow-hidden rounded-lg'>
                 <Image src={image} alt='' fill sizes='64px' className='object-cover' />
               </div>
               <div className='flex min-w-0 flex-1 flex-col gap-2'>

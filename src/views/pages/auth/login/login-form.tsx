@@ -59,7 +59,7 @@ const LoginForm = () => {
               Remember Me
             </FieldLabel>
           </Field>
-          <Link href='/pages/auth/forgot-password' className='text-base text-nowrap hover:underline'>
+          <Link href='/pages/auth/forgot-password' className='text-body-regular text-nowrap hover:underline'>
             Forgot Password?
           </Link>
         </div>

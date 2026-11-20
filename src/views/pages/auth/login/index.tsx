@@ -25,13 +25,13 @@ const Login = () => {
           </Link>
 
           <div>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Sign in to Shadcn Studio</CardTitle>
-            <CardDescription className='text-base'>Ship Faster and Focus on Growth.</CardDescription>
+            <CardTitle className='text-title-small-semibold mb-2'>Sign in to Shadcn Studio</CardTitle>
+            <CardDescription className='text-body-regular'>Ship Faster and Focus on Growth.</CardDescription>
           </div>
         </CardHeader>
 
         <CardContent className='px-6'>
-          <p className='text-muted-foreground mb-6 text-base'>
+          <p className='text-muted-foreground text-body-regular mb-6'>
             Login with{' '}
             <Link href='#' className='text-card-foreground hover:underline'>
               Magic Link
@@ -52,7 +52,7 @@ const Login = () => {
           <div className='space-y-4'>
             <LoginForm />
 
-            <p className='text-muted-foreground text-center text-base'>
+            <p className='text-muted-foreground text-body-regular text-center'>
               New on our platform?{' '}
               <Link href='/pages/auth/register' className='text-card-foreground hover:underline'>
                 Create an account
@@ -61,7 +61,7 @@ const Login = () => {
 
             <div className='flex items-center gap-4'>
               <Separator className='flex-1' />
-              <p className='text-base'>or</p>
+              <p className='text-body-regular'>or</p>
               <Separator className='flex-1' />
             </div>
 

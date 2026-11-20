@@ -31,13 +31,7 @@ export type OrderDetailsSheetProps = {
   trigger?: ReactElement
 }
 
-export function OrderDetailsSheet({
-  order,
-  open,
-  onOpenChange,
-  onMarkAsReady,
-  trigger
-}: OrderDetailsSheetProps) {
+export function OrderDetailsSheet({ order, open, onOpenChange, onMarkAsReady, trigger }: OrderDetailsSheetProps) {
   if (!order) return null
 
   const isAlreadyReady = order.status === 'Ready' || order.status === 'Served'
@@ -50,7 +44,7 @@ export function OrderDetailsSheet({
         <SheetHeader>
           <div className='flex items-center gap-2'>
             <SheetTitle>
-              <span className='font-mono text-xl'>{order.orderNumber}</span>
+              <span className='text-title-mini-regular font-mono'>{order.orderNumber}</span>
             </SheetTitle>
             <OrderStatusBadge status={order.status} />
           </div>
@@ -64,14 +58,14 @@ export function OrderDetailsSheet({
           {/* Metadata Grid */}
           <div className='grid grid-cols-2 gap-4'>
             <div className='space-y-1'>
-              <span className='text-xs text-muted-foreground'>Type</span>
+              <span className='text-body-mini-regular text-muted-foreground'>Type</span>
               <div>
                 <OrderTypeBadge type={order.type} />
               </div>
             </div>
             <div className='space-y-1'>
-              <span className='text-xs text-muted-foreground'>Placed at</span>
-              <p className='text-sm'>{order.placedAt}</p>
+              <span className='text-body-mini-regular text-muted-foreground'>Placed at</span>
+              <p className='text-body-small-regular'>{order.placedAt}</p>
             </div>
           </div>
 
@@ -79,27 +73,19 @@ export function OrderDetailsSheet({
 
           {/* Items Section */}
           <div className='space-y-3'>
-            <h3 className='text-sm font-semibold'>
-              Items ({order.itemCount})
-            </h3>
+            <h3 className='text-body-small-semibold'>Items ({order.itemCount})</h3>
 
-            <div className='divide-y divide-border'>
+            <div className='divide-border divide-y'>
               {order.items.map(item => {
                 const lineTotal = (item.quantity * item.price).toFixed(2)
 
                 return (
                   <div key={item.id} className='flex items-start gap-3 py-3 first:pt-0 last:pb-0'>
-                    <div className='relative size-12 shrink-0 overflow-hidden rounded-lg border bg-muted'>
+                    <div className='bg-muted relative size-12 shrink-0 overflow-hidden rounded-lg border'>
                       {item.image ? (
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          fill
-                          sizes='48px'
-                          className='object-cover'
-                        />
+                        <Image src={item.image} alt={item.name} fill sizes='48px' className='object-cover' />
                       ) : (
-                        <div className='flex size-full items-center justify-center text-muted-foreground'>
+                        <div className='text-muted-foreground flex size-full items-center justify-center'>
                           <UtensilsIcon className='size-5' />
                         </div>
                       )}
@@ -107,18 +93,14 @@ export function OrderDetailsSheet({
 
                     <div className='min-w-0 flex-1 space-y-0.5'>
                       <div className='flex items-baseline justify-between gap-2'>
-                        <h4 className='truncate text-sm font-semibold'>{item.name}</h4>
-                        <span className='shrink-0 font-mono text-sm tabular-nums'>
-                          ${lineTotal}
-                        </span>
+                        <h4 className='text-body-small-semibold truncate'>{item.name}</h4>
+                        <span className='text-body-small-regular shrink-0 font-mono tabular-nums'>${lineTotal}</span>
                       </div>
-                      <p className='font-mono text-xs text-muted-foreground'>
+                      <p className='text-body-mini-regular text-muted-foreground font-mono'>
                         ${item.price.toFixed(2)} × {item.quantity}
                       </p>
                       {item.modifiers && (
-                        <p className='line-clamp-2 text-xs text-muted-foreground'>
-                          {item.modifiers}
-                        </p>
+                        <p className='text-body-mini-regular text-muted-foreground line-clamp-2'>{item.modifiers}</p>
                       )}
                     </div>
                   </div>
@@ -138,23 +120,21 @@ export function OrderDetailsSheet({
 
         <Separator />
 
-
-
         <SheetFooter>
           {/* Billing Summary */}
-          <div className='space-y-2 mb-4'>
-            <div className='flex items-center justify-between text-sm text-muted-foreground'>
+          <div className='mb-4 space-y-2'>
+            <div className='text-body-small-regular text-muted-foreground flex items-center justify-between'>
               <span>Subtotal</span>
               <span className='font-mono tabular-nums'>${order.subtotal.toFixed(2)}</span>
             </div>
 
-            <div className='flex items-center justify-between text-sm text-muted-foreground'>
+            <div className='text-body-small-regular text-muted-foreground flex items-center justify-between'>
               <span>Tax ({order.taxRate ?? 5}%)</span>
               <span className='font-mono tabular-nums'>${order.tax.toFixed(2)}</span>
             </div>
 
             {order.discount !== undefined && order.discount > 0 && (
-              <div className='flex items-center justify-between text-sm text-green-600 dark:text-green-400'>
+              <div className='text-text-green text-body-small-regular flex items-center justify-between'>
                 <span>Discount</span>
                 <span className='font-mono tabular-nums'>−${order.discount.toFixed(2)}</span>
               </div>
@@ -162,7 +142,7 @@ export function OrderDetailsSheet({
 
             <Separator className='my-1' />
 
-            <div className='flex items-center justify-between text-base font-semibold'>
+            <div className='text-body-regular-semibold flex items-center justify-between'>
               <span>Total</span>
               <span className='font-mono tabular-nums'>${order.total.toFixed(2)}</span>
             </div>

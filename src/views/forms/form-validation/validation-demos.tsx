@@ -64,7 +64,7 @@ const ValidationModesDemo = () => {
   return (
     <div className='space-y-4'>
       <div className='space-y-1'>
-        <h2 className='text-lg font-semibold'>Validation Modes Demo</h2>
+        <h2 className='text-title-mini-semibold'>Validation Modes Demo</h2>
         <p className='text-muted-foreground'>
           Experience how different validation modes affect user experience. Try typing in each field to see when
           validation occurs.
@@ -75,7 +75,7 @@ const ValidationModesDemo = () => {
         {/* onChange Mode */}
         <Card>
           <CardHeader>
-            <CardTitle className='text-lg font-semibold'>onChange Mode</CardTitle>
+            <CardTitle className='text-title-mini-semibold'>onChange Mode</CardTitle>
             <CardDescription>Validates on every keystroke</CardDescription>
           </CardHeader>
           <CardContent>
@@ -115,7 +115,7 @@ const ValidationModesDemo = () => {
         {/* onBlur Mode */}
         <Card>
           <CardHeader>
-            <CardTitle className='text-lg font-semibold'>onBlur Mode</CardTitle>
+            <CardTitle className='text-title-mini-semibold'>onBlur Mode</CardTitle>
             <CardDescription>Validates when you leave the field</CardDescription>
           </CardHeader>
           <CardContent>
@@ -155,7 +155,7 @@ const ValidationModesDemo = () => {
         {/* onSubmit Mode */}
         <Card>
           <CardHeader>
-            <CardTitle className='text-lg font-semibold'>onSubmit Mode (Default)</CardTitle>
+            <CardTitle className='text-title-mini-semibold'>onSubmit Mode (Default)</CardTitle>
             <CardDescription>Validates only when you click submit</CardDescription>
           </CardHeader>
           <CardContent>
@@ -195,7 +195,7 @@ const ValidationModesDemo = () => {
         {/* onTouched Mode */}
         <Card>
           <CardHeader>
-            <CardTitle className='text-lg font-semibold'>onTouched Mode</CardTitle>
+            <CardTitle className='text-title-mini-semibold'>onTouched Mode</CardTitle>
             <CardDescription>Validates on blur, then on every change</CardDescription>
           </CardHeader>
           <CardContent>
@@ -235,7 +235,7 @@ const ValidationModesDemo = () => {
 
       {/* Comparison Table */}
       <div className='overflow-hidden rounded-lg border'>
-        <table className='w-full text-sm'>
+        <table className='text-body-small-regular w-full'>
           <thead className='bg-muted'>
             <tr>
               <th className='p-4 text-left font-semibold'>Mode</th>

@@ -168,7 +168,7 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
       <div className='w-full'>
         <div className='border-b'>
           <div className='flex min-h-17 flex-wrap items-center justify-between gap-3 px-6 py-3'>
-            <span className='text-base font-medium'>Projects List</span>
+            <span className='text-body-regular-medium'>Projects List</span>
             <div>
               <Label htmlFor='search-profile-projects' className='sr-only'>
                 Search projects
@@ -235,7 +235,7 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
                         </Avatar>
                         <div className='flex flex-col gap-1'>
                           <span>{project.name}</span>
-                          <span className='text-muted-foreground text-xs'>{project.type}</span>
+                          <span className='text-muted-foreground text-body-mini-regular'>{project.type}</span>
                         </div>
                       </div>
                     </TableCell>
@@ -280,7 +280,7 @@ function ProfileProjectDatatable({ className }: ProfileProjectDatatableProps) {
 
         {totalProjects > 0 && (
           <div className='flex items-center justify-between gap-3 px-6 py-4 max-sm:flex-col md:max-lg:flex-col'>
-            <p className='text-muted-foreground text-sm whitespace-nowrap' aria-live='polite'>
+            <p className='text-muted-foreground text-body-small-regular whitespace-nowrap' aria-live='polite'>
               Showing <span>{showingFrom}</span> to <span>{showingTo}</span> of <span>{totalProjects}</span> entries
             </p>
 

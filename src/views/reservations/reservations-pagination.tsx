@@ -51,7 +51,7 @@ export function ReservationsPagination({
 
   return (
     <div className='flex w-full flex-col items-center justify-between gap-3 sm:flex-row'>
-      <div className='text-muted-foreground flex flex-wrap items-center justify-center gap-3 text-sm sm:justify-start'>
+      <div className='text-muted-foreground text-body-small-regular flex flex-wrap items-center justify-center gap-3 sm:justify-start'>
         <span aria-live='polite'>
           Showing {showingFrom}-{showingTo} of {total}
         </span>

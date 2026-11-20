@@ -27,8 +27,8 @@ const ResetPassword = () => {
           </Link>
 
           <div>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Reset Password</CardTitle>
-            <CardDescription className='text-base'>
+            <CardTitle className='text-title-small-semibold mb-2'>Reset Password</CardTitle>
+            <CardDescription className='text-body-regular'>
               Please enter your current password and choose a new password to update your account security.
             </CardDescription>
           </div>

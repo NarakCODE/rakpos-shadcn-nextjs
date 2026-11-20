@@ -50,12 +50,14 @@ export function MenuItemsTable({ items, columnVisibility, onEdit, onDuplicate, o
               <TableRow key={item.id}>
                 <TableCell>
                   <div className='flex min-w-0 items-center gap-3'>
-                    <div className='relative size-12 shrink-0 overflow-hidden rounded-lg bg-muted'>
+                    <div className='bg-muted relative size-12 shrink-0 overflow-hidden rounded-lg'>
                       <Image src={item.image} alt={item.title} fill sizes='48px' className='object-cover' />
                     </div>
                     <div className='flex min-w-0 flex-col gap-1'>
-                      <span className='truncate font-semibold text-foreground'>{item.title}</span>
-                      <span className='line-clamp-1 text-sm text-muted-foreground'>{item.description}</span>
+                      <span className='text-foreground truncate font-semibold'>{item.title}</span>
+                      <span className='text-body-small-regular text-muted-foreground line-clamp-1'>
+                        {item.description}
+                      </span>
                     </div>
                   </div>
                 </TableCell>
@@ -66,7 +68,7 @@ export function MenuItemsTable({ items, columnVisibility, onEdit, onDuplicate, o
                 )}
                 {columnVisibility.price && (
                   <TableCell>
-                    <span className='font-medium text-foreground'>{priceFormatter.format(item.price)}</span>
+                    <span className='text-foreground font-medium'>{priceFormatter.format(item.price)}</span>
                   </TableCell>
                 )}
                 {columnVisibility.type && (
@@ -119,7 +121,7 @@ export function MenuItemsTable({ items, columnVisibility, onEdit, onDuplicate, o
               <TableCell colSpan={visibleColumnCount + 2} className='h-28 text-center'>
                 <div className='flex flex-col items-center gap-1.5'>
                   <p className='font-medium'>No menu items found</p>
-                  <p className='text-sm text-muted-foreground'>Try changing the search or filters.</p>
+                  <p className='text-body-small-regular text-muted-foreground'>Try changing the search or filters.</p>
                 </div>
               </TableCell>
             </TableRow>

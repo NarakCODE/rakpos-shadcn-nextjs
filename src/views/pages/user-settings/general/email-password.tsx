@@ -44,11 +44,11 @@ const EmailPass = () => {
   const getColor = (score: number) => {
     if (score === 0) return 'bg-border'
     if (score <= 1) return 'bg-destructive'
-    if (score <= 2) return 'bg-orange-500 '
-    if (score <= 3) return 'bg-amber-500'
-    if (score === 4) return 'bg-yellow-400'
+    if (score <= 2) return 'bg-orange-base'
+    if (score <= 3) return 'bg-amber-base'
+    if (score === 4) return 'bg-amber-base'
 
-    return 'bg-green-500'
+    return 'bg-green-base'
   }
 
   const getText = (score: number) => {
@@ -64,8 +64,8 @@ const EmailPass = () => {
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       {/* Vertical Tabs List */}
       <div className='flex flex-col space-y-1'>
-        <h3 className='text-base font-semibold'>Email & Password</h3>
-        <p className='text-muted-foreground text-sm'>Manage your email and password settings.</p>
+        <h3 className='text-body-regular-semibold'>Email & Password</h3>
+        <p className='text-muted-foreground text-body-small-regular'>Manage your email and password settings.</p>
       </div>
 
       {/* Content */}
@@ -140,19 +140,17 @@ const EmailPass = () => {
               ))}
             </div>
 
-            <p className='text-foreground text-sm font-medium'>{getText(strengthScore)}. Must contain :</p>
+            <p className='text-foreground text-body-small-medium'>{getText(strengthScore)}. Must contain :</p>
 
             <ul className='mb-4 space-y-1.5'>
               {strength.map((req, index) => (
                 <li key={index} className='flex items-center gap-2'>
                   {req.met ? (
-                    <CheckIcon className='size-4 text-green-600 dark:text-green-400' />
+                    <CheckIcon className='text-text-green size-4' />
                   ) : (
                     <XIcon className='text-muted-foreground size-4' />
                   )}
-                  <span
-                    className={cn('text-xs', req.met ? 'text-green-600 dark:text-green-400' : 'text-muted-foreground')}
-                  >
+                  <span className={cn('text-body-mini-regular', req.met ? 'text-text-green' : 'text-muted-foreground')}>
                     {req.text}
                     <span className='sr-only'>{req.met ? ' - Requirement met' : ' - Requirement not met'}</span>
                   </span>

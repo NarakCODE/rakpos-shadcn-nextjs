@@ -120,8 +120,8 @@ const PersonalInfo = () => {
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       {/* Vertical Tabs List */}
       <div className='flex flex-col space-y-1'>
-        <h3 className='text-base font-semibold'>Personal Information</h3>
-        <p className='text-muted-foreground text-sm'>Manage your personal information and role.</p>
+        <h3 className='text-body-regular-semibold'>Personal Information</h3>
+        <p className='text-muted-foreground text-body-small-regular'>Manage your personal information and role.</p>
       </div>
 
       {/* Content */}
@@ -161,7 +161,7 @@ const PersonalInfo = () => {
                 </Button>
               </div>
             </div>
-            <p className='text-muted-foreground text-sm'>Pick a photo up to 1MB.</p>
+            <p className='text-muted-foreground text-body-small-regular'>Pick a photo up to 1MB.</p>
           </div>
           <div className='grid grid-cols-1 gap-6 sm:grid-cols-2'>
             <div className='flex flex-col items-start gap-2'>

@@ -8,13 +8,13 @@ export function Pattern() {
         <FrameDescription>Showcasing visual art and design</FrameDescription>
       </FrameHeader>
       <FramePanel>
-        <h2 className='text-sm font-semibold'>Gallery View</h2>
-        <p className='text-muted-foreground text-sm'>
+        <h2 className='text-body-small-semibold'>Gallery View</h2>
+        <p className='text-muted-foreground text-body-small-regular'>
           2XL radius provides a very soft, organic look suitable for creative portfolios and landing pages.
         </p>
       </FramePanel>
       <FrameFooter>
-        <p className='text-muted-foreground text-sm'>Browse 12 projects</p>
+        <p className='text-muted-foreground text-body-small-regular'>Browse 12 projects</p>
       </FrameFooter>
     </Frame>
   )

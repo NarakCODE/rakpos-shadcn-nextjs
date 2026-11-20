@@ -231,26 +231,30 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
                 <AvatarFallback>{getInitialsFromName(recipientName)}</AvatarFallback>
               </Avatar>
               <div className='min-w-0 flex-1'>
-                <h2 className='text-foreground line-clamp-2 text-base leading-snug font-medium tracking-tight md:font-semibold'>
+                <h2 className='text-foreground text-body-regular-medium md:text-body-regular-semibold line-clamp-2 tracking-tight'>
                   {email.subject}
                 </h2>
                 {isSent || isDraft ? (
                   <>
-                    <p className='text-foreground mt-1 text-sm font-medium'>
+                    <p className='text-foreground text-body-small-medium mt-1'>
                       <span className='text-muted-foreground font-normal'>To: </span>
                       {recipientName}
                     </p>
-                    {recipientEmail && <p className='text-muted-foreground mt-0.5 text-xs'>{recipientEmail}</p>}
+                    {recipientEmail && (
+                      <p className='text-muted-foreground text-body-mini-regular mt-0.5'>{recipientEmail}</p>
+                    )}
                   </>
                 ) : (
                   <>
-                    <p className='text-foreground mt-1 text-sm font-medium'>{email.from}</p>
-                    <p className='text-muted-foreground mt-0.5 text-xs'>Reply-To: {email.fromEmail}</p>
+                    <p className='text-foreground text-body-small-medium mt-1'>{email.from}</p>
+                    <p className='text-muted-foreground text-body-mini-regular mt-0.5'>Reply-To: {email.fromEmail}</p>
                   </>
                 )}
               </div>
             </div>
-            <span className='text-muted-foreground shrink-0 pt-0.5 text-xs'>{formatMailDate(email.date)}</span>
+            <span className='text-muted-foreground text-body-mini-regular shrink-0 pt-0.5'>
+              {formatMailDate(email.date)}
+            </span>
           </div>
         </div>
 
@@ -259,7 +263,7 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
             {earlierMessageCount > 0 && (
               <button
                 type='button'
-                className='text-muted-foreground hover:text-foreground flex w-full items-center gap-2 text-sm font-medium transition-colors'
+                className='text-muted-foreground hover:text-foreground text-body-small-medium flex w-full items-center gap-2 transition-colors'
                 onClick={() => setIsEarlierMessagesExpanded(currentValue => !currentValue)}
               >
                 <ChevronDown className={cn('size-4 transition-transform', isEarlierMessagesExpanded && 'rotate-180')} />
@@ -298,7 +302,7 @@ export const MailDisplayContent = ({ email }: { email: Email }) => {
               <div className='border-border flex items-center justify-between border-t p-2 md:px-4 md:py-2.5'>
                 <div className='flex items-center gap-2'>
                   <Switch id='mute-thread' />
-                  <label htmlFor='mute-thread' className='text-muted-foreground text-sm'>
+                  <label htmlFor='mute-thread' className='text-muted-foreground text-body-small-regular'>
                     Mute this thread
                   </label>
                 </div>

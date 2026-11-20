@@ -28,13 +28,15 @@ export const MailThreadMessage = ({
         </Avatar>
         <div className='flex-1'>
           <div className='flex items-center justify-between gap-2'>
-            <span className='text-sm font-semibold'>{message.from}</span>
-            <span className='text-muted-foreground shrink-0 text-xs'>{formatMailDate(message.date)}</span>
+            <span className='text-body-small-semibold'>{message.from}</span>
+            <span className='text-muted-foreground text-body-mini-regular shrink-0'>
+              {formatMailDate(message.date)}
+            </span>
           </div>
-          <div className='text-muted-foreground text-xs'>{message.fromEmail}</div>
+          <div className='text-muted-foreground text-body-mini-regular'>{message.fromEmail}</div>
         </div>
       </div>
-      <div className='text-foreground/80 text-sm whitespace-pre-wrap'>{message.body}</div>
+      <div className='text-foreground/80 text-body-small-regular whitespace-pre-wrap'>{message.body}</div>
     </>
   )
 

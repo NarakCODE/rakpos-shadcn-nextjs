@@ -30,7 +30,7 @@ export function ReservationDetailsSheet({
         <SheetHeader>
           <div className='flex flex-wrap items-center gap-2'>
             <SheetTitle>
-              <span className='text-xl'>{reservation.guestName}</span>
+              <span className='text-title-mini-regular'>{reservation.guestName}</span>
             </SheetTitle>
             <ReservationStatusBadge status={reservation.status} />
           </div>
@@ -41,41 +41,41 @@ export function ReservationDetailsSheet({
 
         <div className='flex-1 space-y-6 overflow-y-auto px-4'>
           <section className='space-y-3' aria-labelledby='reservation-details-heading'>
-            <h3 id='reservation-details-heading' className='text-sm font-semibold'>
+            <h3 id='reservation-details-heading' className='text-body-small-semibold'>
               Reservation details
             </h3>
             <div className='grid grid-cols-2 gap-4'>
               <div className='space-y-1'>
-                <span className='text-muted-foreground text-xs'>Date</span>
-                <p className='flex items-center gap-2 text-sm'>
+                <span className='text-muted-foreground text-body-mini-regular'>Date</span>
+                <p className='text-body-small-regular flex items-center gap-2'>
                   <CalendarDaysIcon className='text-muted-foreground size-4' aria-hidden='true' />
                   {formatReservationDate(reservation.date)}
                 </p>
               </div>
               <div className='space-y-1'>
-                <span className='text-muted-foreground text-xs'>Time</span>
-                <p className='flex items-center gap-2 text-sm'>
+                <span className='text-muted-foreground text-body-mini-regular'>Time</span>
+                <p className='text-body-small-regular flex items-center gap-2'>
                   <Clock3Icon className='text-muted-foreground size-4' aria-hidden='true' />
                   {formatReservationTime(reservation.time)}
                 </p>
               </div>
               <div className='space-y-1'>
-                <span className='text-muted-foreground text-xs'>Party size</span>
-                <p className='flex items-center gap-2 text-sm'>
+                <span className='text-muted-foreground text-body-mini-regular'>Party size</span>
+                <p className='text-body-small-regular flex items-center gap-2'>
                   <UsersIcon className='text-muted-foreground size-4' aria-hidden='true' />
                   {reservation.guestCount} {reservation.guestCount === 1 ? 'guest' : 'guests'}
                 </p>
               </div>
               <div className='space-y-1'>
-                <span className='text-muted-foreground text-xs'>Table</span>
-                <p className='flex items-center gap-2 text-sm'>
+                <span className='text-muted-foreground text-body-mini-regular'>Table</span>
+                <p className='text-body-small-regular flex items-center gap-2'>
                   <MapPinIcon className='text-muted-foreground size-4' aria-hidden='true' />
                   {reservation.table ?? '—'}
                 </p>
               </div>
               <div className='space-y-1'>
-                <span className='text-muted-foreground text-xs'>Duration</span>
-                <p className='text-sm'>{reservation.durationMinutes} min</p>
+                <span className='text-muted-foreground text-body-mini-regular'>Duration</span>
+                <p className='text-body-small-regular'>{reservation.durationMinutes} min</p>
               </div>
             </div>
           </section>
@@ -83,10 +83,10 @@ export function ReservationDetailsSheet({
           <Separator />
 
           <section className='space-y-3' aria-labelledby='reservation-guest-heading'>
-            <h3 id='reservation-guest-heading' className='text-sm font-semibold'>
+            <h3 id='reservation-guest-heading' className='text-body-small-semibold'>
               Contact
             </h3>
-            <div className='space-y-2 text-sm'>
+            <div className='text-body-small-regular space-y-2'>
               <a className='text-muted-foreground hover:text-foreground' href={'tel:' + reservation.phone}>
                 <span className='inline-flex items-center gap-2'>
                   <PhoneIcon className='size-4' aria-hidden='true' />
@@ -108,8 +108,8 @@ export function ReservationDetailsSheet({
             <>
               <Separator />
               <div className='space-y-2'>
-                <h3 className='text-sm font-semibold'>Notes</h3>
-                <p className='text-muted-foreground text-sm'>{reservation.notes}</p>
+                <h3 className='text-body-small-semibold'>Notes</h3>
+                <p className='text-muted-foreground text-body-small-regular'>{reservation.notes}</p>
               </div>
             </>
           )}

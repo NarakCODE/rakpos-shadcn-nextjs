@@ -16,19 +16,8 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import type {
-  InventoryAdjustmentReason,
-  InventoryAdjustmentValues,
-  InventoryItem
-} from '@/types/inventory-types'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import type { InventoryAdjustmentReason, InventoryAdjustmentValues, InventoryItem } from '@/types/inventory-types'
 
 type InventoryAdjustDialogProps = {
   item: InventoryItem | null
@@ -45,12 +34,7 @@ const ADJUSTMENT_REASONS: { label: string; value: InventoryAdjustmentReason }[] 
   { label: 'Return to vendor', value: 'Return to vendor' }
 ]
 
-export function InventoryAdjustDialog({
-  item,
-  open,
-  onOpenChange,
-  onAdjust
-}: InventoryAdjustDialogProps) {
+export function InventoryAdjustDialog({ item, open, onOpenChange, onAdjust }: InventoryAdjustDialogProps) {
   const [mode, setMode] = useState<'set' | 'add' | 'subtract'>('set')
   const [amount, setAmount] = useState<string>(item ? String(item.currentStock) : '0')
   const [reason, setReason] = useState<InventoryAdjustmentReason>('Inventory recount / audit')
@@ -91,25 +75,23 @@ export function InventoryAdjustDialog({
           <DialogHeader>
             <DialogTitle>
               <span className='flex items-center gap-2'>
-                <SlidersIcon className='size-5 text-primary' />
+                <SlidersIcon className='text-primary size-5' />
                 <span>Adjust Stock: {item.name}</span>
               </span>
             </DialogTitle>
-            <DialogDescription>
-              Update on-hand inventory quantity and track adjustment reason.
-            </DialogDescription>
+            <DialogDescription>Update on-hand inventory quantity and track adjustment reason.</DialogDescription>
           </DialogHeader>
 
-          <div className='flex items-center justify-between rounded-lg bg-muted/60 p-3 text-sm'>
+          <div className='bg-muted/60 text-body-small-regular flex items-center justify-between rounded-lg p-3'>
             <div>
-              <span className='text-xs text-muted-foreground'>Current Stock</span>
-              <p className='font-semibold text-foreground text-base'>
+              <span className='text-body-mini-regular text-muted-foreground'>Current Stock</span>
+              <p className='text-foreground text-body-regular-semibold'>
                 {currentStock} {item.unit}
               </p>
             </div>
             <div className='text-right'>
-              <span className='text-xs text-muted-foreground'>Thresholds</span>
-              <p className='text-xs font-medium text-foreground'>
+              <span className='text-body-mini-regular text-muted-foreground'>Thresholds</span>
+              <p className='text-body-mini-medium text-foreground'>
                 Min: {item.minStock} / Max: {item.maxStock} {item.unit}
               </p>
             </div>
@@ -160,7 +142,8 @@ export function InventoryAdjustDialog({
           {/* Amount input */}
           <div className='grid gap-2'>
             <Label htmlFor='adjust-amount'>
-              {mode === 'set' ? 'New Total Quantity' : mode === 'add' ? 'Quantity to Add' : 'Quantity to Deduct'} ({item.unit})
+              {mode === 'set' ? 'New Total Quantity' : mode === 'add' ? 'Quantity to Add' : 'Quantity to Deduct'} (
+              {item.unit})
             </Label>
             <Input
               id='adjust-amount'
@@ -175,9 +158,9 @@ export function InventoryAdjustDialog({
           </div>
 
           {/* Result preview */}
-          <div className='flex items-center justify-between rounded-md border border-dashed px-3 py-2 text-xs'>
+          <div className='text-body-mini-regular flex items-center justify-between rounded-md border border-dashed px-3 py-2'>
             <span className='text-muted-foreground'>New Resulting Stock:</span>
-            <span className='font-bold text-foreground'>
+            <span className='text-foreground font-bold'>
               {resultingStock} {item.unit}
             </span>
           </div>

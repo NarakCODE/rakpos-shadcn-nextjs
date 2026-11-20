@@ -29,7 +29,7 @@ const UserProfile = () => {
               </Avatar>
 
               <div className='min-w-0 flex-1 space-y-2 text-center md:text-left'>
-                <h2 className='text-2xl font-medium'>John Doe</h2>
+                <h2 className='text-title-small-medium'>John Doe</h2>
                 <div className='text-muted-foreground flex flex-wrap items-center gap-x-6 gap-y-2 max-md:justify-center'>
                   <span className='inline-flex items-center gap-2'>
                     <BriefcaseBusinessIcon className='size-4.5' />

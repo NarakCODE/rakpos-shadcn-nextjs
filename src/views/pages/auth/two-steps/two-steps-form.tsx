@@ -11,10 +11,10 @@ const TwoStepsV1Form = () => {
       <FieldGroup className='gap-4'>
         <Field className='gap-4'>
           <div className='flex items-center justify-between gap-1'>
-            <FieldLabel htmlFor='recoveryCode' className='text-base'>
+            <FieldLabel htmlFor='recoveryCode' className='text-body-regular'>
               Code*
             </FieldLabel>
-            <span className='text-base font-medium'>Use a recovery code</span>
+            <span className='text-body-regular-medium'>Use a recovery code</span>
           </div>
 
           <InputOTP id='recoveryCode' maxLength={6}>

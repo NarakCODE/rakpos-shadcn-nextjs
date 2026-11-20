@@ -29,14 +29,16 @@ const DashboardPage = () => {
       {/* Header with entrance animation */}
       <div className='motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-2 fill-mode-both flex flex-col justify-between gap-4 duration-200 ease-out motion-reduce:animate-none md:flex-row md:items-center'>
         <div className='flex flex-col gap-1'>
-          <h1 className='text-2xl font-extrabold tracking-tight md:text-3xl'>Restaurant POS Dashboard</h1>
-          <p className='text-muted-foreground text-sm'>Sales, orders, tables, and guest feedback at a glance.</p>
+          <h1 className='text-title-regular'>Restaurant POS Dashboard</h1>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Sales, orders, tables, and guest feedback at a glance.
+          </p>
         </div>
 
         <div className='flex flex-wrap items-center gap-3'>
           <Badge variant='secondary'>
             <span className='inline-flex items-center gap-1.5 py-0.5'>
-              <span className='size-1.5 animate-pulse rounded-full bg-emerald-500 motion-reduce:animate-none' />
+              <span className='bg-green-base size-1.5 animate-pulse rounded-full motion-reduce:animate-none' />
               Sample data
             </span>
           </Badge>
@@ -107,7 +109,7 @@ const DashboardPage = () => {
       </section>
 
       <section aria-labelledby='order-analytics-heading' className='flex flex-col gap-6'>
-        <h2 id='order-analytics-heading' className='text-xl font-semibold tracking-tight'>
+        <h2 id='order-analytics-heading' className='text-title-mini-semibold'>
           Orders and transactions
         </h2>
         <OrdersDashboard />

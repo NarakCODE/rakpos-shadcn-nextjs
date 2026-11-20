@@ -115,7 +115,9 @@ export function AddToCartDialog({ product, onClose, onAdd }: AddToCartDialogProp
           <DialogDescription>
             {product.description ?? `Freshly prepared ${product.category.toLowerCase()}.`}
           </DialogDescription>
-          <p className='text-muted-foreground text-sm'>Base price {price(Math.round(product.price * 100))}</p>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Base price {price(Math.round(product.price * 100))}
+          </p>
         </DialogHeader>
 
         <Separator />
@@ -168,7 +170,7 @@ export function AddToCartDialog({ product, onClose, onAdd }: AddToCartDialogProp
                   {group.options.map(option => (
                     <ToggleGroupItem key={option.id} value={option.id} className='min-w-0 flex-col items-start'>
                       <span>{option.label}</span>
-                      <span className='text-xs opacity-70'>
+                      <span className='text-body-mini-regular opacity-70'>
                         {option.priceCents ? `+${price(option.priceCents)}` : 'Included'}
                       </span>
                     </ToggleGroupItem>
@@ -230,7 +232,7 @@ export function AddToCartDialog({ product, onClose, onAdd }: AddToCartDialogProp
 
         <div className='flex items-center justify-between gap-4'>
           <div className='flex items-center gap-2'>
-            <span className='text-muted-foreground text-sm'>Quantity</span>
+            <span className='text-muted-foreground text-body-small-regular'>Quantity</span>
             <Button
               variant='outline'
               size='icon-sm'
@@ -253,8 +255,8 @@ export function AddToCartDialog({ product, onClose, onAdd }: AddToCartDialogProp
             </Button>
           </div>
           <div className='text-right'>
-            <p className='text-muted-foreground text-xs'>Total</p>
-            <strong className='text-xl tabular-nums' aria-live='polite'>
+            <p className='text-muted-foreground text-body-mini-regular'>Total</p>
+            <strong className='text-title-mini-regular tabular-nums' aria-live='polite'>
               {price(unitPriceCents * quantity)}
             </strong>
           </div>

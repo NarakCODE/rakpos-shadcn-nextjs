@@ -40,8 +40,10 @@ const WorkspaceData = () => {
       <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
         {/* Workspace Data */}
         <div className='flex flex-col space-y-1'>
-          <h3 className='text-base font-semibold'>Export Workspace data</h3>
-          <p className='text-muted-foreground text-sm'>Export your workspace data for backup or migration purposes.</p>
+          <h3 className='text-body-regular-semibold'>Export Workspace data</h3>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Export your workspace data for backup or migration purposes.
+          </p>
         </div>
         {/* Content */}
         <div className='space-y-6 lg:col-span-2'>
@@ -77,13 +79,13 @@ const WorkspaceData = () => {
                     <TableCell className='px-6'>
                       {item.status === 'progress' ? (
                         <div className='flex flex-col items-start gap-1'>
-                          <span className='text-xs'>Progress {item.progress}%</span>
+                          <span className='text-body-mini-regular'>Progress {item.progress}%</span>
                           <Progress value={item.progress} track='soft' className='w-20 md:w-60' />
                         </div>
                       ) : (
                         <div className='flex items-center gap-2'>
-                          <span className='text-sm'>Completed</span>
-                          <CheckCircle2Icon className='h-4 w-4 text-green-600 dark:text-green-400' />
+                          <span className='text-body-small-regular'>Completed</span>
+                          <CheckCircle2Icon className='text-text-green h-4 w-4' />
                         </div>
                       )}
                     </TableCell>

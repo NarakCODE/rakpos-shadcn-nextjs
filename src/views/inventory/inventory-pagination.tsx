@@ -23,7 +23,7 @@ export function InventoryPagination({
 
   return (
     <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-      <p className='text-sm text-muted-foreground'>
+      <p className='text-body-small-regular text-muted-foreground'>
         Showing {showingFrom}–{showingTo} of {total} entries
       </p>
 

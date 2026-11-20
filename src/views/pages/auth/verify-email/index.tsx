@@ -23,8 +23,8 @@ const VerifyEmail = () => {
           </Link>
 
           <div className='text-center'>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Verify your email</CardTitle>
-            <CardDescription className='text-base'>
+            <CardTitle className='text-title-small-semibold mb-2'>Verify your email</CardTitle>
+            <CardDescription className='text-body-regular'>
               An activation link has been sent to your email address: hello@example.com. Please check your inbox and
               click on the link to complete the activation process.
             </CardDescription>
@@ -37,7 +37,7 @@ const VerifyEmail = () => {
               Skip for now
             </Button>
 
-            <p className='text-muted-foreground text-center text-base'>
+            <p className='text-muted-foreground text-body-regular text-center'>
               Didn&apos;t get the mail?{' '}
               <Link href='#' className='text-card-foreground hover:underline'>
                 Resend

@@ -38,7 +38,7 @@ const PosHeader = () => {
             <Button
               size='sm'
               variant='outline'
-              className='h-8 gap-1.5 px-2.5 text-xs'
+              className='text-body-mini-regular h-8 gap-1.5 px-2.5'
               render={<Link href='/dashboard' />}
               nativeButton={false}
             >

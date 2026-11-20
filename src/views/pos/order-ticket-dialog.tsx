@@ -76,15 +76,15 @@ export function OrderTicketDialog({ ticket, onClose, onNewOrder }: OrderTicketDi
 
         <div className='flex flex-col gap-2'>
           <div className='flex items-center gap-2'>
-            <strong className='text-2xl tabular-nums'>#{ticket.number}</strong>
+            <strong className='text-title-small-regular tabular-nums'>#{ticket.number}</strong>
             <Badge variant='accent'>{ticket.orderTypeLabel}</Badge>
           </div>
           {ticket.table ? (
-            <p className='text-muted-foreground text-sm'>
+            <p className='text-muted-foreground text-body-small-regular'>
               Table {ticket.table} · {ticket.covers} {ticket.covers === 1 ? 'cover' : 'covers'}
             </p>
           ) : (
-            <div className='text-muted-foreground flex flex-col text-sm'>
+            <div className='text-muted-foreground text-body-small-regular flex flex-col'>
               {ticket.customerName && <span>{ticket.customerName}</span>}
               {ticket.phone && <span>{ticket.phone}</span>}
               {ticket.deliveryAddress && <span>{ticket.deliveryAddress}</span>}
@@ -110,10 +110,12 @@ export function OrderTicketDialog({ ticket, onClose, onNewOrder }: OrderTicketDi
                   </span>
                 </div>
                 {line.quantity > 1 && (
-                  <p className='text-muted-foreground mt-1 text-xs'>{formatCents(line.unitPriceCents)} each</p>
+                  <p className='text-muted-foreground text-body-mini-regular mt-1'>
+                    {formatCents(line.unitPriceCents)} each
+                  </p>
                 )}
                 {line.optionLabels.length > 0 && (
-                  <ul className='text-muted-foreground mt-1 flex flex-col text-xs'>
+                  <ul className='text-muted-foreground text-body-mini-regular mt-1 flex flex-col'>
                     {line.optionLabels.map(label => (
                       <li key={label}>{label}</li>
                     ))}
@@ -126,7 +128,7 @@ export function OrderTicketDialog({ ticket, onClose, onNewOrder }: OrderTicketDi
 
         <Separator />
 
-        <div className='flex flex-col gap-2 text-sm'>
+        <div className='text-body-small-regular flex flex-col gap-2'>
           <div className='flex items-center justify-between gap-3'>
             <span className='text-muted-foreground'>Subtotal</span>
             <span className='tabular-nums'>{formatCents(ticket.subtotalCents)}</span>
@@ -143,15 +145,15 @@ export function OrderTicketDialog({ ticket, onClose, onNewOrder }: OrderTicketDi
           </div>
           <div className='flex items-center justify-between gap-3 pt-1 font-semibold'>
             <span>Total</span>
-            <strong className='text-lg tabular-nums'>{formatCents(ticket.totalCents)}</strong>
+            <strong className='text-title-mini-regular tabular-nums'>{formatCents(ticket.totalCents)}</strong>
           </div>
         </div>
 
-        <div className='bg-muted text-muted-foreground flex items-center gap-2 rounded-md p-3 text-sm'>
+        <div className='bg-muted text-muted-foreground text-body-small-regular flex items-center gap-2 rounded-md p-3'>
           <CircleCheckIcon className='size-4' aria-hidden='true' />
           <div className='flex flex-col'>
             <span>Completed via {paymentMethodLabels[ticket.paymentMethod]}</span>
-            <span className='text-xs'>Demo only · no payment captured</span>
+            <span className='text-body-mini-regular'>Demo only · no payment captured</span>
           </div>
         </div>
 

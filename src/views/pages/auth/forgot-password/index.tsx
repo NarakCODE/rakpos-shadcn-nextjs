@@ -27,8 +27,8 @@ const ForgotPassword = () => {
           </Link>
 
           <div>
-            <CardTitle className='mb-1.5 text-2xl font-semibold'>Forgot Password?</CardTitle>
-            <CardDescription className='text-base'>
+            <CardTitle className='text-title-small-semibold mb-1.5'>Forgot Password?</CardTitle>
+            <CardDescription className='text-body-regular'>
               Enter your email and we&apos;ll send you instructions to reset your password
             </CardDescription>
           </div>

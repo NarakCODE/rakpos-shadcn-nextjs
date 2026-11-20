@@ -14,14 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 const STATUS_ITEMS = [
   { label: 'All statuses', value: 'all' },
@@ -100,7 +93,6 @@ export function OrdersTableToolbar({
 
       {/* Filters & Actions */}
       <div className='flex flex-wrap items-center gap-2.5 sm:gap-3'>
-
         {/* Status filter */}
         <div>
           <Label htmlFor='orders-status-filter' className='sr-only'>

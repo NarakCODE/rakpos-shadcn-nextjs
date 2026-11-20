@@ -15,7 +15,7 @@ function Table({
         data-slot='table'
         data-variant={variant}
         className={cn(
-          'w-full caption-bottom text-sm',
+          'text-body-small-regular w-full caption-bottom',
           variant === 'pinnable' &&
             '[&_td]:border-border [&_th]:border-border border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b',
           className
@@ -119,7 +119,11 @@ function TableCell({
 
 function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) {
   return (
-    <caption data-slot='table-caption' className={cn('text-muted-foreground mt-4 text-sm', className)} {...props} />
+    <caption
+      data-slot='table-caption'
+      className={cn('text-muted-foreground text-body-small-regular mt-4', className)}
+      {...props}
+    />
   )
 }
 

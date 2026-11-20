@@ -55,8 +55,8 @@ function ConnectionsCard() {
           </CardContent>
 
           <CardContent className='text-center'>
-            <h3 className='text-xl font-medium'>{connection.name}</h3>
-            <p className='text-muted-foreground text-base'>{connection.role}</p>
+            <h3 className='text-title-mini-medium'>{connection.name}</h3>
+            <p className='text-muted-foreground text-body-regular'>{connection.role}</p>
           </CardContent>
 
           <CardContent className='flex flex-wrap items-center justify-center gap-2'>
@@ -69,18 +69,18 @@ function ConnectionsCard() {
 
           <CardContent className='flex w-full items-center justify-evenly gap-4'>
             <div className='text-center'>
-              <p className='text-lg font-medium'>{connection.stats.projects}</p>
-              <p className='text-muted-foreground text-base'>Projects</p>
+              <p className='text-title-mini-medium'>{connection.stats.projects}</p>
+              <p className='text-muted-foreground text-body-regular'>Projects</p>
             </div>
             <Separator orientation='vertical' />
             <div className='text-center'>
-              <p className='text-lg font-medium'>{connection.stats.tasks}</p>
-              <p className='text-muted-foreground text-base'>Tasks</p>
+              <p className='text-title-mini-medium'>{connection.stats.tasks}</p>
+              <p className='text-muted-foreground text-body-regular'>Tasks</p>
             </div>
             <Separator orientation='vertical' />
             <div className='text-center'>
-              <p className='text-lg font-medium'>{connection.stats.connections}</p>
-              <p className='text-muted-foreground text-base'>Connections</p>
+              <p className='text-title-mini-medium'>{connection.stats.connections}</p>
+              <p className='text-muted-foreground text-body-regular'>Connections</p>
             </div>
           </CardContent>
 

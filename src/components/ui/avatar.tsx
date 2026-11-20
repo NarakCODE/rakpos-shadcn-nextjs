@@ -62,8 +62,8 @@ function AvatarFallback({
     <AvatarPrimitive.Fallback
       data-slot='avatar-fallback'
       className={cn(
-        'bg-muted text-muted-foreground flex size-full items-center justify-center rounded-full text-sm group-data-[shape=square]/avatar:rounded-md group-data-[shape=tile]/avatar:rounded-lg group-data-[size=sm]/avatar:text-xs',
-        text === 'compact' && 'text-xs',
+        'bg-muted text-muted-foreground text-body-small-regular group-data-[size=sm]/avatar:text-body-mini-regular flex size-full items-center justify-center rounded-full group-data-[shape=square]/avatar:rounded-md group-data-[shape=tile]/avatar:rounded-lg',
+        text === 'compact' && 'text-body-mini-regular',
         text === 'tiny' && 'text-[10px]',
         className
       )}
@@ -106,7 +106,7 @@ function AvatarGroupCount({ className, ...props }: React.ComponentProps<'div'>) 
     <div
       data-slot='avatar-group-count'
       className={cn(
-        'bg-muted text-muted-foreground ring-background relative flex size-8 shrink-0 items-center justify-center rounded-full text-sm ring-2 group-has-data-[size=lg]/avatar-group:size-10 group-has-data-[size=sm]/avatar-group:size-6 [&>svg]:size-4 group-has-data-[size=lg]/avatar-group:[&>svg]:size-5 group-has-data-[size=sm]/avatar-group:[&>svg]:size-3',
+        'bg-muted text-muted-foreground ring-background text-body-small-regular relative flex size-8 shrink-0 items-center justify-center rounded-full ring-2 group-has-data-[size=lg]/avatar-group:size-10 group-has-data-[size=sm]/avatar-group:size-6 [&>svg]:size-4 group-has-data-[size=lg]/avatar-group:[&>svg]:size-5 group-has-data-[size=sm]/avatar-group:[&>svg]:size-3',
         className
       )}
       {...props}

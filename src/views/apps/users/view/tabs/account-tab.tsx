@@ -83,11 +83,11 @@ export function AccountTab({ user }: AccountTabProps) {
       <Card>
         <CardContent>
           <div className='flex items-center'>
-            <span className='text-lg font-medium'>User Activity Timeline</span>
+            <span className='text-title-mini-medium'>User Activity Timeline</span>
           </div>
           <div>
             {activityLog.length === 0 ? (
-              <p className='text-muted-foreground py-4 text-sm'>No activity yet</p>
+              <p className='text-muted-foreground text-body-small-regular py-4'>No activity yet</p>
             ) : (
               <ActivityTimeline activityLog={activityLog} />
             )}

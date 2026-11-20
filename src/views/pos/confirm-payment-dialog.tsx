@@ -89,7 +89,7 @@ export function ConfirmPaymentDialog({
         <Card size='sm'>
           <CardHeader>
             <CardDescription>Amount Due</CardDescription>
-            <CardTitle className='text-3xl font-semibold tabular-nums'>{formatCents(totalCents)}</CardTitle>
+            <CardTitle className='text-title-regular tabular-nums'>{formatCents(totalCents)}</CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col gap-2'>
             <Separator />

@@ -18,12 +18,12 @@ export const DailyGuestsBanner = () => {
 
       <CardContent className='relative z-10 flex h-full flex-col justify-between space-y-1.5 p-5'>
         <div>
-          <span className='text-muted-foreground text-xs font-medium tracking-wide uppercase'>Daily Guests</span>
-          <div className='text-2xl font-bold tracking-tight tabular-nums'>1.2K</div>
+          <span className='text-muted-foreground text-body-mini-medium'>Daily Guests</span>
+          <div className='text-title-small-semibold tabular-nums'>1.2K</div>
         </div>
 
-        <p className='text-muted-foreground flex items-center gap-1 text-xs'>
-          <span className='inline-flex items-center gap-0.5 font-semibold text-emerald-600 dark:text-emerald-400'>
+        <p className='text-muted-foreground text-body-mini-regular flex items-center gap-1'>
+          <span className='text-text-green inline-flex items-center gap-0.5 font-semibold'>
             <ArrowUpRightIcon className='size-3.5 shrink-0' />
             +9.2%
           </span>{' '}

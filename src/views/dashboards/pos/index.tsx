@@ -21,8 +21,8 @@ export const DashboardPosView = () => {
       {/* Dashboard Top Header */}
       <div className='flex flex-col justify-between gap-4 md:flex-row md:items-center'>
         <div className='space-y-1'>
-          <h1 className='text-2xl font-extrabold tracking-tight md:text-3xl'>Restaurant POS Dashboard</h1>
-          <p className='text-muted-foreground text-sm'>
+          <h1 className='text-title-regular'>Restaurant POS Dashboard</h1>
+          <p className='text-muted-foreground text-body-small-regular'>
             Real-time sales, order streams, table occupancy, and guest satisfaction metrics.
           </p>
         </div>

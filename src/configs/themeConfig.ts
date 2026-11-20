@@ -1,5 +1,5 @@
 const themeConfig = {
-  templateName: 'AdminCN',
+  templateName: 'Rakfound',
   homePageUrl: '/dashboard'
 } as const
 

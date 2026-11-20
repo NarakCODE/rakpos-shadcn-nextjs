@@ -52,10 +52,10 @@ export const TopSellingItems = () => {
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-3'>
         <CardTitle>
-          <span className='text-lg font-bold'>Top Selling Items</span>
+          <span className='text-title-mini-semibold'>Top Selling Items</span>
         </CardTitle>
         <CardDescription>
-          <span className='text-muted-foreground text-xs'>
+          <span className='text-muted-foreground text-body-mini-regular'>
             Best-performing dishes by weekly revenue and order volume
           </span>
         </CardDescription>
@@ -73,15 +73,15 @@ export const TopSellingItems = () => {
 
                 {/* Name and Category */}
                 <div className='min-w-0 space-y-0.5'>
-                  <p className='text-foreground truncate text-sm font-semibold'>{dish.name}</p>
-                  <p className='text-muted-foreground truncate text-xs'>{dish.category}</p>
+                  <p className='text-foreground text-body-small-semibold truncate'>{dish.name}</p>
+                  <p className='text-muted-foreground text-body-mini-regular truncate'>{dish.category}</p>
                 </div>
               </div>
 
               {/* Sales and Volume */}
               <div className='shrink-0 text-right'>
-                <span className='text-foreground text-sm font-bold tabular-nums'>{dish.sales}</span>
-                <p className='text-muted-foreground text-xs tabular-nums'>{dish.volume} orders</p>
+                <span className='text-foreground text-body-small-semibold tabular-nums'>{dish.sales}</span>
+                <p className='text-muted-foreground text-body-mini-regular tabular-nums'>{dish.volume} orders</p>
               </div>
             </div>
           ))}

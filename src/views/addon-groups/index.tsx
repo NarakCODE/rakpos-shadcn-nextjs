@@ -3,7 +3,16 @@
 import { useMemo, useState } from 'react'
 import type { FormEvent } from 'react'
 
-import { ChevronLeftIcon, ChevronRightIcon, CopyIcon, MoreHorizontalIcon, PencilIcon, PlusIcon, SearchIcon, Trash2Icon } from 'lucide-react'
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CopyIcon,
+  MoreHorizontalIcon,
+  PencilIcon,
+  PlusIcon,
+  SearchIcon,
+  Trash2Icon
+} from 'lucide-react'
 import { toast } from 'sonner'
 
 import { ConfirmDialog } from '@/components/shared/confirm-dialog'
@@ -20,22 +29,8 @@ import {
 import { Input } from '@/components/ui/input'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
 import { Label } from '@/components/ui/label'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from '@/components/ui/sheet'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { mockAddonGroups } from '@/fake-db/addon-groups'
@@ -89,7 +84,9 @@ export default function AddonGroupsView() {
 
     return groups.filter(group => {
       const matchesSearch =
-        !query || group.name.toLowerCase().includes(query) || group.options.some(option => option.toLowerCase().includes(query))
+        !query ||
+        group.name.toLowerCase().includes(query) ||
+        group.options.some(option => option.toLowerCase().includes(query))
 
       const matchesType = typeFilter === 'all' || group.selectionType === typeFilter
 
@@ -158,7 +155,7 @@ export default function AddonGroupsView() {
     <div className='flex flex-col gap-6'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
         <div className='flex flex-col gap-1'>
-          <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Addon Groups</h1>
+          <h1 className='text-title-regular'>Addon Groups</h1>
           <FrameDescription>Manage customization options available for menu items</FrameDescription>
         </div>
         <Button variant='default' onClick={openCreateSheet}>
@@ -170,7 +167,7 @@ export default function AddonGroupsView() {
       <Frame className='w-full'>
         <FrameHeader>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-            <div className='flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground'>
+            <div className='text-body-small-regular text-muted-foreground flex items-center gap-2 whitespace-nowrap'>
               <Label htmlFor='addon-groups-page-size'>Show</Label>
               <Select
                 items={PAGE_SIZE_ITEMS}
@@ -270,7 +267,7 @@ export default function AddonGroupsView() {
                   visibleGroups.map(group => (
                     <TableRow key={group.id}>
                       <TableCell>
-                        <span className='font-semibold text-foreground'>{group.name}</span>
+                        <span className='text-foreground font-semibold'>{group.name}</span>
                       </TableCell>
                       <TableCell>
                         <Badge variant={group.selectionType === 'Single' ? 'secondary' : 'accent'}>
@@ -324,7 +321,9 @@ export default function AddonGroupsView() {
                     <TableCell colSpan={7} className='h-28 text-center'>
                       <div className='flex flex-col items-center gap-1.5'>
                         <p className='font-medium'>No addon groups found</p>
-                        <p className='text-sm text-muted-foreground'>Try another name or selection type.</p>
+                        <p className='text-body-small-regular text-muted-foreground'>
+                          Try another name or selection type.
+                        </p>
                       </div>
                     </TableCell>
                   </TableRow>
@@ -380,13 +379,19 @@ type AddonGroupsPaginationProps = {
   onPageChange: (page: number) => void
 }
 
-function AddonGroupsPagination({ total, rowsPerPage, currentPage, totalPages, onPageChange }: AddonGroupsPaginationProps) {
+function AddonGroupsPagination({
+  total,
+  rowsPerPage,
+  currentPage,
+  totalPages,
+  onPageChange
+}: AddonGroupsPaginationProps) {
   const showingFrom = total === 0 ? 0 : (currentPage - 1) * rowsPerPage + 1
   const showingTo = Math.min(currentPage * rowsPerPage, total)
 
   return (
     <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-      <p className='text-sm text-muted-foreground'>
+      <p className='text-body-small-regular text-muted-foreground'>
         Showing {showingFrom} to {showingTo} of {total} entries
       </p>
       <nav aria-label='Addon groups pagination'>
@@ -441,7 +446,10 @@ function AddonGroupFormSheet({ group, open, onOpenChange, onSave }: AddonGroupFo
   const [maxSelect, setMaxSelect] = useState(String(group?.maxSelect ?? 1))
   const [status, setStatus] = useState<AddonGroupStatus>(group?.status ?? 'Active')
 
-  const options = optionsText.split('\n').map(option => option.trim()).filter(Boolean)
+  const options = optionsText
+    .split('\n')
+    .map(option => option.trim())
+    .filter(Boolean)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -546,7 +554,9 @@ function AddonGroupFormSheet({ group, open, onOpenChange, onSave }: AddonGroupFo
                 rows={6}
                 required
               />
-              <p className='text-xs text-muted-foreground'>Enter one option per line. {options.length} options added.</p>
+              <p className='text-body-mini-regular text-muted-foreground'>
+                Enter one option per line. {options.length} options added.
+              </p>
             </div>
 
             <div className='grid gap-4 sm:grid-cols-2'>

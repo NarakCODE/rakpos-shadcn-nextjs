@@ -97,9 +97,9 @@ export function InventoryTable({
                   {/* Item */}
                   <TableCell>
                     <div className='flex flex-col'>
-                      <span className='font-semibold text-foreground'>{item.name}</span>
+                      <span className='text-foreground font-semibold'>{item.name}</span>
                       {item.notes && (
-                        <span className='line-clamp-1 text-xs text-muted-foreground'>{item.notes}</span>
+                        <span className='text-body-mini-regular text-muted-foreground line-clamp-1'>{item.notes}</span>
                       )}
                     </div>
                   </TableCell>
@@ -111,24 +111,24 @@ export function InventoryTable({
 
                   {/* Unit */}
                   <TableCell>
-                    <span className='font-mono text-sm text-muted-foreground'>{item.unit}</span>
+                    <span className='text-body-small-regular text-muted-foreground font-mono'>{item.unit}</span>
                   </TableCell>
 
                   {/* Current Stock */}
                   <TableCell>
-                    <span className='font-semibold tabular-nums text-foreground'>
+                    <span className='text-foreground font-semibold tabular-nums'>
                       {item.currentStock}{' '}
-                      <span className='text-xs font-normal text-muted-foreground'>{item.unit}</span>
+                      <span className='text-body-mini-regular text-muted-foreground'>{item.unit}</span>
                     </span>
                   </TableCell>
 
                   {/* Level */}
                   <TableCell>
                     <div className='flex flex-col gap-1.5'>
-                      <div className='flex items-center justify-between text-xs'>
-                        <span className='font-medium text-foreground'>{levelPercent}% of max</span>
+                      <div className='text-body-mini-regular flex items-center justify-between'>
+                        <span className='text-foreground font-medium'>{levelPercent}% of max</span>
                       </div>
-                      <div className='relative h-2 w-full overflow-hidden rounded-full bg-muted'>
+                      <div className='bg-muted relative h-2 w-full overflow-hidden rounded-full'>
                         <div
                           className={cn('h-full transition-all duration-300', progressColor)}
                           style={{ width: `${Math.min(100, Math.max(0, levelPercent))}%` }}
@@ -139,7 +139,7 @@ export function InventoryTable({
 
                   {/* Min / Max */}
                   <TableCell>
-                    <span className='tabular-nums text-sm text-muted-foreground'>
+                    <span className='text-body-small-regular text-muted-foreground tabular-nums'>
                       {item.minStock} / {item.maxStock}
                     </span>
                   </TableCell>
@@ -151,7 +151,9 @@ export function InventoryTable({
 
                   {/* Last Updated */}
                   <TableCell>
-                    <span className='whitespace-nowrap text-sm text-muted-foreground'>{item.lastUpdated}</span>
+                    <span className='text-body-small-regular text-muted-foreground whitespace-nowrap'>
+                      {item.lastUpdated}
+                    </span>
                   </TableCell>
 
                   {/* Adjust (Showing 80, 3, 0, etc. with interactive stepper / adjust button) */}
@@ -165,7 +167,7 @@ export function InventoryTable({
                         disabled={item.currentStock <= 0}
                         onClick={() => onQuickStep(item, -1)}
                       >
-                        <MinusIcon className='size-3 text-muted-foreground' />
+                        <MinusIcon className='text-muted-foreground size-3' />
                       </Button>
 
                       <Button
@@ -185,7 +187,7 @@ export function InventoryTable({
                         aria-label={`Increase ${item.name} stock`}
                         onClick={() => onQuickStep(item, 1)}
                       >
-                        <PlusIcon className='size-3 text-muted-foreground' />
+                        <PlusIcon className='text-muted-foreground size-3' />
                       </Button>
                     </div>
                   </TableCell>
@@ -223,10 +225,10 @@ export function InventoryTable({
           ) : (
             <TableRow>
               <TableCell colSpan={10} className='h-48 text-center'>
-                <div className='flex flex-col items-center justify-center gap-2 text-muted-foreground'>
-                  <AlertCircleIcon className='size-8 stroke-1 text-muted-foreground/60' />
-                  <p className='text-base font-medium text-foreground'>No inventory items found</p>
-                  <p className='text-sm text-muted-foreground'>
+                <div className='text-muted-foreground flex flex-col items-center justify-center gap-2'>
+                  <AlertCircleIcon className='text-muted-foreground/60 size-8 stroke-1' />
+                  <p className='text-body-regular-medium text-foreground'>No inventory items found</p>
+                  <p className='text-body-small-regular text-muted-foreground'>
                     No items match your active search or category/status filters.
                   </p>
                   {onResetFilters && (

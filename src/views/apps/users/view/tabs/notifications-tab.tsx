@@ -32,7 +32,7 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
     <Card className='gap-0 py-0'>
       <CardHeader variant='divided' className='px-6 py-4'>
         <CardTitle>Notifications</CardTitle>
-        <p className='text-muted-foreground text-sm'>
+        <p className='text-muted-foreground text-body-small-regular'>
           Choose how {user.name} receives notifications for account activity.
         </p>
       </CardHeader>
@@ -66,7 +66,7 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
           <TableBody>
             {settings.length === 0 ? (
               <TableRow variant='static'>
-                <TableCell colSpan={4} className='py-8 text-center text-sm'>
+                <TableCell colSpan={4} className='text-body-small-regular py-8 text-center'>
                   <span className='text-muted-foreground'>No notification settings found.</span>
                 </TableCell>
               </TableRow>
@@ -75,7 +75,7 @@ export function NotificationsTab({ user }: NotificationsTabProps) {
                 <TableRow key={setting.id}>
                   <TableCell className='pl-6'>
                     <p className='font-medium'>{setting.title}</p>
-                    <p className='text-muted-foreground text-sm'>{setting.description}</p>
+                    <p className='text-muted-foreground text-body-small-regular'>{setting.description}</p>
                   </TableCell>
                   <TableCell className='text-center'>
                     <Switch

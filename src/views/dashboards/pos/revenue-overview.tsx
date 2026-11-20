@@ -31,21 +31,21 @@ export const RevenueOverview = () => {
         <div className='flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between'>
           <div>
             <CardTitle>
-              <span className='text-lg font-bold'>Revenue Overview</span>
+              <span className='text-title-mini-semibold'>Revenue Overview</span>
             </CardTitle>
             <CardDescription>
-              <span className='text-muted-foreground text-xs'>
+              <span className='text-muted-foreground text-body-mini-regular'>
                 Weekly gross revenue breakdown across the past 7 days
               </span>
             </CardDescription>
           </div>
-          <p className='text-muted-foreground text-xs'>
+          <p className='text-muted-foreground text-body-mini-regular'>
             <span className='text-foreground font-medium'>+12%</span> vs last week
           </p>
         </div>
 
         <div className='pt-2'>
-          <span className='text-3xl font-extrabold tracking-tight'>$6.4K</span>
+          <span className='text-title-regular'>$6.4K</span>
         </div>
       </CardHeader>
 
@@ -60,8 +60,19 @@ export const RevenueOverview = () => {
                 margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
               >
                 <CartesianGrid vertical={false} strokeDasharray='3 3' className='stroke-border/40' />
-                <XAxis dataKey='day' tickLine={false} axisLine={false} tickMargin={8} className='text-xs font-medium' />
-                <YAxis tickLine={false} axisLine={false} tickFormatter={value => `$${value}`} className='text-xs' />
+                <XAxis
+                  dataKey='day'
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={8}
+                  className='text-body-mini-medium'
+                />
+                <YAxis
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={value => `$${value}`}
+                  className='text-body-mini-regular'
+                />
                 <ChartTooltip
                   cursor={{ fill: 'color-mix(in oklab, var(--primary) 8%, transparent)' }}
                   content={
@@ -80,18 +91,18 @@ export const RevenueOverview = () => {
           {/* 3 Sub-stat Cards */}
           <div className='grid grid-cols-1 gap-3 sm:grid-cols-3'>
             <div className='bg-muted/40 rounded-(--radius) border p-3'>
-              <span className='text-muted-foreground text-xs font-medium uppercase'>Gross Revenue</span>
-              <p className='text-lg font-bold tracking-tight'>$6,460</p>
+              <span className='text-muted-foreground text-body-mini-medium'>Gross Revenue</span>
+              <p className='text-title-mini-semibold'>$6,460</p>
             </div>
 
             <div className='bg-muted/40 rounded-(--radius) border p-3'>
-              <span className='text-muted-foreground text-xs font-medium uppercase'>Tax</span>
-              <p className='text-lg font-bold tracking-tight'>$580</p>
+              <span className='text-muted-foreground text-body-mini-medium'>Tax</span>
+              <p className='text-title-mini-semibold'>$580</p>
             </div>
 
             <div className='bg-muted/40 rounded-(--radius) border p-3'>
-              <span className='text-muted-foreground text-xs font-medium uppercase'>Tips</span>
-              <p className='text-lg font-bold tracking-tight'>$320</p>
+              <span className='text-muted-foreground text-body-mini-medium'>Tips</span>
+              <p className='text-title-mini-semibold'>$320</p>
             </div>
           </div>
         </div>

@@ -57,10 +57,12 @@ export const RecentPayments = () => {
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-3'>
         <CardTitle>
-          <span className='text-lg font-bold'>Recent Payments</span>
+          <span className='text-title-mini-semibold'>Recent Payments</span>
         </CardTitle>
         <CardDescription>
-          <span className='text-muted-foreground text-xs'>Today&apos;s transaction stream across payment methods</span>
+          <span className='text-muted-foreground text-body-mini-regular'>
+            Today&apos;s transaction stream across payment methods
+          </span>
         </CardDescription>
       </CardHeader>
 
@@ -74,12 +76,12 @@ export const RecentPayments = () => {
                 </div>
 
                 <div className='min-w-0 space-y-0.5'>
-                  <p className='text-foreground truncate text-sm font-semibold'>{payment.method}</p>
-                  <p className='text-muted-foreground font-mono text-xs'>{payment.orderId}</p>
+                  <p className='text-foreground text-body-small-semibold truncate'>{payment.method}</p>
+                  <p className='text-muted-foreground text-body-mini-regular font-mono'>{payment.orderId}</p>
                 </div>
               </div>
 
-              <span className='text-foreground text-sm font-bold tabular-nums'>{payment.amount}</span>
+              <span className='text-foreground text-body-small-semibold tabular-nums'>{payment.amount}</span>
             </div>
           ))}
         </div>

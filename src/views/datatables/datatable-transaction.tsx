@@ -57,10 +57,10 @@ export const columns: ColumnDef<Item>[] = [
         <Avatar className='size-9'>
           <AvatarImage src={row.original.avatar} alt='Hallie Richards' />
           <AvatarFallback>
-            <span className='text-xs'>{row.original.avatarFallback}</span>
+            <span className='text-body-mini-regular'>{row.original.avatarFallback}</span>
           </AvatarFallback>
         </Avatar>
-        <div className='flex flex-col text-sm'>
+        <div className='text-body-small-regular flex flex-col'>
           <span className='text-card-foreground font-medium'>{row.getValue('name')}</span>
           <span className='text-muted-foreground'>{row.original.email}</span>
         </div>
@@ -144,7 +144,7 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
     <Frame className='w-full'>
       <FrameHeader>
         <FrameTitle>
-          <h3 className='text-base'>Transactions</h3>
+          <h3 className='text-body-regular'>Transactions</h3>
         </FrameTitle>
         <FrameDescription>Customer payments and their status.</FrameDescription>
       </FrameHeader>
@@ -189,7 +189,7 @@ const TransactionDatatable = ({ data }: { data: Item[] }) => {
       </FramePanel>
 
       <FrameFooter className='flex-row items-center justify-between gap-3 py-3 max-sm:flex-col md:max-lg:flex-col'>
-        <p className='text-muted-foreground text-sm whitespace-nowrap' aria-live='polite'>
+        <p className='text-muted-foreground text-body-small-regular whitespace-nowrap' aria-live='polite'>
           Showing{' '}
           <span>
             {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} to{' '}

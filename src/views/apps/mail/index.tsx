@@ -126,7 +126,7 @@ const MailApp = () => {
                 className='flex min-h-0 flex-1 flex-col gap-3'
               >
                 <div className='flex items-center gap-3 p-3 pb-0'>
-                  <h1 className='text-xl font-bold'>{activeViewLabel}</h1>
+                  <h1 className='text-title-mini-semibold'>{activeViewLabel}</h1>
                   <TabsList variant='soft' className='ml-auto'>
                     <TabsTrigger value='all'>
                       <span className='font-normal'>All mail</span>
@@ -199,13 +199,13 @@ const MailApp = () => {
                 >
                   <MenuIcon className='size-5' />
                 </button>
-                <h1 className='flex-1 text-lg font-semibold'>{activeViewLabel}</h1>
+                <h1 className='text-title-mini-semibold flex-1'>{activeViewLabel}</h1>
                 <div className='bg-muted/60 flex gap-1 rounded-md p-1'>
                   <button
                     type='button'
                     onClick={() => setFilterTab('all')}
                     className={cn(
-                      'rounded-md px-3 py-1 text-sm font-medium transition-colors',
+                      'text-body-small-medium rounded-md px-3 py-1 transition-colors',
                       filterTab === 'all' ? 'bg-foreground text-background' : 'text-muted-foreground hover:bg-muted'
                     )}
                   >
@@ -215,7 +215,7 @@ const MailApp = () => {
                     type='button'
                     onClick={() => setFilterTab('unread')}
                     className={cn(
-                      'rounded-md px-3 py-1 text-sm font-medium transition-colors',
+                      'text-body-small-medium rounded-md px-3 py-1 transition-colors',
                       filterTab === 'unread' ? 'bg-foreground text-background' : 'text-muted-foreground hover:bg-muted'
                     )}
                   >

@@ -2,8 +2,9 @@
 import type { ReactNode } from 'react'
 
 // Next Imports
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Roboto } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Geist_Mono } from 'next/font/google'
+import localFont from 'next/font/local'
 
 // Third-party Imports
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
@@ -19,11 +20,12 @@ import { cn } from '@/lib/utils'
 import './globals.css'
 import ScrollToTop from '@/components/layout/ScrollToTop'
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--font-sans' })
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin']
+const geistRounded = localFont({
+  src: './fonts/GeistRounded.woff2',
+  variable: '--font-geist-rounded',
+  weight: '100 900',
+  style: 'normal',
+  display: 'swap'
 })
 
 const geistMono = Geist_Mono({
@@ -32,46 +34,48 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'AdminCN - Free Shadcn Admin Dashboard Template',
-  description:
-    'Build modern admin dashboards faster with AdminCN Free. A free shadcn admin dashboard template built with Tailwind CSS, featuring responsive layouts and essential pages.',
+  title: {
+    default: 'Rakfound',
+    template: '%s | Rakfound'
+  },
+  description: 'Rakfound',
   metadataBase: new URL(`${process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'}`),
   openGraph: {
-    title: 'AdminCN - Free Shadcn Admin Dashboard Template',
-    description:
-      'Build modern admin dashboards faster with AdminCN Free. A free shadcn admin dashboard template built with Tailwind CSS, featuring responsive layouts and essential pages.',
+    title: 'Rakfound',
+    description: 'Rakfound',
     type: 'website',
-    siteName: 'AdminCN',
+    siteName: 'Rakfound',
     url: process.env.NEXT_PUBLIC_APP_URL,
     images: [
       {
-        url: '/images/og-image.png',
+        url: '/og/og-default.png',
         type: 'image/png',
         width: 1200,
         height: 630,
-        alt: 'AdminCN - Free Shadcn Admin Dashboard Template'
+        alt: 'Rakfound'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AdminCN - Free Shadcn Admin Dashboard Template',
-    description:
-      'Build modern admin dashboards faster with AdminCN Free. A free shadcn admin dashboard template built with Tailwind CSS, featuring responsive layouts and essential pages.'
+    title: 'Rakfound',
+    description: 'Rakfound',
+    images: ['/og/og-default.png']
   }
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+  ]
 }
 
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html
       lang='en'
-      className={cn(
-        geistSans.variable,
-        geistMono.variable,
-        'flex min-h-full w-full antialiased',
-        'font-sans',
-        roboto.variable
-      )}
+      className={cn(geistRounded.variable, geistMono.variable, 'flex min-h-full w-full antialiased', 'font-sans')}
       data-scroll-behavior='smooth'
       suppressHydrationWarning
     >

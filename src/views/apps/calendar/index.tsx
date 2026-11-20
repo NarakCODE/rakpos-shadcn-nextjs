@@ -163,7 +163,7 @@ export function EventCalendar({ className, initialView = 'month' }: EventCalenda
             <Button variant='ghost' size='icon-sm' onClick={goToPrevious} aria-label='Previous'>
               <ChevronLeftIcon size={16} aria-hidden='true' />
             </Button>
-            <h2 className='text-sm font-semibold sm:text-lg md:text-xl'>{viewTitle}</h2>
+            <h2 className='text-body-small-semibold sm:text-title-mini-semibold'>{viewTitle}</h2>
             <Button variant='ghost' size='icon-sm' onClick={goToNext} aria-label='Next'>
               <ChevronRightIcon size={16} aria-hidden='true' />
             </Button>

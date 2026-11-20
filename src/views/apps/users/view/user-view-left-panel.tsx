@@ -60,10 +60,10 @@ export function UserViewLeftPanel({ user, onEdit }: UserViewLeftPanelProps) {
           <Avatar className='size-24'>
             {user.avatar ? <AvatarImage src={user.avatar} alt={user.name} /> : null}
             <AvatarFallback>
-              <span className='text-2xl'>{getInitialsFromName(user.name)}</span>
+              <span className='text-title-small-regular'>{getInitialsFromName(user.name)}</span>
             </AvatarFallback>
           </Avatar>
-          <h2 className='mt-4 line-clamp-4 text-xl font-semibold'>{user.name}</h2>
+          <h2 className='text-title-mini-semibold mt-4 line-clamp-4'>{user.name}</h2>
           <Badge variant='secondary' className='mt-2'>
             {user.role}
           </Badge>
@@ -72,21 +72,21 @@ export function UserViewLeftPanel({ user, onEdit }: UserViewLeftPanelProps) {
         <div className='grid grid-cols-2 gap-3'>
           <div className='bg-muted/40 flex flex-col items-center rounded-lg border p-4 text-center'>
             <CheckSquareIcon className='text-primary mb-2 size-5' />
-            <span className='text-lg font-semibold'>{formatCompactNumber(user.tasksDone)}</span>
-            <span className='text-muted-foreground text-xs'>Task Done</span>
+            <span className='text-title-mini-semibold'>{formatCompactNumber(user.tasksDone)}</span>
+            <span className='text-muted-foreground text-body-mini-regular'>Task Done</span>
           </div>
           <div className='bg-muted/40 flex flex-col items-center rounded-lg border p-4 text-center'>
             <LayoutGridIcon className='text-primary mb-2 size-5' />
-            <span className='text-lg font-semibold'>{formatCompactNumber(user.projectsDone)}</span>
-            <span className='text-muted-foreground text-xs'>Project Done</span>
+            <span className='text-title-mini-semibold'>{formatCompactNumber(user.projectsDone)}</span>
+            <span className='text-muted-foreground text-body-mini-regular'>Project Done</span>
           </div>
         </div>
 
         <div className='space-y-3'>
-          <h3 className='text-sm font-semibold'>Details</h3>
+          <h3 className='text-body-small-semibold'>Details</h3>
           <Separator />
           {detailRows.map(row => (
-            <div key={row.label} className='flex items-center justify-between gap-4 text-sm'>
+            <div key={row.label} className='text-body-small-regular flex items-center justify-between gap-4'>
               <span className='text-muted-foreground'>{row.label}</span>
               {'isStatus' in row && row.isStatus ? (
                 <span className='flex items-center gap-2 font-medium'>

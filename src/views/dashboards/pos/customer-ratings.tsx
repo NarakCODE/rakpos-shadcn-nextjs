@@ -29,10 +29,10 @@ export const CustomerRatings = () => {
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-2'>
         <CardTitle>
-          <span className='text-lg font-bold'>Customer Ratings</span>
+          <span className='text-title-mini-semibold'>Customer Ratings</span>
         </CardTitle>
         <CardDescription>
-          <span className='text-muted-foreground text-xs'>Average rating and 6-month trend</span>
+          <span className='text-muted-foreground text-body-mini-regular'>Average rating and 6-month trend</span>
         </CardDescription>
       </CardHeader>
 
@@ -42,10 +42,10 @@ export const CustomerRatings = () => {
           <div className='bg-muted/40 flex items-center justify-between rounded-(--radius) border p-3.5'>
             <div className='space-y-0.5'>
               <div className='flex items-baseline gap-1.5'>
-                <span className='text-2xl font-bold tracking-tight'>4.5</span>
-                <span className='text-muted-foreground text-xs'>out of 5.0</span>
+                <span className='text-title-small-semibold'>4.5</span>
+                <span className='text-muted-foreground text-body-mini-regular'>out of 5.0</span>
               </div>
-              <p className='text-muted-foreground text-xs'>
+              <p className='text-muted-foreground text-body-mini-regular'>
                 <span className='text-foreground font-medium'>+0.3</span> MoM
               </p>
             </div>
@@ -68,13 +68,19 @@ export const CustomerRatings = () => {
                   </linearGradient>
                 </defs>
                 <CartesianGrid vertical={false} strokeDasharray='3 3' className='stroke-border/40' />
-                <XAxis dataKey='month' tickLine={false} axisLine={false} tickMargin={6} className='text-xs' />
+                <XAxis
+                  dataKey='month'
+                  tickLine={false}
+                  axisLine={false}
+                  tickMargin={6}
+                  className='text-body-mini-regular'
+                />
                 <YAxis
                   domain={[3.5, 5.0]}
                   tickLine={false}
                   axisLine={false}
                   ticks={[3.5, 4.0, 4.5, 5.0]}
-                  className='text-xs'
+                  className='text-body-mini-regular'
                 />
                 <ChartTooltip
                   cursor={false}

@@ -63,7 +63,7 @@ export function InventoryTableToolbar({
       <div className='flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between'>
         {/* Left side: Show entries & Search */}
         <div className='flex flex-col gap-3 sm:flex-row sm:items-center'>
-          <div className='flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground'>
+          <div className='text-body-small-regular text-muted-foreground flex items-center gap-2 whitespace-nowrap'>
             <Label htmlFor='inventory-page-size'>Show</Label>
             <Select
               items={PAGE_SIZE_ITEMS}
@@ -94,7 +94,7 @@ export function InventoryTableToolbar({
             </Label>
             <InputGroup>
               <InputGroupAddon>
-                <SearchIcon className='size-4 text-muted-foreground' aria-hidden='true' />
+                <SearchIcon className='text-muted-foreground size-4' aria-hidden='true' />
               </InputGroupAddon>
               <InputGroupInput
                 id='inventory-search'
@@ -107,7 +107,7 @@ export function InventoryTableToolbar({
                 <button
                   type='button'
                   onClick={() => onSearchChange('')}
-                  className='absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground'
+                  className='text-muted-foreground hover:text-foreground absolute top-1/2 right-2.5 -translate-y-1/2'
                   aria-label='Clear search'
                 >
                   <XIcon className='size-3.5' />
@@ -176,13 +176,7 @@ export function InventoryTableToolbar({
           </Button>
 
           {/* Sync Button */}
-          <Button
-            type='button'
-            variant='outline'
-            onClick={onSync}
-            disabled={isSyncing}
-            aria-label='Sync inventory'
-          >
+          <Button type='button' variant='outline' onClick={onSync} disabled={isSyncing} aria-label='Sync inventory'>
             <RefreshCwIcon className={isSyncing ? 'animate-spin' : undefined} aria-hidden='true' />
             <span>Sync</span>
           </Button>

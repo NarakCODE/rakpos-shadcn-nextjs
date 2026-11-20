@@ -69,8 +69,8 @@ const WorkspaceDetail = () => {
       <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
         {/* Workspace Detail */}
         <div className='flex flex-col space-y-1'>
-          <h3 className='text-base font-semibold'>Workspace Detail</h3>
-          <p className='text-muted-foreground text-sm'>Manage your workspace details and settings.</p>
+          <h3 className='text-body-regular-semibold'>Workspace Detail</h3>
+          <p className='text-muted-foreground text-body-small-regular'>Manage your workspace details and settings.</p>
         </div>
         {/* Content */}
         <div className='space-y-6 lg:col-span-2'>
@@ -109,7 +109,7 @@ const WorkspaceDetail = () => {
                 </Button>
               </div>
             </div>
-            <p className='text-muted-foreground text-sm'>Pick a photo up to 1MB.</p>
+            <p className='text-muted-foreground text-body-small-regular'>Pick a photo up to 1MB.</p>
           </div>
           {/* Workspace URl */}
           <div className='w-full space-y-2'>
@@ -126,7 +126,7 @@ const WorkspaceDetail = () => {
           <div className='w-full space-y-2'>
             <Label htmlFor='workspace-slug'>Workspace Slug</Label>
             <Input id='workspace-slug' type='text' placeholder='shadcn-studio' />
-            <p className='text-muted-foreground text-xs'>
+            <p className='text-muted-foreground text-body-mini-regular'>
               Only lowercase letters, numbers, and hyphens. Max 48 Characters
             </p>
           </div>

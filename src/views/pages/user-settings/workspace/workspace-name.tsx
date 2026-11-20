@@ -51,8 +51,10 @@ const WorkspaceName = () => {
       <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
         {/* Workspace Name */}
         <div className='flex flex-col space-y-1'>
-          <h3 className='text-base font-semibold'>Workspace Name & TimeZone</h3>
-          <p className='text-muted-foreground text-sm'>Manage your workspace name and time zone settings.</p>
+          <h3 className='text-body-regular-semibold'>Workspace Name & TimeZone</h3>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Manage your workspace name and time zone settings.
+          </p>
         </div>
         {/* Content */}
         <div className='space-y-6 lg:col-span-2'>

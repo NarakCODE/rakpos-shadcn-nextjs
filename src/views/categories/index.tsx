@@ -28,22 +28,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle
-} from '@/components/ui/sheet'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
 import { mockCategories, type CategoryStatus, type MenuCategory } from '@/fake-db/categories'
@@ -133,20 +119,16 @@ export default function CategoriesView() {
   return (
     <div className='flex flex-col gap-6'>
       <div className='flex flex-col gap-1'>
-        <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Categories</h1>
+        <h1 className='text-title-regular'>Categories</h1>
         <FrameDescription>Organize the items on your menu by category</FrameDescription>
       </div>
 
       <Frame className='w-full'>
         <FrameHeader>
           <div className='grid gap-3 md:grid-cols-[auto_minmax(14rem,1fr)] xl:grid-cols-[auto_minmax(14rem,1fr)_12rem] xl:items-center'>
-            <div className='flex items-center gap-2 whitespace-nowrap text-sm text-muted-foreground'>
+            <div className='text-body-small-regular text-muted-foreground flex items-center gap-2 whitespace-nowrap'>
               <Label htmlFor='categories-page-size'>Show</Label>
-              <Select
-                items={PAGE_SIZE_ITEMS}
-                value={String(rowsPerPage)}
-                onValueChange={handleRowsPerPageChange}
-              >
+              <Select items={PAGE_SIZE_ITEMS} value={String(rowsPerPage)} onValueChange={handleRowsPerPageChange}>
                 <SelectTrigger id='categories-page-size' className='w-20' aria-label='Entries per page'>
                   <SelectValue />
                 </SelectTrigger>
@@ -186,7 +168,11 @@ export default function CategoriesView() {
                 Filter by status
               </Label>
               <Select items={STATUS_ITEMS} value={statusFilter} onValueChange={handleStatusChange}>
-                <SelectTrigger id='categories-status-filter' className='w-full' aria-label='Filter categories by status'>
+                <SelectTrigger
+                  id='categories-status-filter'
+                  className='w-full'
+                  aria-label='Filter categories by status'
+                >
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -244,7 +230,7 @@ export default function CategoriesView() {
                       </TableCell>
                       <TableCell>
                         <span
-                          className='flex size-10 items-center justify-center rounded-xl bg-muted text-xl'
+                          className='bg-muted text-title-mini-regular flex size-10 items-center justify-center rounded-xl'
                           aria-label={`${category.name} icon`}
                           role='img'
                         >
@@ -252,13 +238,15 @@ export default function CategoriesView() {
                         </span>
                       </TableCell>
                       <TableCell>
-                        <span className='font-semibold text-foreground'>{category.name}</span>
+                        <span className='text-foreground font-semibold'>{category.name}</span>
                       </TableCell>
                       <TableCell>
                         <span className='text-muted-foreground'>{category.description}</span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant={category.status === 'Active' ? 'success' : 'secondary'}>{category.status}</Badge>
+                        <Badge variant={category.status === 'Active' ? 'success' : 'secondary'}>
+                          {category.status}
+                        </Badge>
                       </TableCell>
                       <TableCell className='text-right'>
                         <DropdownMenu>
@@ -289,7 +277,9 @@ export default function CategoriesView() {
                     <TableCell colSpan={6} className='h-28 text-center'>
                       <div className='flex flex-col items-center gap-1.5'>
                         <p className='font-medium'>No categories found</p>
-                        <p className='text-sm text-muted-foreground'>Try another name, description, or status.</p>
+                        <p className='text-body-small-regular text-muted-foreground'>
+                          Try another name, description, or status.
+                        </p>
                       </div>
                     </TableCell>
                   </TableRow>
@@ -300,7 +290,7 @@ export default function CategoriesView() {
         </FramePanel>
 
         <FrameFooter className='flex-row flex-wrap items-center justify-between gap-3'>
-          <p className='text-sm text-muted-foreground'>
+          <p className='text-body-small-regular text-muted-foreground'>
             Showing {showingFrom} to {showingTo} of {filteredCategories.length} entries
           </p>
           <nav aria-label='Category table pagination'>
@@ -318,7 +308,13 @@ export default function CategoriesView() {
                 </Button>
               </li>
               <li>
-                <Button type='button' variant='default' size='icon' aria-label={`Page ${safeCurrentPage}`} aria-current='page'>
+                <Button
+                  type='button'
+                  variant='default'
+                  size='icon'
+                  aria-label={`Page ${safeCurrentPage}`}
+                  aria-current='page'
+                >
                   {safeCurrentPage}
                 </Button>
               </li>
@@ -399,7 +395,9 @@ function CategoryEditSheet({ category, open, onOpenChange, onSave }: CategoryEdi
         <form className='flex min-h-full flex-col' onSubmit={handleSubmit}>
           <SheetHeader>
             <SheetTitle>Edit category</SheetTitle>
-            <SheetDescription>Update the name, description, icon, or availability for this menu group.</SheetDescription>
+            <SheetDescription>
+              Update the name, description, icon, or availability for this menu group.
+            </SheetDescription>
           </SheetHeader>
 
           <div className='flex flex-col gap-5 px-6 py-6'>
@@ -414,7 +412,7 @@ function CategoryEditSheet({ category, open, onOpenChange, onSave }: CategoryEdi
                   maxLength={8}
                 />
               </InputGroup>
-              <p className='text-xs text-muted-foreground'>Emoji or symbol</p>
+              <p className='text-body-mini-regular text-muted-foreground'>Emoji or symbol</p>
             </div>
 
             <div className='flex flex-col gap-2'>

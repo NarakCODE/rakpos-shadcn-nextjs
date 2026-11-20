@@ -33,10 +33,12 @@ export const OrderTypeDonut = () => {
     <Card className='flex flex-col justify-between'>
       <CardHeader className='pb-2'>
         <CardTitle>
-          <span className='text-lg font-bold'>Order Type</span>
+          <span className='text-title-mini-semibold'>Order Type</span>
         </CardTitle>
         <CardDescription>
-          <span className='text-muted-foreground text-xs'>Distribution across dining channels today</span>
+          <span className='text-muted-foreground text-body-mini-regular'>
+            Distribution across dining channels today
+          </span>
         </CardDescription>
       </CardHeader>
 
@@ -77,14 +79,14 @@ export const OrderTypeDonut = () => {
                           <tspan
                             x={viewBox.cx}
                             y={(viewBox.cy || 0) - 8}
-                            className='fill-foreground text-2xl font-black'
+                            className='fill-foreground text-title-small-semibold'
                           >
                             100
                           </tspan>
                           <tspan
                             x={viewBox.cx}
                             y={(viewBox.cy || 0) + 14}
-                            className='fill-muted-foreground text-xs font-medium tracking-wider uppercase'
+                            className='fill-muted-foreground text-body-mini-medium'
                           >
                             Orders
                           </tspan>
@@ -104,10 +106,10 @@ export const OrderTypeDonut = () => {
             <div key={item.name} className='flex flex-col items-center gap-0.5 px-2'>
               <div className='flex items-center gap-1.5'>
                 <span className='size-2 rounded-full' style={{ backgroundColor: item.color }} />
-                <span className='text-muted-foreground text-xs font-medium'>{item.name}</span>
+                <span className='text-muted-foreground text-body-mini-medium'>{item.name}</span>
               </div>
-              <p className='text-sm font-semibold'>
-                {item.count} <span className='text-muted-foreground text-xs font-normal'>({item.percent})</span>
+              <p className='text-body-small-semibold'>
+                {item.count} <span className='text-muted-foreground text-body-mini-regular'>({item.percent})</span>
               </p>
             </div>
           ))}

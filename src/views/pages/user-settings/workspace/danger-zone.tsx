@@ -15,8 +15,8 @@ const DangerZone = () => {
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       {/* Vertical Tabs List */}
       <div className='flex flex-col space-y-1'>
-        <h3 className='text-base font-semibold'>Danger zone</h3>
-        <p className='text-muted-foreground text-sm'>
+        <h3 className='text-body-regular-semibold'>Danger zone</h3>
+        <p className='text-muted-foreground text-body-small-regular'>
           Manage general workspace. Contact system admin for more information{' '}
           <Link href='#' className='text-card-foreground font-medium hover:underline'>
             Learn more
@@ -30,8 +30,8 @@ const DangerZone = () => {
           <CardContent>
             <div className='flex justify-between gap-4 max-lg:flex-col lg:items-center'>
               <div className='space-y-1'>
-                <h3 className='text-sm font-medium'>Leave workspace</h3>
-                <p className='text-muted-foreground text-sm'>
+                <h3 className='text-body-small-medium'>Leave workspace</h3>
+                <p className='text-muted-foreground text-body-small-regular'>
                   Revoke your access to this team. Other people you have added to the workspace will remain.
                 </p>
               </div>
@@ -43,7 +43,7 @@ const DangerZone = () => {
                 <DialogContent className='sm:max-w-md'>
                   <DialogHeader className='space-y-2'>
                     <DialogTitle>Leave workspace</DialogTitle>
-                    <div className='text-muted-foreground text-sm'>
+                    <div className='text-muted-foreground text-body-small-regular'>
                       Revoke your access to this team. Other people you have added to the workspace will remain.
                     </div>
                   </DialogHeader>
@@ -60,8 +60,8 @@ const DangerZone = () => {
           <CardContent>
             <div className='flex justify-between gap-4 max-lg:flex-col lg:items-center'>
               <div className='space-y-1'>
-                <h3 className='text-sm font-medium'>Delete workspace</h3>
-                <p className='text-muted-foreground text-sm'>
+                <h3 className='text-body-small-medium'>Delete workspace</h3>
+                <p className='text-muted-foreground text-body-small-regular'>
                   Delete your workspace permanently. This action will remove all data and cannot be undone.
                 </p>
               </div>
@@ -71,7 +71,7 @@ const DangerZone = () => {
               </Button>
             </div>
             <Separator className='my-4' />
-            <p className='text-muted-foreground text-sm'>
+            <p className='text-muted-foreground text-body-small-regular'>
               You cannot delete the workspace because you are not the system admin.
             </p>
           </CardContent>

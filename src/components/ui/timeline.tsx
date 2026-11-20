@@ -167,9 +167,9 @@ const timelineHeadingVariants = cva('row-start-1 row-end-1 line-clamp-1 max-w-fu
       left: 'col-start-1 col-end-2 ml-auto text-right'
     },
     variant: {
-      primary: 'text-primary text-base font-medium',
-      secondary: 'text-muted-foreground text-sm font-light',
-      neutral: 'text-foreground text-base font-medium'
+      primary: 'text-primary text-body-regular-medium',
+      secondary: 'text-muted-foreground text-body-small-regular',
+      neutral: 'text-foreground text-body-regular-medium'
     }
   },
   defaultVariants: {

@@ -70,7 +70,7 @@ export function OrdersPagination({
   return (
     <div className='flex w-full flex-col items-center justify-between gap-3 sm:flex-row'>
       {/* Left: Entries selector */}
-      <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+      <div className='text-body-small-regular text-muted-foreground flex items-center gap-2'>
         <Label htmlFor='orders-per-page'>Show</Label>
         <Select
           items={ENTRIES_ITEMS}
@@ -99,11 +99,7 @@ export function OrdersPagination({
       <Pagination className='mx-0 w-auto justify-end'>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious
-              href='#'
-              onClick={handlePreviousClick}
-              aria-disabled={currentPage <= 1}
-            />
+            <PaginationPrevious href='#' onClick={handlePreviousClick} aria-disabled={currentPage <= 1} />
           </PaginationItem>
 
           {showLeftEllipsis && (
@@ -117,11 +113,7 @@ export function OrdersPagination({
 
             return (
               <PaginationItem key={page}>
-                <PaginationLink
-                  href='#'
-                  isActive={isActive}
-                  onClick={e => handlePageClick(page, e)}
-                >
+                <PaginationLink href='#' isActive={isActive} onClick={e => handlePageClick(page, e)}>
                   {page}
                 </PaginationLink>
               </PaginationItem>
@@ -135,11 +127,7 @@ export function OrdersPagination({
           )}
 
           <PaginationItem>
-            <PaginationNext
-              href='#'
-              onClick={handleNextClick}
-              aria-disabled={currentPage >= totalPages}
-            />
+            <PaginationNext href='#' onClick={handleNextClick} aria-disabled={currentPage >= totalPages} />
           </PaginationItem>
         </PaginationContent>
       </Pagination>

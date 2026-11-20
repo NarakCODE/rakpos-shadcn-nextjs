@@ -255,7 +255,7 @@ export default function InventoryView() {
     <div className='flex flex-col gap-6'>
       {/* Page Title & Description */}
       <div className='flex flex-col gap-1'>
-        <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Inventory</h1>
+        <h1 className='text-title-regular'>Inventory</h1>
         <FrameDescription>
           Track raw ingredients, monitor stock levels, manage low-stock alerts, and assess total valuation.
         </FrameDescription>

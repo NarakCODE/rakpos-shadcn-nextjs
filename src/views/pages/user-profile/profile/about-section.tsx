@@ -76,7 +76,7 @@ function AboutSection() {
         <CardContent className='space-y-5'>
           {profileSections.map(section => (
             <div className='space-y-2' key={section.title}>
-              <p className='text-muted-foreground text-xs font-medium uppercase'>{section.title}</p>
+              <p className='text-muted-foreground text-body-mini-medium'>{section.title}</p>
               <ul className='space-y-3'>
                 {section.items.map(item => {
                   const Icon = item.icon
@@ -84,8 +84,8 @@ function AboutSection() {
                   return (
                     <li className='flex items-center gap-2' key={item.label}>
                       {Icon ? <Icon className='size-4' /> : null}
-                      <span className='text-sm font-medium'>{item.label}:</span>
-                      <span className='text-sm'>{item.value}</span>
+                      <span className='text-body-small-medium'>{item.label}:</span>
+                      <span className='text-body-small-regular'>{item.value}</span>
                     </li>
                   )
                 })}
@@ -98,7 +98,7 @@ function AboutSection() {
         <CardContent className='space-y-5'>
           {overviewSections.map(section => (
             <div className='space-y-2' key={section.title}>
-              <p className='text-muted-foreground text-xs font-medium uppercase'>{section.title}</p>
+              <p className='text-muted-foreground text-body-mini-medium'>{section.title}</p>
               <ul className='space-y-3'>
                 {section.items.map(item => {
                   const Icon = item.icon
@@ -106,8 +106,8 @@ function AboutSection() {
                   return (
                     <li className='flex items-center gap-2' key={item.label}>
                       {Icon ? <Icon className='size-4' /> : null}
-                      <span className='text-sm font-medium'>{item.label}:</span>
-                      <span className='text-sm'>{item.value}</span>
+                      <span className='text-body-small-medium'>{item.label}:</span>
+                      <span className='text-body-small-regular'>{item.value}</span>
                     </li>
                   )
                 })}

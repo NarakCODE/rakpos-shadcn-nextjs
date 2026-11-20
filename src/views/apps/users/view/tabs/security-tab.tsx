@@ -43,7 +43,7 @@ export function SecurityTab({ user }: SecurityTabProps) {
             <Label htmlFor='confirm-password'>Confirm New Password</Label>
             <Input id='confirm-password' type='password' placeholder='············' />
           </div>
-          <ul className='text-muted-foreground list-inside list-disc space-y-1 text-sm'>
+          <ul className='text-muted-foreground text-body-small-regular list-inside list-disc space-y-1'>
             <li>Minimum 8 characters long — the more, the better</li>
             <li>At least one lowercase & one uppercase character</li>
             <li>At least one number, symbol, or whitespace character</li>
@@ -56,7 +56,9 @@ export function SecurityTab({ user }: SecurityTabProps) {
         <CardHeader className='flex flex-row items-center justify-between gap-4'>
           <div>
             <CardTitle>Two-steps verification</CardTitle>
-            <p className='text-muted-foreground mt-1 text-sm'>Keep your account secure with authentication step.</p>
+            <p className='text-muted-foreground text-body-small-regular mt-1'>
+              Keep your account secure with authentication step.
+            </p>
           </div>
           <Switch
             checked={isTwoFactorEnabled}
@@ -65,7 +67,7 @@ export function SecurityTab({ user }: SecurityTabProps) {
           />
         </CardHeader>
         <CardContent>
-          <p className='text-muted-foreground text-sm'>
+          <p className='text-muted-foreground text-body-small-regular'>
             {isTwoFactorEnabled
               ? 'Two-factor authentication is enabled for this account.'
               : 'Two-factor authentication is not enabled yet.'}
@@ -97,7 +99,7 @@ export function SecurityTab({ user }: SecurityTabProps) {
           <TableBody>
             {recentDevices.length === 0 ? (
               <TableRow variant='static'>
-                <TableCell colSpan={4} className='py-8 text-center text-sm'>
+                <TableCell colSpan={4} className='text-body-small-regular py-8 text-center'>
                   <span className='text-muted-foreground'>No recent devices found.</span>
                 </TableCell>
               </TableRow>
@@ -113,9 +115,9 @@ export function SecurityTab({ user }: SecurityTabProps) {
                   </TableCell>
                   <TableCell className='pr-6 text-right'>
                     {device.isCurrentDevice ? (
-                      <span className='text-primary text-sm font-medium'>{device.lastActive}</span>
+                      <span className='text-primary text-body-small-medium'>{device.lastActive}</span>
                     ) : (
-                      <span className='text-muted-foreground text-sm'>{device.lastActive}</span>
+                      <span className='text-muted-foreground text-body-small-regular'>{device.lastActive}</span>
                     )}
                   </TableCell>
                 </TableRow>

@@ -21,8 +21,8 @@ const MailList = ({ emails, selectedEmailId, onEmailSelect }: MailListProps) => 
     return (
       <div className='text-muted-foreground flex flex-1 flex-col items-center justify-center gap-2 p-10 text-center'>
         <InboxIcon className='text-muted-foreground/40 size-9' />
-        <p className='text-foreground text-sm font-medium'>No messages</p>
-        <p className='text-xs'>This folder is empty.</p>
+        <p className='text-foreground text-body-small-medium'>No messages</p>
+        <p className='text-body-mini-regular'>This folder is empty.</p>
       </div>
     )
   }

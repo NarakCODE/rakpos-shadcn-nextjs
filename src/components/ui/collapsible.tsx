@@ -13,7 +13,7 @@ function CollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {
 }
 
 function CollapsibleContent({
-  animation = 'none',
+  animation = 'height',
   className,
   ...props
 }: CollapsiblePrimitive.Panel.Props & { animation?: 'none' | 'height' }) {
@@ -23,7 +23,7 @@ function CollapsibleContent({
       data-animation={animation}
       className={cn(
         animation === 'height' &&
-          'h-(--collapsible-panel-height) overflow-hidden transition-all duration-200 data-ending-style:h-0 data-starting-style:h-0',
+          'h-(--collapsible-panel-height) overflow-hidden transition-[height,opacity] duration-200 ease-out data-ending-style:h-0 data-ending-style:opacity-0 data-starting-style:h-0 data-starting-style:opacity-0 motion-reduce:transition-opacity motion-reduce:data-ending-style:h-(--collapsible-panel-height) motion-reduce:data-starting-style:h-(--collapsible-panel-height)',
         className
       )}
       {...props}

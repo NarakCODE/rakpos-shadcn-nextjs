@@ -125,7 +125,7 @@ export function AddEditUserSheet({ mode, user, onClose, onAdd, onEdit }: AddEdit
       <SheetContent side='right' className='w-full overflow-y-auto sm:max-w-[420px]'>
         <SheetHeader className='pb-0'>
           <SheetTitle>
-            <span className='text-lg'>{mode === 'edit' ? 'Edit User' : 'Add New User'}</span>
+            <span className='text-title-mini-regular'>{mode === 'edit' ? 'Edit User' : 'Add New User'}</span>
           </SheetTitle>
         </SheetHeader>
 

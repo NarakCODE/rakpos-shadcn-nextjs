@@ -124,7 +124,7 @@ const FlyoutMenuLink = ({ item, isActive }: { item: MenuLeafSubItem; isActive: b
     <span className='truncate'>{item.label}</span>
     <div className='flex items-center gap-2'>
       {item.badge && (
-        <span className={cn('bg-primary/10 ml-auto rounded-full px-1.5 text-xs font-normal', item.badgeClassName)}>
+        <span className={cn('bg-primary/10 text-body-mini-regular ml-auto rounded-full px-1.5', item.badgeClassName)}>
           {item.badge}
         </span>
       )}
@@ -165,7 +165,7 @@ const FlyoutMenuItem = ({
             <DropdownMenuLabel variant='navigation'>
               <span className='truncate'>{item.label}</span>
               {item.badge && (
-                <span className={cn('bg-primary/10 rounded-full px-1.5 text-xs font-normal', item.badgeClassName)}>
+                <span className={cn('bg-primary/10 text-body-mini-regular rounded-full px-1.5', item.badgeClassName)}>
                   {item.badge}
                 </span>
               )}
@@ -454,10 +454,10 @@ const SidebarLayout = () => {
               className='gap-2.5 bg-transparent! [&>svg]:size-8'
               render={<Link href={`${themeConfig.homePageUrl}`} />}
             >
-              <LogoSvg className='[&_rect]:fill-sidebar [&_rect:first-child]:fill-primary' />
+              <LogoSvg />
               <div className='flex flex-col items-start'>
-                <span className='text-lg font-semibold text-nowrap'>{themeConfig.templateName}</span>
-                <span className='text-xs font-light text-nowrap'>Dashboard Template</span>
+                <span className='text-title-mini-semibold text-nowrap'>{themeConfig.templateName}</span>
+                <span className='text-body-mini-regular text-nowrap'>Dashboard Template</span>
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>

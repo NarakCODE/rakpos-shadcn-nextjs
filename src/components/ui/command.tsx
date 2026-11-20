@@ -59,7 +59,10 @@ function CommandInput({ className, ...props }: React.ComponentProps<typeof Comma
       <InputGroup className='border-input/30 bg-input/30 h-8! rounded-lg! shadow-none! *:data-[slot=input-group-addon]:pl-2!'>
         <CommandPrimitive.Input
           data-slot='command-input'
-          className={cn('w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50', className)}
+          className={cn(
+            'text-body-small-regular w-full outline-hidden disabled:cursor-not-allowed disabled:opacity-50',
+            className
+          )}
           {...props}
         />
         <InputGroupAddon>
@@ -84,7 +87,7 @@ function CommandEmpty({ className, ...props }: React.ComponentProps<typeof Comma
   return (
     <CommandPrimitive.Empty
       data-slot='command-empty'
-      className={cn('py-6 text-center text-sm', className)}
+      className={cn('text-body-small-regular py-6 text-center', className)}
       {...props}
     />
   )
@@ -95,7 +98,7 @@ function CommandGroup({ className, ...props }: React.ComponentProps<typeof Comma
     <CommandPrimitive.Group
       data-slot='command-group'
       className={cn(
-        'text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden p-1 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium',
+        'text-foreground **:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-heading]]:text-body-mini-medium overflow-hidden p-1 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5',
         className
       )}
       {...props}
@@ -118,7 +121,7 @@ function CommandItem({ className, children, ...props }: React.ComponentProps<typ
     <CommandPrimitive.Item
       data-slot='command-item'
       className={cn(
-        "group/command-item data-selected:bg-muted data-selected:text-foreground data-selected:**:[svg]:text-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none in-data-[slot=dialog-content]:rounded-lg! data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "group/command-item data-selected:bg-muted data-selected:text-foreground data-selected:**:[svg]:text-foreground text-body-small-regular relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 outline-hidden select-none in-data-[slot=dialog-content]:rounded-lg! data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -134,7 +137,7 @@ function CommandShortcut({ className, ...props }: React.ComponentProps<'span'>) 
     <span
       data-slot='command-shortcut'
       className={cn(
-        'text-muted-foreground group-data-selected/command-item:text-foreground ml-auto text-xs tracking-widest',
+        'text-muted-foreground group-data-selected/command-item:text-foreground text-body-mini-regular ml-auto tracking-widest',
         className
       )}
       {...props}

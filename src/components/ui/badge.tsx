@@ -5,7 +5,7 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const badgeVariants = cva(
-  'group/badge focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-4xl border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:ring-[3px] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&>svg]:pointer-events-none [&>svg]:size-3!',
+  'group/badge focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 text-body-mini-medium inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-4xl border border-transparent px-2 py-0.5 whitespace-nowrap transition-all focus-visible:ring-[3px] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&>svg]:pointer-events-none [&>svg]:size-3!',
   {
     variants: {
       variant: {
@@ -17,10 +17,10 @@ const badgeVariants = cva(
         ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
         link: 'text-primary underline-offset-4 hover:underline',
 
-        success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300',
-        warning: 'bg-amber-100 text-amber-800 dark:bg-amber-950/50 dark:text-amber-300',
-        danger: 'bg-red-100 text-red-800 dark:bg-red-950/50 dark:text-red-300',
-        accent: 'bg-blue-100 text-blue-800 dark:bg-blue-950/50 dark:text-blue-300'
+        success: 'bg-bg-green text-text-green',
+        warning: 'bg-bg-amber text-text-amber',
+        danger: 'bg-bg-red text-text-red',
+        accent: 'bg-bg-blue text-text-blue'
       },
       size: {
         default: '',

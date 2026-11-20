@@ -30,7 +30,7 @@ function Teams({ className }: TeamsProps) {
   return (
     <Card className={cn(className)}>
       <CardHeader className='flex items-center justify-between'>
-        <span className='text-lg font-medium'>Teams</span>
+        <span className='text-title-mini-medium'>Teams</span>
         <DropdownMenu>
           <DropdownMenuTrigger render={<Button variant='ghost-muted' size='icon-xs' shape='round' />}>
             <EllipsisVerticalIcon />
@@ -54,8 +54,8 @@ function Teams({ className }: TeamsProps) {
                 <AvatarFallback>{team.initials}</AvatarFallback>
               </Avatar>
               <div className='flex flex-col gap-0.5'>
-                <span className='text-base font-medium'>{team.teams}</span>
-                <span className='text-muted-foreground text-sm'>{team.totalMembers}</span>
+                <span className='text-body-regular-medium'>{team.teams}</span>
+                <span className='text-muted-foreground text-body-small-regular'>{team.totalMembers}</span>
               </div>
             </div>
             <Badge variant='outline' size='tall'>

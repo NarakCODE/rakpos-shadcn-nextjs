@@ -1,8 +1,10 @@
 'use client'
 
 import { AlertOctagonIcon, AlertTriangleIcon, BoxesIcon, DollarSignIcon } from 'lucide-react'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
+
 import { currencyFormatter } from './inventory-utils'
 
 type InventorySummaryCardsProps = {
@@ -34,8 +36,8 @@ export function InventorySummaryCards({
       value: String(lowStockCount),
       subtext: `${lowStockCount} need attention`,
       icon: AlertTriangleIcon,
-      iconBg: 'bg-amber-500/10 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400',
-      badgeClass: 'text-amber-700 bg-amber-100 dark:text-amber-300 dark:bg-amber-950/60'
+      iconBg: 'bg-bg-amber text-text-amber',
+      badgeClass: 'bg-bg-amber text-text-amber'
     },
     {
       id: 'out-of-stock',
@@ -43,8 +45,8 @@ export function InventorySummaryCards({
       value: String(outOfStockCount),
       subtext: `${outOfStockCount} unavailable`,
       icon: AlertOctagonIcon,
-      iconBg: 'bg-rose-500/10 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400',
-      badgeClass: 'text-rose-700 bg-rose-100 dark:text-rose-300 dark:bg-rose-950/60'
+      iconBg: 'bg-bg-red text-text-red',
+      badgeClass: 'bg-bg-red text-text-red'
     },
     {
       id: 'total-value',
@@ -52,8 +54,8 @@ export function InventorySummaryCards({
       value: currencyFormatter.format(totalValue),
       subtext: 'Inventory value',
       icon: DollarSignIcon,
-      iconBg: 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400',
-      badgeClass: 'text-emerald-700 bg-emerald-100 dark:text-emerald-300 dark:bg-emerald-950/60'
+      iconBg: 'bg-bg-green text-text-green',
+      badgeClass: 'bg-bg-green text-text-green'
     }
   ]
 
@@ -66,20 +68,18 @@ export function InventorySummaryCards({
           <Card key={card.id} className='h-full'>
             <CardContent className='flex flex-col justify-between gap-4 p-5'>
               <div className='flex items-center justify-between'>
-                <span className='text-sm font-medium text-muted-foreground'>{card.title}</span>
+                <span className='text-body-small-medium text-muted-foreground'>{card.title}</span>
                 <div className={cn('flex size-9 items-center justify-center rounded-lg', card.iconBg)}>
                   <Icon className='size-5' aria-hidden='true' />
                 </div>
               </div>
 
               <div className='flex flex-col gap-1.5'>
-                <span className='text-2xl font-bold tracking-tight text-foreground tabular-nums sm:text-3xl'>
-                  {card.value}
-                </span>
+                <span className='text-title-regular text-foreground tabular-nums'>{card.value}</span>
                 <div className='flex items-center gap-1.5'>
                   <span
                     className={cn(
-                      'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium',
+                      'text-body-mini-medium inline-flex items-center rounded-full px-2 py-0.5',
                       card.badgeClass
                     )}
                   >

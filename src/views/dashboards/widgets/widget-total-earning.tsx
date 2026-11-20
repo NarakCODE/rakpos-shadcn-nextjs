@@ -36,7 +36,7 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
     <Card className={className}>
       <CardContent className='flex flex-col gap-6'>
         <span className='flex items-center justify-between'>
-          <div className='text-lg font-semibold'>{title}</div>
+          <div className='text-title-mini-semibold'>{title}</div>
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button variant='ghost-muted' shape='round' size='icon' className='size-6' />}>
               <EllipsisVerticalIcon />
@@ -53,13 +53,13 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
         </span>
         <div className='flex flex-col gap-1'>
           <div className='flex items-center gap-2'>
-            <span className='text-2xl font-semibold'>${earning}</span>
+            <span className='text-title-small-semibold'>${earning}</span>
             <span className='flex items-center gap-1'>
               {trend === 'up' ? <ChevronUpIcon className='size-4' /> : <ChevronDownIcon className='size-4' />}
-              <span className='text-sm'>{percentage}%</span>
+              <span className='text-body-small-regular'>{percentage}%</span>
             </span>
           </div>
-          <span className='text-muted-foreground text-sm'>{comparisonText}</span>
+          <span className='text-muted-foreground text-body-small-regular'>{comparisonText}</span>
         </div>
       </CardContent>
       <CardContent className='flex flex-1 flex-col gap-4'>
@@ -71,12 +71,12 @@ const TotalEarningCard = ({ earningData, title, earning, trend, percentage, comp
                   <img src={earning.img} alt={earning.platform} className='size-6' />
                 </div>
                 <div className='flex flex-col gap-1'>
-                  <span className='text-base font-medium'>{earning.platform}</span>
-                  <span className='text-muted-foreground text-sm'>{earning.technologies}</span>
+                  <span className='text-body-regular-medium'>{earning.platform}</span>
+                  <span className='text-muted-foreground text-body-small-regular'>{earning.technologies}</span>
                 </div>
               </div>
               <div className='space-y-2'>
-                <p className='text-sm'>{earning.earnings}</p>
+                <p className='text-body-small-regular'>{earning.earnings}</p>
                 <Progress value={earning.progressPercentage} className='w-36 **:data-[slot=progress-track]:h-1.5' />
               </div>
             </div>

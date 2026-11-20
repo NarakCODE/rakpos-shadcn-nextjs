@@ -135,14 +135,14 @@ export const RecentOrdersTable = () => {
       <FrameHeader className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
         <div className='space-y-0.5'>
           <FrameTitle>
-            <span className='text-base font-bold'>Recent Orders</span>
+            <span className='text-body-regular-semibold'>Recent Orders</span>
           </FrameTitle>
           <FrameDescription>
-            <span className='text-xs'>Live tracking of the latest orders across dining channels</span>
+            <span className='text-body-mini-regular'>Live tracking of the latest orders across dining channels</span>
           </FrameDescription>
         </div>
         <Badge variant='outline' className='w-fit'>
-          <span className='text-xs font-normal'>8 active orders</span>
+          <span className='text-body-mini-regular'>8 active orders</span>
         </Badge>
       </FrameHeader>
 
@@ -173,8 +173,8 @@ export const RecentOrdersTable = () => {
                 <TableRow key={order.id}>
                   <TableCell>
                     <div className='space-y-0.5'>
-                      <span className='text-foreground font-mono text-xs font-bold'>{order.orderNumber}</span>
-                      <div className='text-muted-foreground flex items-center gap-1.5 text-xs'>
+                      <span className='text-foreground text-body-mini-medium font-mono'>{order.orderNumber}</span>
+                      <div className='text-muted-foreground text-body-mini-regular flex items-center gap-1.5'>
                         {getChannelIcon(order.channel)}
                         <span>{order.location}</span>
                       </div>
@@ -182,17 +182,17 @@ export const RecentOrdersTable = () => {
                   </TableCell>
 
                   <TableCell>
-                    <p className='text-foreground max-w-md truncate text-sm font-medium'>{order.items}</p>
+                    <p className='text-foreground text-body-small-medium max-w-md truncate'>{order.items}</p>
                   </TableCell>
 
                   <TableCell>{getStatusBadge(order.status)}</TableCell>
 
                   <TableCell className='text-right'>
-                    <span className='text-foreground text-sm font-bold tabular-nums'>{order.price}</span>
+                    <span className='text-foreground text-body-small-semibold tabular-nums'>{order.price}</span>
                   </TableCell>
 
                   <TableCell className='text-right'>
-                    <span className='text-muted-foreground text-xs tabular-nums'>{order.timeAgo}</span>
+                    <span className='text-muted-foreground text-body-mini-regular tabular-nums'>{order.timeAgo}</span>
                   </TableCell>
                 </TableRow>
               ))}
@@ -202,8 +202,8 @@ export const RecentOrdersTable = () => {
       </FramePanel>
 
       <FrameFooter className='flex flex-row items-center justify-between'>
-        <span className='text-muted-foreground text-xs'>Showing 8 of 8 recent orders</span>
-        <span className='text-muted-foreground font-mono text-xs'>Auto-refreshed</span>
+        <span className='text-muted-foreground text-body-mini-regular'>Showing 8 of 8 recent orders</span>
+        <span className='text-muted-foreground text-body-mini-regular font-mono'>Auto-refreshed</span>
       </FrameFooter>
     </Frame>
   )

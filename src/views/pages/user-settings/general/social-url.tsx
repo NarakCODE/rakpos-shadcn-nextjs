@@ -21,8 +21,8 @@ const SocialUrl = () => {
     <div className='grid grid-cols-1 gap-10 lg:grid-cols-3'>
       {/* Vertical Tabs List */}
       <div className='flex flex-col'>
-        <h3 className='text-base font-semibold'>Social URLs</h3>
-        <p className='text-muted-foreground text-sm'>Manage your social URLs.</p>
+        <h3 className='text-body-regular-semibold'>Social URLs</h3>
+        <p className='text-muted-foreground text-body-small-regular'>Manage your social URLs.</p>
       </div>
 
       {/* Content */}

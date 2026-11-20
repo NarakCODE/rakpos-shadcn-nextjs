@@ -14,7 +14,7 @@ This is a single Next.js App Router application. Routes, layouts, API handlers, 
 
 ## Coding Style & Naming Conventions
 
-Use TypeScript and TSX for new application code. Prettier uses two spaces, single quotes, no semicolons, and a 120-character line width; its Tailwind plugin sorts utility classes. Follow nearby naming patterns: `page.tsx` for routes, `use-*.ts` for hooks, kebab-case filenames for UI primitives and feature modules, and PascalCase for React component names. Keep shared component aliases in `components.json` and design tokens in `src/app/globals.css`. ESLint is configured in `eslint.config.mjs`; `@shadcn/lint` is registered there, but no design-system rules are enabled. Run `pnpm lint` after code changes.
+Use TypeScript and TSX for new application code. Prettier uses two spaces, single quotes, no semicolons, and a 120-character line width; its Tailwind plugin sorts utility classes. Follow nearby naming patterns: `page.tsx` for routes, `use-*.ts` for hooks, kebab-case filenames for UI primitives and feature modules, and PascalCase for React component names. Keep shared component aliases in `components.json` and design tokens in `src/app/globals.css`. ESLint is configured in `eslint.config.mjs`; `@shadcn/lint` is registered there, but no design-system rules are enabled. Run `pnpm lint` after code changes. Before building or changing UI, read DESIGN.md.
 
 ## Testing Guidelines
 

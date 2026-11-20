@@ -8,7 +8,7 @@ const HorizontalForm = () => {
     <div className='flex flex-col gap-6'>
       <div className='grid gap-6 lg:grid-cols-2'>
         <div className='space-y-3'>
-          <h2 className='text-lg font-semibold'>Basic Form</h2>
+          <h2 className='text-title-mini-semibold'>Basic Form</h2>
           <Card>
             <CardContent>
               <BasicForm />
@@ -17,7 +17,7 @@ const HorizontalForm = () => {
         </div>
 
         <div className='space-y-3'>
-          <h2 className='text-lg font-semibold'>Basic Form with Icon</h2>
+          <h2 className='text-title-mini-semibold'>Basic Form with Icon</h2>
           <Card>
             <CardContent>
               <BasicFormWithIcon />

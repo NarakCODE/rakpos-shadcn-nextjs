@@ -25,8 +25,8 @@ const Register = () => {
           </Link>
 
           <div>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Sign Up to Shadcn studio</CardTitle>
-            <CardDescription className='text-base'>Ship Faster and Focus on Growth.</CardDescription>
+            <CardTitle className='text-title-small-semibold mb-2'>Sign Up to Shadcn studio</CardTitle>
+            <CardDescription className='text-body-regular'>Ship Faster and Focus on Growth.</CardDescription>
           </div>
         </CardHeader>
 
@@ -44,7 +44,7 @@ const Register = () => {
 
             <div className='flex items-center gap-4'>
               <Separator className='flex-1' />
-              <p className='text-base'>or</p>
+              <p className='text-body-regular'>or</p>
               <Separator className='flex-1' />
             </div>
 

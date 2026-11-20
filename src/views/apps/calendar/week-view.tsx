@@ -215,13 +215,13 @@ export function WeekView({ currentDate, events, onEventSelect, onEventCreate }: 
   return (
     <div data-slot='week-view' className='flex h-full flex-col'>
       <div className='bg-background/80 border-border/70 sticky top-0 z-30 grid grid-cols-8 border-b backdrop-blur-md'>
-        <div className='text-muted-foreground/70 py-2 text-center text-sm'>
+        <div className='text-muted-foreground/70 text-body-small-regular py-2 text-center'>
           <span className='max-[479px]:sr-only'>{format(new Date(), 'O')}</span>
         </div>
         {days.map(day => (
           <div
             key={day.toString()}
-            className='data-today:text-foreground text-muted-foreground/70 py-2 text-center text-sm data-today:font-medium'
+            className='data-today:text-foreground text-muted-foreground/70 text-body-small-regular data-today:text-body-small-medium py-2 text-center'
             data-today={isToday(day) || undefined}
           >
             <span className='sm:hidden' aria-hidden='true'>
@@ -236,7 +236,7 @@ export function WeekView({ currentDate, events, onEventSelect, onEventCreate }: 
         <div className='border-border/70 bg-muted/50 border-b'>
           <div className='grid grid-cols-8'>
             <div className='border-border/70 relative border-r'>
-              <span className='text-muted-foreground/70 absolute bottom-0 left-0 h-6 w-16 max-w-full pe-2 text-right text-[10px] sm:pe-4 sm:text-xs'>
+              <span className='text-muted-foreground/70 text-body-micro-regular sm:text-body-mini-regular absolute bottom-0 left-0 h-6 w-16 max-w-full pe-2 text-right sm:pe-4'>
                 All day
               </span>
             </div>
@@ -296,7 +296,7 @@ export function WeekView({ currentDate, events, onEventSelect, onEventCreate }: 
               className='border-border/70 relative min-h-[var(--week-cells-height)] border-b last:border-b-0'
             >
               {index > 0 && (
-                <span className='bg-background text-muted-foreground/70 absolute -top-3 left-0 flex h-6 w-16 max-w-full items-center justify-end pe-2 text-[10px] sm:pe-4 sm:text-xs'>
+                <span className='bg-background text-muted-foreground/70 text-body-micro-regular sm:text-body-mini-regular absolute -top-3 left-0 flex h-6 w-16 max-w-full items-center justify-end pe-2 sm:pe-4'>
                   {format(hour, 'h a')}
                 </span>
               )}

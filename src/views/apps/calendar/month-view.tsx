@@ -143,7 +143,7 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
     <div data-slot='month-view' className='contents'>
       <div className='border-border/70 grid grid-cols-7 border-b'>
         {weekdays.map(day => (
-          <div key={day} className='text-muted-foreground/70 py-2 text-center text-sm'>
+          <div key={day} className='text-muted-foreground/70 text-body-small-regular py-2 text-center'>
             {day}
           </div>
         ))}
@@ -176,7 +176,7 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
                   data-outside-cell={!isCurrentMonth || undefined}
                 >
                   <CalendarCell className='overflow-visible' onClick={event => handleCellClick(day, event)}>
-                    <div className='group-data-today:bg-primary group-data-today:text-primary-foreground mt-1 inline-flex size-6 items-center justify-center rounded-full text-sm'>
+                    <div className='group-data-today:bg-primary group-data-today:text-primary-foreground text-body-small-regular mt-1 inline-flex size-6 items-center justify-center rounded-full'>
                       {format(day, 'd')}
                     </div>
                     <div
@@ -245,7 +245,7 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
                           <PopoverTrigger
                             render={
                               <button
-                                className='focus-visible:border-ring focus-visible:ring-ring/50 text-muted-foreground hover:text-foreground hover:bg-muted/50 mt-[var(--event-gap)] flex h-[var(--event-height)] w-full items-center overflow-hidden px-1 text-left text-[10px] backdrop-blur-md transition outline-none select-none focus-visible:ring-[3px] sm:px-2 sm:text-xs'
+                                className='focus-visible:border-ring focus-visible:ring-ring/50 text-muted-foreground hover:text-foreground hover:bg-muted/50 text-body-micro-regular sm:text-body-mini-regular mt-[var(--event-gap)] flex h-[var(--event-height)] w-full items-center overflow-hidden px-1 text-left backdrop-blur-md transition outline-none select-none focus-visible:ring-[3px] sm:px-2'
                                 onClick={e => e.stopPropagation()}
                               />
                             }
@@ -265,7 +265,7 @@ export function MonthView({ currentDate, events, onEventSelect, onEventCreate }:
                             }
                           >
                             <div className='space-y-2'>
-                              <div className='text-sm font-medium'>{format(day, 'EEE d')}</div>
+                              <div className='text-body-small-medium'>{format(day, 'EEE d')}</div>
                               <div className='space-y-1'>
                                 {sortEvents(allEvents).map(event => {
                                   const eventStart = new Date(event.start)

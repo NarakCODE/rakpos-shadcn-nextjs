@@ -53,7 +53,7 @@ const MailNav = ({
   return (
     <div className='flex flex-1 flex-col gap-4 overflow-auto p-3 max-lg:pt-0'>
       <div>
-        <p className='text-muted-foreground px-2 pb-2.5 text-[11px] font-medium uppercase'>Mailboxes</p>
+        <p className='text-muted-foreground text-body-mini-medium px-2 pb-2.5'>Mailboxes</p>
         <nav className='grid gap-1'>
           {statusNavItems.map(statusItem => {
             const StatusIcon = statusIcons[statusItem.id]
@@ -75,7 +75,9 @@ const MailNav = ({
                   <StatusIcon className='size-4 shrink-0 opacity-70' />
                   {statusItem.label}
                   {statusItem.count > 0 && (
-                    <span className='text-muted-foreground ml-auto text-xs tabular-nums'>{statusItem.count}</span>
+                    <span className='text-muted-foreground text-body-mini-regular ml-auto tabular-nums'>
+                      {statusItem.count}
+                    </span>
                   )}
                 </TooltipTrigger>
                 <TooltipContent side='right'>
@@ -95,7 +97,7 @@ const MailNav = ({
       <Separator />
 
       <div>
-        <p className='text-muted-foreground px-2 pb-2.5 text-[11px] font-medium uppercase'>Labels</p>
+        <p className='text-muted-foreground text-body-mini-medium px-2 pb-2.5'>Labels</p>
         <nav className='grid gap-1'>
           {labelNavItems.map(labelItem => {
             const labelStyle = MAIL_LABEL_STYLES.find(labelStyleItem => labelStyleItem.id === labelItem.id)
@@ -117,7 +119,9 @@ const MailNav = ({
                   <span className={cn('size-2 shrink-0 rounded-full', labelStyle?.color)} />
                   {labelItem.label}
                   {labelItem.count > 0 && (
-                    <span className='text-muted-foreground ml-auto text-xs tabular-nums'>{labelItem.count}</span>
+                    <span className='text-muted-foreground text-body-mini-regular ml-auto tabular-nums'>
+                      {labelItem.count}
+                    </span>
                   )}
                 </TooltipTrigger>
                 <TooltipContent side='right'>

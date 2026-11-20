@@ -9,12 +9,7 @@ import { ConfirmDialog } from '@/components/shared/confirm-dialog'
 import { Button } from '@/components/ui/button'
 import { Frame, FrameDescription, FrameFooter, FrameHeader, FramePanel } from '@/components/ui/frame'
 import { mockMenuItems } from '@/fake-db/menu-items'
-import type {
-  MenuItem,
-  MenuItemColumn,
-  MenuItemColumnVisibility,
-  MenuItemFormValues
-} from '@/types/menu-item-types'
+import type { MenuItem, MenuItemColumn, MenuItemColumnVisibility, MenuItemFormValues } from '@/types/menu-item-types'
 import { MenuItemFormSheet } from './menu-item-form-sheet'
 import { MenuItemsPagination } from './menu-items-pagination'
 import { MenuItemsTable } from './menu-items-table'
@@ -159,7 +154,7 @@ export default function MenuItemsView() {
     <div className='flex flex-col gap-6'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
         <div className='flex flex-col gap-1'>
-          <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Menu Items</h1>
+          <h1 className='text-title-regular'>Menu Items</h1>
           <FrameDescription>Manage all items available in the POS menu</FrameDescription>
         </div>
         <Button variant='default' onClick={openCreateSheet}>

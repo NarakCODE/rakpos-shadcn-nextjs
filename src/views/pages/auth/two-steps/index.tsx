@@ -25,8 +25,8 @@ const TwoSteps = () => {
 
         <CardContent className='space-y-6 px-6'>
           <div>
-            <CardTitle className='mb-2 text-2xl font-semibold'>Two Steps Verification</CardTitle>
-            <CardDescription className='text-base'>
+            <CardTitle className='text-title-small-semibold mb-2'>Two Steps Verification</CardTitle>
+            <CardDescription className='text-body-regular'>
               Please confirm access to your account by entering the code provided by your authenticator application
             </CardDescription>
           </div>

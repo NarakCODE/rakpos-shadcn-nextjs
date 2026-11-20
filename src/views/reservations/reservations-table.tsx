@@ -95,7 +95,9 @@ export function ReservationsTable({
               <TableCell colSpan={8} className='h-28 text-center'>
                 <div className='flex flex-col items-center justify-center gap-1.5'>
                   <p className='font-medium'>No reservations found</p>
-                  <p className='text-muted-foreground text-sm'>Try another search, date, or status filter.</p>
+                  <p className='text-muted-foreground text-body-small-regular'>
+                    Try another search, date, or status filter.
+                  </p>
                 </div>
               </TableCell>
             </TableRow>

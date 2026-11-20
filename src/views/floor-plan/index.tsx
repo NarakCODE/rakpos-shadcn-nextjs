@@ -209,10 +209,10 @@ function TableCard({ table }: { table: TableView }) {
     <Card className='gap-0 overflow-hidden py-0'>
       <CardHeader className='gap-1.5 p-3 pb-0'>
         <div className='flex items-center justify-between gap-2'>
-          <h3 className='text-sm font-semibold'>Table {table.number}</h3>
+          <h3 className='text-body-small-semibold'>Table {table.number}</h3>
           <Badge variant={statusMeta.variant}>{table.status}</Badge>
         </div>
-        <p className='text-muted-foreground text-xs'>
+        <p className='text-muted-foreground text-body-mini-regular'>
           {table.capacity} seats <span aria-hidden='true'>·</span> {table.zone}
         </p>
       </CardHeader>
@@ -220,10 +220,10 @@ function TableCard({ table }: { table: TableView }) {
         <TableLayoutGraphic table={table} />
       </div>
       <CardContent className='min-h-12 px-3 pt-0 pb-3'>
-        <p className='truncate text-xs font-medium' title={table.context}>
+        <p className='text-body-mini-medium truncate' title={table.context}>
           {table.context}
         </p>
-        {table.detail && <p className='text-muted-foreground mt-0.5 truncate text-xs'>{table.detail}</p>}
+        {table.detail && <p className='text-muted-foreground text-body-mini-regular mt-0.5 truncate'>{table.detail}</p>}
       </CardContent>
     </Card>
   )
@@ -258,16 +258,16 @@ function ReservationCard({
       <CardHeader className='gap-3 p-4'>
         <div className='flex items-start justify-between gap-3'>
           <div className='flex min-w-0 items-center gap-3'>
-            <span className='bg-muted text-foreground flex size-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold'>
+            <span className='bg-muted text-foreground text-body-mini-medium flex size-10 shrink-0 items-center justify-center rounded-full'>
               {initials}
             </span>
             <div className='min-w-0'>
-              <h3 className='truncate text-sm font-semibold' title={reservation.guestName}>
+              <h3 className='text-body-small-semibold truncate' title={reservation.guestName}>
                 {reservation.guestName}
               </h3>
               <a
                 href={`tel:${reservation.phone}`}
-                className='text-muted-foreground hover:text-foreground mt-1 inline-flex items-center gap-1.5 text-xs'
+                className='text-muted-foreground hover:text-foreground text-body-mini-regular mt-1 inline-flex items-center gap-1.5'
               >
                 <PhoneIcon className='size-3.5' aria-hidden='true' />
                 {reservation.phone}
@@ -282,26 +282,26 @@ function ReservationCard({
 
       <CardContent className='grid grid-cols-2 gap-x-3 gap-y-3 p-4'>
         <div>
-          <p className='text-muted-foreground text-xs'>Date</p>
-          <p className='mt-1 text-sm font-medium'>{formatFloorDate(reservation.date)}</p>
+          <p className='text-muted-foreground text-body-mini-regular'>Date</p>
+          <p className='text-body-small-medium mt-1'>{formatFloorDate(reservation.date)}</p>
         </div>
         <div>
-          <p className='text-muted-foreground text-xs'>Time</p>
-          <p className='mt-1 inline-flex items-center gap-1.5 text-sm font-medium tabular-nums'>
+          <p className='text-muted-foreground text-body-mini-regular'>Time</p>
+          <p className='text-body-small-medium mt-1 inline-flex items-center gap-1.5 tabular-nums'>
             <Clock3Icon className='text-muted-foreground size-3.5' aria-hidden='true' />
             {reservation.time}
           </p>
         </div>
         <div>
-          <p className='text-muted-foreground text-xs'>Party size</p>
-          <p className='mt-1 inline-flex items-center gap-1.5 text-sm font-medium'>
+          <p className='text-muted-foreground text-body-mini-regular'>Party size</p>
+          <p className='text-body-small-medium mt-1 inline-flex items-center gap-1.5'>
             <UsersIcon className='text-muted-foreground size-3.5' aria-hidden='true' />
             {reservation.guestCount} {reservation.guestCount === 1 ? 'guest' : 'guests'}
           </p>
         </div>
         <div>
-          <p className='text-muted-foreground text-xs'>Table</p>
-          <p className='mt-1 inline-flex items-center gap-1.5 text-sm font-medium'>
+          <p className='text-muted-foreground text-body-mini-regular'>Table</p>
+          <p className='text-body-small-medium mt-1 inline-flex items-center gap-1.5'>
             <MapPinIcon className='text-muted-foreground size-3.5' aria-hidden='true' />
             {reservation.table ?? 'Unassigned'}
           </p>
@@ -309,7 +309,7 @@ function ReservationCard({
       </CardContent>
 
       <div className='px-4 pb-4'>
-        <div className='bg-muted/50 text-muted-foreground flex min-h-14 gap-2 rounded-md px-3 py-2 text-xs leading-5'>
+        <div className='bg-muted/50 text-muted-foreground text-body-mini-regular flex min-h-14 gap-2 rounded-md px-3 py-2'>
           <MessageSquareTextIcon className='mt-0.5 size-3.5 shrink-0' aria-hidden='true' />
           <p className='line-clamp-2'>{reservation.notes || 'No special requests'}</p>
         </div>
@@ -437,8 +437,8 @@ export default function FloorPlanView() {
     <div className='flex flex-col gap-6'>
       <header className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
         <div>
-          <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Tables</h1>
-          <p className='text-muted-foreground mt-1 text-sm'>
+          <h1 className='text-title-regular'>Tables</h1>
+          <p className='text-muted-foreground text-body-small-regular mt-1'>
             Floor overview · {availableCount} tables ready for seating
           </p>
         </div>
@@ -528,8 +528,8 @@ export default function FloorPlanView() {
             />
             <PopoverContent align='end' density='compact' className='w-56'>
               <div className='px-2 py-2'>
-                <p className='text-sm font-medium'>Seat count</p>
-                <p className='text-muted-foreground mt-1 text-xs'>Show tables with these capacities</p>
+                <p className='text-body-small-medium'>Seat count</p>
+                <p className='text-muted-foreground text-body-mini-regular mt-1'>Show tables with these capacities</p>
               </div>
               <div className='grid grid-cols-2 gap-1'>
                 {CAPACITY_OPTIONS.map(capacity => {
@@ -540,7 +540,7 @@ export default function FloorPlanView() {
                     <label
                       key={capacity}
                       htmlFor={id}
-                      className='hover:bg-muted flex cursor-pointer items-center gap-2 rounded-md px-2 py-2 text-sm'
+                      className='hover:bg-muted text-body-small-regular flex cursor-pointer items-center gap-2 rounded-md px-2 py-2'
                     >
                       <Checkbox
                         id={id}
@@ -577,10 +577,10 @@ export default function FloorPlanView() {
       <section aria-labelledby='floor-layout-heading' className='space-y-4'>
         <div className='flex flex-wrap items-end justify-between gap-3'>
           <div>
-            <h2 id='floor-layout-heading' className='text-base font-semibold'>
+            <h2 id='floor-layout-heading' className='text-body-regular-semibold'>
               Dining floor
             </h2>
-            <p className='text-muted-foreground mt-1 text-sm'>
+            <p className='text-muted-foreground text-body-small-regular mt-1'>
               Showing {visibleTables.length} of {tableViews.length} tables
             </p>
           </div>
@@ -599,8 +599,8 @@ export default function FloorPlanView() {
           </div>
         ) : (
           <div className='bg-card flex min-h-44 flex-col items-center justify-center rounded-xl border border-dashed px-5 text-center'>
-            <p className='text-sm font-medium'>No tables match these filters</p>
-            <p className='text-muted-foreground mt-1 text-sm'>
+            <p className='text-body-small-medium'>No tables match these filters</p>
+            <p className='text-muted-foreground text-body-small-regular mt-1'>
               Adjust the zone, status, or seat count to see more tables.
             </p>
             <Button type='button' variant='outline' size='sm' className='mt-4' onClick={clearTableFilters}>
@@ -613,10 +613,10 @@ export default function FloorPlanView() {
       <section aria-labelledby='upcoming-reservations-heading' className='space-y-4'>
         <div className='flex flex-wrap items-end justify-between gap-3'>
           <div>
-            <h2 id='upcoming-reservations-heading' className='text-base font-semibold'>
+            <h2 id='upcoming-reservations-heading' className='text-body-regular-semibold'>
               Upcoming Reservations
             </h2>
-            <p className='text-muted-foreground mt-1 text-sm'>
+            <p className='text-muted-foreground text-body-small-regular mt-1'>
               {upcomingReservations.length} bookings for {formatFloorDate(selectedDate)}
             </p>
           </div>
@@ -638,8 +638,10 @@ export default function FloorPlanView() {
           </div>
         ) : (
           <div className='bg-card rounded-xl border border-dashed px-5 py-10 text-center'>
-            <p className='text-sm font-medium'>No reservations for this date</p>
-            <p className='text-muted-foreground mt-1 text-sm'>Add a booking to keep the floor plan up to date.</p>
+            <p className='text-body-small-medium'>No reservations for this date</p>
+            <p className='text-muted-foreground text-body-small-regular mt-1'>
+              Add a booking to keep the floor plan up to date.
+            </p>
             <Button type='button' variant='outline' size='sm' className='mt-4' onClick={handleOpenNewReservation}>
               New reservation
             </Button>

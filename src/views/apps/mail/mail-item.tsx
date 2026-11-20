@@ -30,7 +30,7 @@ const MailItem = ({ email, isSelected, onClick }: MailItemProps) => {
       type='button'
       onClick={onClick}
       className={cn(
-        'relative flex w-full items-start gap-3 rounded-md border border-transparent p-3 text-left text-sm transition-colors',
+        'text-body-small-regular relative flex w-full items-start gap-3 rounded-md border border-transparent p-3 text-left transition-colors',
         isSelected ? 'bg-accent border-border' : 'hover:bg-muted/40',
         !email.isRead && ''
       )}
@@ -43,7 +43,7 @@ const MailItem = ({ email, isSelected, onClick }: MailItemProps) => {
         <div className='flex items-center gap-2'>
           <span
             className={cn(
-              'min-w-0 flex-1 truncate text-sm',
+              'text-body-small-regular min-w-0 flex-1 truncate',
               !email.isRead ? 'text-foreground font-semibold' : 'text-foreground/80'
             )}
           >
@@ -54,7 +54,7 @@ const MailItem = ({ email, isSelected, onClick }: MailItemProps) => {
         </div>
         <p
           className={cn(
-            'line-clamp-1 flex items-center justify-between gap-1 text-xs leading-snug',
+            'text-body-mini-regular line-clamp-1 flex items-center justify-between gap-1',
             !email.isRead ? 'text-foreground font-semibold' : 'text-foreground/75'
           )}
         >

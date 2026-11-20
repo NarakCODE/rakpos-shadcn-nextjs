@@ -41,9 +41,9 @@ const ORDER_TYPE_FILTERS: { label: string; value: OrderTypeFilter }[] = [
 ]
 
 const COLUMNS: { status: KitchenStatus; description: string; color: string }[] = [
-  { status: 'New', description: 'Waiting to start', color: 'bg-sky-500' },
-  { status: 'Preparing', description: 'On the line', color: 'bg-amber-500' },
-  { status: 'Ready', description: 'Ready for handoff', color: 'bg-emerald-500' }
+  { status: 'New', description: 'Waiting to start', color: 'bg-blue-base' },
+  { status: 'Preparing', description: 'On the line', color: 'bg-amber-base' },
+  { status: 'Ready', description: 'Ready for handoff', color: 'bg-green-base' }
 ]
 
 function getOrderTypeDetails(type: OrderFulfillmentType) {
@@ -88,13 +88,13 @@ function KitchenTicketCard({ order, onAdvance }: { order: KitchenTicket; onAdvan
         <div className='flex items-start justify-between gap-3'>
           <div className='min-w-0 space-y-2'>
             <div className='flex flex-wrap items-center gap-2'>
-              <h3 className='text-base font-semibold tabular-nums'>{order.orderNumber}</h3>
+              <h3 className='text-body-regular-semibold tabular-nums'>{order.orderNumber}</h3>
               <Badge variant='outline' className='h-6'>
                 <Icon aria-hidden='true' />
                 {label}
               </Badge>
             </div>
-            <div className='text-muted-foreground flex min-w-0 items-center gap-1.5 text-sm'>
+            <div className='text-muted-foreground text-body-small-regular flex min-w-0 items-center gap-1.5'>
               <MapPinIcon className='size-3.5 shrink-0' aria-hidden='true' />
               <span className='truncate'>{destination}</span>
             </div>
@@ -110,22 +110,24 @@ function KitchenTicketCard({ order, onAdvance }: { order: KitchenTicket; onAdvan
         <ul className='space-y-2 border-t pt-3'>
           {order.items.slice(0, 4).map(item => (
             <li key={item.id} className='flex items-start gap-2.5'>
-              <span className='bg-muted text-foreground inline-flex size-5 shrink-0 items-center justify-center rounded text-xs font-semibold tabular-nums'>
+              <span className='bg-muted text-foreground text-body-mini-medium inline-flex size-5 shrink-0 items-center justify-center rounded tabular-nums'>
                 {item.quantity}×
               </span>
               <div className='min-w-0 flex-1'>
-                <p className='text-sm leading-5 font-medium'>{item.name}</p>
-                {item.modifiers && <p className='text-muted-foreground mt-0.5 text-xs leading-4'>{item.modifiers}</p>}
+                <p className='text-body-small-medium'>{item.name}</p>
+                {item.modifiers && (
+                  <p className='text-muted-foreground text-body-mini-regular mt-0.5'>{item.modifiers}</p>
+                )}
               </div>
             </li>
           ))}
           {order.items.length > 4 && (
-            <li className='text-muted-foreground pl-7 text-xs'>+{order.items.length - 4} more items</li>
+            <li className='text-muted-foreground text-body-mini-regular pl-7'>+{order.items.length - 4} more items</li>
           )}
         </ul>
 
         {order.notes && (
-          <div className='flex gap-2 rounded-md bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-950 dark:bg-amber-950/30 dark:text-amber-100'>
+          <div className='bg-bg-amber text-text-amber text-body-mini-regular flex gap-2 rounded-md px-3 py-2'>
             <MessageSquareTextIcon className='mt-0.5 size-3.5 shrink-0' aria-hidden='true' />
             <p className='line-clamp-2'>{order.notes}</p>
           </div>
@@ -134,7 +136,7 @@ function KitchenTicketCard({ order, onAdvance }: { order: KitchenTicket; onAdvan
 
       <CardFooter className='px-4 py-3'>
         <div className='flex w-full items-center justify-between gap-3'>
-          <span className='text-muted-foreground text-xs tabular-nums'>
+          <span className='text-muted-foreground text-body-mini-regular tabular-nums'>
             {order.itemCount} {order.itemCount === 1 ? 'item' : 'items'}
           </span>
           <Button size='sm' onClick={() => onAdvance(order)}>
@@ -170,10 +172,10 @@ function KitchenColumn({
         <div className='flex min-w-0 items-center gap-2.5'>
           <span className={`size-2.5 shrink-0 rounded-full ${color}`} aria-hidden='true' />
           <div className='min-w-0'>
-            <h2 id={titleId} className='text-sm font-semibold'>
+            <h2 id={titleId} className='text-body-small-semibold'>
               {status}
             </h2>
-            <p className='text-muted-foreground text-xs'>{description}</p>
+            <p className='text-muted-foreground text-body-mini-regular'>{description}</p>
           </div>
         </div>
         <Badge variant='secondary' className='min-w-7 justify-center'>
@@ -189,10 +191,10 @@ function KitchenColumn({
             <span className='bg-muted text-muted-foreground mb-3 flex size-9 items-center justify-center rounded-full'>
               <ClipboardListIcon className='size-4' aria-hidden='true' />
             </span>
-            <p className='text-sm font-medium'>
+            <p className='text-body-small-medium'>
               {hasFilters ? 'No matching tickets' : `No ${status.toLowerCase()} tickets`}
             </p>
-            <p className='text-muted-foreground mt-1 max-w-48 text-xs leading-5'>
+            <p className='text-muted-foreground text-body-mini-regular mt-1 max-w-48'>
               {hasFilters ? 'Try another search or order type.' : 'New tickets will appear here as they come in.'}
             </p>
           </div>
@@ -282,10 +284,12 @@ export default function KitchenView() {
     <div className='flex flex-col gap-5'>
       <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
         <div className='flex flex-col gap-1'>
-          <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Kitchen Display</h1>
-          <p className='text-muted-foreground text-sm'>Keep each order moving from the line to handoff.</p>
+          <h1 className='text-title-regular'>Kitchen Display</h1>
+          <p className='text-muted-foreground text-body-small-regular'>
+            Keep each order moving from the line to handoff.
+          </p>
         </div>
-        <div className='text-muted-foreground flex items-center gap-2 text-xs'>
+        <div className='text-muted-foreground text-body-mini-regular flex items-center gap-2'>
           <ChefHatIcon className='size-4' aria-hidden='true' />
           <span>Wait times update every minute</span>
         </div>
@@ -293,18 +297,18 @@ export default function KitchenView() {
 
       <section aria-label='Kitchen queue summary' className='bg-card grid grid-cols-3 divide-x rounded-xl border'>
         <div className='min-w-0 px-3 py-3 sm:px-5'>
-          <p className='text-muted-foreground text-xs'>In kitchen</p>
-          <p className='mt-1 text-lg font-semibold tabular-nums'>{activeOrders.length}</p>
+          <p className='text-muted-foreground text-body-mini-regular'>In kitchen</p>
+          <p className='text-title-mini-semibold mt-1 tabular-nums'>{activeOrders.length}</p>
         </div>
         <div className='min-w-0 px-3 py-3 sm:px-5'>
-          <p className='text-muted-foreground text-xs'>New orders</p>
-          <p className='mt-1 text-lg font-semibold tabular-nums'>
+          <p className='text-muted-foreground text-body-mini-regular'>New orders</p>
+          <p className='text-title-mini-semibold mt-1 tabular-nums'>
             {activeOrders.filter(order => order.status === 'New').length}
           </p>
         </div>
         <div className='min-w-0 px-3 py-3 sm:px-5'>
-          <p className='text-muted-foreground text-xs'>Longest wait</p>
-          <p className='mt-1 text-lg font-semibold tabular-nums'>
+          <p className='text-muted-foreground text-body-mini-regular'>Longest wait</p>
+          <p className='text-title-mini-semibold mt-1 tabular-nums'>
             {activeOrders.length ? formatWaitTime(longestWait) : '—'}
           </p>
         </div>

@@ -146,7 +146,7 @@ export function EventItem({
           isLastDay={isLastDay}
           onClick={onClick}
           className={cn(
-            'relative h-[var(--event-height)] w-full min-w-0 items-center overflow-hidden text-[10px] sm:text-xs',
+            'text-body-micro-regular sm:text-body-mini-regular relative h-[var(--event-height)] w-full min-w-0 items-center overflow-hidden',
             getMonthViewBleedClasses(spansRight),
             getMonthViewEventPaddingClasses(spansLeft, spansRight),
             className
@@ -172,7 +172,7 @@ export function EventItem({
       className={cn(
         'px-1 py-1 backdrop-blur-md sm:px-2',
         durationMinutes < 45 ? 'items-center' : 'flex-col',
-        view === 'week' ? 'text-[10px] sm:text-xs' : 'text-xs',
+        view === 'week' ? 'text-body-micro-regular sm:text-body-mini-regular' : 'text-body-mini-regular',
         className
       )}
       currentTime={currentTime}

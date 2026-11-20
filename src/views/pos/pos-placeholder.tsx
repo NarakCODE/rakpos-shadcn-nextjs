@@ -13,8 +13,8 @@ const PosPlaceholder = ({ title, description, icon: Icon }: PosPlaceholderProps)
         <Icon className='size-8' aria-hidden='true' />
       </span>
       <div className='flex max-w-md flex-col gap-2'>
-        <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>{title}</h1>
-        <p className='text-muted-foreground text-sm'>{description}</p>
+        <h1 className='text-title-regular'>{title}</h1>
+        <p className='text-muted-foreground text-body-small-regular'>{description}</p>
       </div>
     </div>
   )

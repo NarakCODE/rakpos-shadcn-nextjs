@@ -14,8 +14,8 @@ export const MailDisplay = ({ email }: MailDisplayProps) => {
   if (!email) {
     return (
       <div className='text-muted-foreground flex h-full flex-col items-center justify-center gap-2 p-10 text-center'>
-        <p className='text-foreground text-sm font-medium'>No message selected</p>
-        <p className='text-xs'>Choose an email from the list to read it here.</p>
+        <p className='text-foreground text-body-small-medium'>No message selected</p>
+        <p className='text-body-mini-regular'>Choose an email from the list to read it here.</p>
       </div>
     )
   }

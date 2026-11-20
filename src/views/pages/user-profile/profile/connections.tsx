@@ -29,7 +29,7 @@ function Connections({ className }: ConnectionsProps) {
   return (
     <Card className={cn(className)}>
       <CardHeader className='flex items-center justify-between'>
-        <span className='text-lg font-medium'>Connections</span>
+        <span className='text-title-mini-medium'>Connections</span>
         <DropdownMenu>
           <DropdownMenuTrigger render={<Button variant='ghost-muted' size='icon-xs' shape='round' />}>
             <EllipsisVerticalIcon />
@@ -53,8 +53,8 @@ function Connections({ className }: ConnectionsProps) {
                 <AvatarFallback>{connection.initials}</AvatarFallback>
               </Avatar>
               <div className='flex flex-col gap-0.5'>
-                <span className='text-base font-medium'>{connection.name}</span>
-                <span className='text-muted-foreground text-sm'>{connection.totalConnections}</span>
+                <span className='text-body-regular-medium'>{connection.name}</span>
+                <span className='text-muted-foreground text-body-small-regular'>{connection.totalConnections}</span>
               </div>
             </div>
             <Button size='icon' variant={connection.isConnected ? 'default' : 'outline'}>

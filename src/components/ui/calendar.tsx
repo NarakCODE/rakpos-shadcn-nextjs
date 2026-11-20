@@ -47,7 +47,7 @@ function Calendar({ selected, onSelect, defaultMonth, className }: CalendarProps
         >
           <ChevronLeftIcon className='size-4' aria-hidden='true' />
         </Button>
-        <p className='text-sm font-medium' aria-live='polite'>
+        <p className='text-body-small-medium' aria-live='polite'>
           {format(month, 'MMMM yyyy')}
         </p>
         <Button
@@ -67,7 +67,7 @@ function Calendar({ selected, onSelect, defaultMonth, className }: CalendarProps
             <span
               key={day}
               role='columnheader'
-              className='text-muted-foreground grid size-8 place-items-center text-xs'
+              className='text-muted-foreground text-body-mini-regular grid size-8 place-items-center'
             >
               {day}
             </span>

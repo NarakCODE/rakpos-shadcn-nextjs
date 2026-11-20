@@ -4,13 +4,7 @@ import { useMemo, useState } from 'react'
 
 import { toast } from 'sonner'
 
-import {
-  Frame,
-  FrameDescription,
-  FrameFooter,
-  FrameHeader,
-  FramePanel
-} from '@/components/ui/frame'
+import { Frame, FrameDescription, FrameFooter, FrameHeader, FramePanel } from '@/components/ui/frame'
 import { mockOrders } from '@/fake-db/orders'
 import type { OrderStatus, RestaurantOrder } from '@/types/orders-types'
 import { OrderDetailsSheet } from './order-details-sheet'
@@ -133,7 +127,7 @@ export default function OrdersView() {
     <div className='flex flex-col gap-6'>
       {/* 1. Heading (outside of the frame) */}
       <div className='flex flex-col gap-1'>
-        <h1 className='text-2xl font-semibold tracking-tight sm:text-3xl'>Orders</h1>
+        <h1 className='text-title-regular'>Orders</h1>
         <FrameDescription>Manage and track all restaurant orders</FrameDescription>
       </div>
 

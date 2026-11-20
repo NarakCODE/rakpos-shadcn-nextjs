@@ -436,7 +436,7 @@ const PosWorkspace = () => {
                 ) : (
                   <div
                     role='status'
-                    className='text-muted-foreground rounded-(--radius) border border-dashed px-6 py-12 text-center text-sm'
+                    className='text-muted-foreground text-body-small-regular rounded-(--radius) border border-dashed px-6 py-12 text-center'
                   >
                     No menu items match your search or filter.
                   </div>
@@ -454,7 +454,7 @@ const PosWorkspace = () => {
         <div className='flex flex-col gap-4 border-b p-4 sm:p-6'>
           <div className='flex items-center justify-between gap-3'>
             <div className='flex items-center gap-2'>
-              <h2 id='new-order-heading' className='text-base font-semibold'>
+              <h2 id='new-order-heading' className='text-body-regular-semibold'>
                 New Order
               </h2>
               <Badge
@@ -567,8 +567,8 @@ const PosWorkspace = () => {
                       />
                       <div className='min-w-0 flex-1'>
                         <div className='flex items-start justify-between gap-2'>
-                          <CardTitle className='text-sm leading-snug'>{line.product.name}</CardTitle>
-                          <strong className='shrink-0 text-sm tabular-nums'>
+                          <CardTitle className='text-body-small-regular'>{line.product.name}</CardTitle>
+                          <strong className='text-body-small-regular shrink-0 tabular-nums'>
                             {formatCents(line.unitPriceCents * line.quantity)}
                           </strong>
                         </div>
@@ -585,12 +585,16 @@ const PosWorkspace = () => {
                           {line.product.dietary === 'veg' ? 'Veg' : line.product.dietary === 'egg' ? 'Egg' : 'Non-Veg'}
                         </Badge>
                         {line.optionLabels.length > 0 && (
-                          <CardDescription className='mt-1 text-xs'>{line.optionLabels.join(' · ')}</CardDescription>
+                          <CardDescription className='text-body-mini-regular mt-1'>
+                            {line.optionLabels.join(' · ')}
+                          </CardDescription>
                         )}
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <span className='text-muted-foreground text-xs'>{formatCents(line.unitPriceCents)} each</span>
+                      <span className='text-muted-foreground text-body-mini-regular'>
+                        {formatCents(line.unitPriceCents)} each
+                      </span>
                     </CardContent>
                     <CardFooter className='justify-between gap-3'>
                       <div className='flex items-center gap-2'>
@@ -603,7 +607,7 @@ const PosWorkspace = () => {
                         >
                           <MinusIcon />
                         </Button>
-                        <span className='min-w-5 text-center text-sm font-medium tabular-nums'>{line.quantity}</span>
+                        <span className='text-body-small-medium min-w-5 text-center tabular-nums'>{line.quantity}</span>
                         <Button
                           variant='outline'
                           size='icon-sm'
@@ -629,8 +633,8 @@ const PosWorkspace = () => {
           ) : (
             <div className='text-muted-foreground flex min-h-48 flex-col items-center justify-center gap-2 rounded-(--radius) border border-dashed px-6 text-center'>
               <ShoppingBagIcon className='size-7' aria-hidden='true' />
-              <p className='text-foreground text-sm font-medium'>No items yet</p>
-              <p className='text-xs'>Choose a menu item to start this order.</p>
+              <p className='text-foreground text-body-small-medium'>No items yet</p>
+              <p className='text-body-mini-regular'>Choose a menu item to start this order.</p>
             </div>
           )}
         </div>
@@ -673,7 +677,7 @@ const PosWorkspace = () => {
 
           <Separator />
 
-          <div className='flex flex-col gap-2 text-sm'>
+          <div className='text-body-small-regular flex flex-col gap-2'>
             <div className='flex items-center justify-between gap-3'>
               <span className='text-muted-foreground'>Sub total</span>
               <span className='tabular-nums'>{formatCents(subtotalCents)}</span>
@@ -690,7 +694,7 @@ const PosWorkspace = () => {
             </div>
             <div className='flex items-center justify-between gap-3 pt-1 font-semibold'>
               <span>Total</span>
-              <strong className='text-lg tabular-nums'>{formatCents(totalCents)}</strong>
+              <strong className='text-title-mini-regular tabular-nums'>{formatCents(totalCents)}</strong>
             </div>
           </div>
           <Button
