@@ -3,7 +3,11 @@ import Link from 'next/link'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 
 import type { DesignSystemDocItem } from '@/configs/design-system-docs'
+import { AvatarDocsDemo } from '@/views/design-system/avatar-docs-demo'
+import { BadgeDocsDemo } from '@/views/design-system/badge-docs-demo'
+import { BannerDocsDemo } from '@/views/design-system/banner-docs-demo'
 import { ButtonDocsDemo } from '@/views/design-system/button-docs-demo'
+import { CardDocsDemo } from '@/views/design-system/card-docs-demo'
 
 type DesignSystemDocPageViewProps = {
   item: DesignSystemDocItem
@@ -19,16 +23,18 @@ export function DesignSystemDocPageView({ item, prev, next }: DesignSystemDocPag
           {item.section}
         </span>
         <h1 className='text-text-primary text-title-regular'>Hello {item.title}</h1>
-        <p className='text-text-secondary text-body-small-regular'>
-          Route:{' '}
-          <code className='bg-bg-tertiary text-text-primary text-body-mini-regular rounded px-1.5 py-0.5 font-mono'>
-            {item.href}
-          </code>
-        </p>
       </header>
 
-      {item.slug === 'button' ? (
+      {item.slug === 'avatar' ? (
+        <AvatarDocsDemo />
+      ) : item.slug === 'button' ? (
         <ButtonDocsDemo />
+      ) : item.slug === 'badge' ? (
+        <BadgeDocsDemo />
+      ) : item.slug === 'banner' ? (
+        <BannerDocsDemo />
+      ) : item.slug === 'card' ? (
+        <CardDocsDemo />
       ) : (
         <section className='bg-bg-primary shadow-low rounded-xl p-6'>
           <p className='text-text-primary text-body-small-regular'>Hello {item.title}</p>

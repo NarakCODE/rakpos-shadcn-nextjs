@@ -3,10 +3,11 @@
 // Next Imports
 import { Fragment } from 'react'
 
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 // Third-party Imports
-import { LanguagesIcon } from 'lucide-react'
+import { BookOpenIcon, LanguagesIcon } from 'lucide-react'
 
 // Component Imports
 import LanguageDropdown from '@/components/shared/LanguageDropdown'
@@ -55,6 +56,15 @@ const Header = () => {
           </Breadcrumb>
         </div>
         <div className='flex items-center gap-1.5'>
+          <Button
+            variant='ghost'
+            size='sm'
+            nativeButton={false}
+            render={<Link href='/design-system/docs/get-started' />}
+          >
+            <BookOpenIcon data-icon='inline-start' />
+            Docs
+          </Button>
           <ModeToggle />
           <LanguageDropdown
             trigger={
